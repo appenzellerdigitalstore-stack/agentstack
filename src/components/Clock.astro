@@ -1,0 +1,64 @@
+---
+/**
+ * Live clock that displays the visitor's local time + timezone.
+ * Pure client-side JS — uses Intl.DateTimeFormat to detect the browser's
+ * timezone automatically. No user input, no server roundtrip.
+ */
+---
+
+<div class="hidden sm:flex items-center gap-2 text-sm font-mono" aria-live="polite" aria-atomic="true">
+  <span class="inline-block h-1.5 w-1.5 rounded-full bg-brand-500 animate-pulse" aria-hidden="true"></span>
+  <span class="text-ink-50 tabular-nums" data-clock-time>--:--:--</span>
+  <span class="text-ink-500 text-xs uppercase tracking-wider" data-clock-tz>--</span>
+</div>
+
+<script is:inline>
+  (function () {
+    const timeEl = document.querySelector('[data-clock-time]');
+    const tzEl = document.querySelector('[data-clock-tz]');
+    if (!timeEl || !tzEl) return;
+
+    let timeFormatter;
+    let tzAbbrFormatter;
+
+    function refreshFormatters() {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      timeFormatter = new Intl.DateTimeFormat('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+      });
+      tzAbbrFormatter = new Intl.DateTimeFormat('en-US', {
+        timeZoneName: 'short',
+      });
+      // Set timezone abbreviation once (it doesn't change while the page is open)
+      try {
+        const parts = tzAbbrFormatter.formatToParts(new Date());
+        const tzPart = parts.find((p) => p.type === 'timeZoneName');
+        if (tzPart) {
+          // Strip "(UTC)" wrappers and just show the abbreviation
+          tzEl.textContent = tzPart.value.replace(/^\(UTC\)/, 'UTC').split(' ').pop();
+        } else {
+          tzEl.textContent = tz.split('/').pop().replace(/_/g, ' ');
+        }
+      } catch {
+        tzEl.textContent = tz.split('/').pop().replace(/_/g, ' ');
+      }
+      // Also expose timezone on title for hover tooltip
+      timeEl.setAttribute('title', tz);
+    }
+
+    function tick() {
+      if (!timeFormatter) refreshFormatters();
+      timeEl.textContent = timeFormatter.format(new Date());
+    }
+
+    refreshFormatters();
+    tick();
+    setInterval(tick, 1000);
+
+    // Refresh timezone abbreviation in case DST kicks in while the tab is open
+    setInterval(refreshFormatters, 60 * 60 * 1000);
+  })();
+</script>

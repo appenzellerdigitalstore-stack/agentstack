@@ -3,6 +3,7 @@
  * Site header with nav and category links.
  */
 import { getTotalListingsCount } from '../lib/listings';
+import Clock from './Clock.astro';
 
 const currentPath = Astro.url.pathname;
 const totalCount = getTotalListingsCount();
@@ -42,6 +43,10 @@ const navLinks = [
         </a>
       ))}
     </nav>
+
+    <div class="hidden md:block">
+      <Clock />
+    </div>
 
     <div class="flex items-center gap-2">
       <a
