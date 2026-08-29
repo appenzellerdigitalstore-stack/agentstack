@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://agentstack.it.com/sitemap-index.xml
+Sitemap: https://agentstack.ink/sitemap-index.xml

@@ -30,11 +30,11 @@ const defaultSubject = subjectLabels[subject] || 'General inquiry';
       <ul class="text-sm space-y-2 font-mono">
         <li class="flex items-center gap-3">
           <span class="text-ink-500 w-32">Tool submission</span>
-          <a href="mailto:submit@agentstack.it.com" class="text-brand-400 hover:text-brand-300">submit@agentstack.it.com</a>
+          <a href="mailto:submit@agentstack.ink" class="text-brand-400 hover:text-brand-300">submit@agentstack.ink</a>
         </li>
         <li class="flex items-center gap-3">
           <span class="text-ink-500 w-32">Sponsorship</span>
-          <a href="mailto:sponsor@agentstack.it.com" class="text-brand-400 hover:text-brand-300">sponsor@agentstack.it.com</a>
+          <a href="mailto:sponsor@agentstack.ink" class="text-brand-400 hover:text-brand-300">sponsor@agentstack.ink</a>
         </li>
         <li class="flex items-center gap-3">
           <span class="text-ink-500 w-32">Bug / issue</span>
@@ -42,7 +42,7 @@ const defaultSubject = subjectLabels[subject] || 'General inquiry';
         </li>
         <li class="flex items-center gap-3">
           <span class="text-ink-500 w-32">Everything else</span>
-          <a href="mailto:hello@agentstack.it.com" class="text-brand-400 hover:text-brand-300">hello@agentstack.it.com</a>
+          <a href="mailto:hello@agentstack.ink" class="text-brand-400 hover:text-brand-300">hello@agentstack.ink</a>
         </li>
       </ul>
     </div>
@@ -57,7 +57,7 @@ const defaultSubject = subjectLabels[subject] || 'General inquiry';
         class="space-y-4"
         onsubmit="event.preventDefault(); window.location.href = this.action + '?subject=' + encodeURIComponent(this.subject.value) + '&body=' + encodeURIComponent('Name: ' + this.name.value + '\n\nEmail: ' + this.email.value + '\n\nMessage:\n' + this.message.value);"
       >
-        <input type="hidden" name="_to" value="hello@agentstack.it.com" />
+        <input type="hidden" name="_to" value="hello@agentstack.ink" />
         <div>
           <label class="block text-sm font-medium text-ink-200 mb-1.5">Subject</label>
           <input
