@@ -136,12 +136,19 @@ Commit and push. The Cloudflare Pages build will pick it up automatically.
 
 ### 2. Push to GitHub
 
+The repo has been created at https://github.com/appenzellerdigitalstore-stack/agentstack (already done). The GitHub Actions workflows are in `_github_disabled/` because the initial push was made with an OAuth token that doesn't have `workflow` scope. To enable Actions:
+
 ```bash
-git init
-git add .
-git commit -m "Initial AgentStack build"
-gh repo create appenzellerdigitalstore-stack/agentstack --public --source=. --remote=origin --push
+# Locally (on your machine, not the agent):
+git clone https://github.com/appenzellerdigitalstore-stack/agentstack.git
+cd agentstack
+mv _github_disabled .github
+git add .github
+git commit -m "Enable GitHub Actions workflows"
+git push
 ```
+
+Then go to the repo on GitHub → Actions tab → enable workflows. The status check runs every 6 hours, the broken-link check runs weekly.
 
 ### 3. Connect Cloudflare Pages
 
