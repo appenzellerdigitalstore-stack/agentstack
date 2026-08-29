@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Read subject from query string for sponsor page deep links
+const subject = Astro.url.searchParams.get('subject') || '';
+
+const subjectLabels: Record<string, string> = {
+  'verified-sponsorship': 'Verified sponsorship inquiry',
+  'featured-sponsorship': 'Featured sponsorship inquiry',
+  'sponsor-sponsorship': 'Sponsor tier inquiry',
+};
+const defaultSubject = subjectLabels[subject] || 'General inquiry';
+---
+
+<Layout
+  title="Contact"
+  description="Get in touch with the AgentStack team. Submit a tool, report an issue, or ask about sponsorship."
+>
+  <div class="container-page max-w-2xl py-16">
+    <h1 class="text-4xl font-bold mb-4">Get in touch</h1>
+    <p class="text-lg text-ink-300 leading-relaxed mb-8">
+      We read every email. Most get a reply within 48 hours. Submitting a tool? Include the install command and what makes it interesting.
+    </p>
+
+    <div class="card p-6 mb-8">
+      <h2 class="text-lg font-semibold mb-3">Direct email</h2>
+      <p class="text-sm text-ink-300 mb-3">
+        The fastest way to reach us. Pick the address that matches your message:
+      </p>
+      <ul class="text-sm space-y-2 font-mono">
+        <li class="flex items-center gap-3">
+          <span class="text-ink-500 w-32">Tool submission</span>
+          <a href="mailto:submit@agentstack.it.com" class="text-brand-400 hover:text-brand-300">submit@agentstack.it.com</a>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="text-ink-500 w-32">Sponsorship</span>
+          <a href="mailto:sponsor@agentstack.it.com" class="text-brand-400 hover:text-brand-300">sponsor@agentstack.it.com</a>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="text-ink-500 w-32">Bug / issue</span>
+          <a href="https://github.com/appenzellerdigitalstore-stack/agentstack/issues" target="_blank" rel="noopener" class="text-brand-400 hover:text-brand-300">Open a GitHub issue →</a>
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="text-ink-500 w-32">Everything else</span>
+          <a href="mailto:hello@agentstack.it.com" class="text-brand-400 hover:text-brand-300">hello@agentstack.it.com</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card p-6 mb-8">
+      <h2 class="text-lg font-semibold mb-3">Quick contact form</h2>
+      <p class="text-sm text-ink-400 mb-4">
+        This opens your email client with a pre-filled message. No data is sent to our server.
+      </p>
+      <form
+        id="contact-form"
+        class="space-y-4"
+        onsubmit="event.preventDefault(); window.location.href = this.action + '?subject=' + encodeURIComponent(this.subject.value) + '&body=' + encodeURIComponent('Name: ' + this.name.value + '\n\nEmail: ' + this.email.value + '\n\nMessage:\n' + this.message.value);"
+      >
+        <input type="hidden" name="_to" value="hello@agentstack.it.com" />
+        <div>
+          <label class="block text-sm font-medium text-ink-200 mb-1.5">Subject</label>
+          <input
+            type="text"
+            name="subject"
+            value={defaultSubject}
+            required
+            class="w-full rounded-md bg-ink-900/80 ring-1 ring-inset ring-ink-800 focus:ring-brand-500 px-3 py-2 text-sm text-ink-100 outline-none"
+          />
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-sm font-medium text-ink-200 mb-1.5">Your name</label>
+            <input
+              type="text"
+              name="name"
+              required
+              class="w-full rounded-md bg-ink-900/80 ring-1 ring-inset ring-ink-800 focus:ring-brand-500 px-3 py-2 text-sm text-ink-100 outline-none"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-ink-200 mb-1.5">Your email</label>
+            <input
+              type="email"
+              name="email"
+              required
+              class="w-full rounded-md bg-ink-900/80 ring-1 ring-inset ring-ink-800 focus:ring-brand-500 px-3 py-2 text-sm text-ink-100 outline-none"
+            />
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-ink-200 mb-1.5">Message</label>
+          <textarea
+            name="message"
+            rows="5"
+            required
+            class="w-full rounded-md bg-ink-900/80 ring-1 ring-inset ring-ink-800 focus:ring-brand-500 px-3 py-2 text-sm text-ink-100 outline-none"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-full">
+          Open in email client
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <div class="text-sm text-ink-500 text-center">
+      Prefer GitHub? <a href="https://github.com/appenzellerdigitalstore-stack/agentstack/issues" target="_blank" rel="noopener" class="text-brand-400 hover:text-brand-300">Open an issue</a> — public issues help other contributors.
+    </div>
+  </div>
+</Layout>
+
+<script>
+  // No-op: form uses inline onsubmit handler.
+</script>

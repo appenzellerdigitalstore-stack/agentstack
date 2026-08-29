@@ -1,0 +1,39 @@
+{
+  "slug": "sqlite-mcp",
+  "name": "SQLite MCP",
+  "tagline": "Query local SQLite files without leaving your editor.",
+  "shortDescription": "A reference SQLite MCP server. Read .db and .sqlite files, run queries, inspect schemas. Perfect for analytics, mobile dev, and embedded projects.",
+  "longDescription": "## What it does\n\nExposes any local SQLite file as a queryable MCP server. Your agent can list tables, describe columns, run SELECT/INSERT/UPDATE/DELETE, and create views.\n\n## Why we recommend it\n\nFor local development and analytics workflows, SQLite is everywhere (browser storage, mobile apps, testing fixtures, DuckDB competitors). Having an agent that can query these files directly is huge.\n\n## Common use cases\n\n- Query your test fixtures while debugging\n- Explore a downloaded .db file from a notebook or research project\n- Build dashboards by writing SQL through chat\n- Inspect browser localStorage exports",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "databases",
+  "publisher": "anthropic",
+  "externalUrl": "https://github.com/modelcontextprotocol/servers",
+  "repoUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite",
+  "installCommand": "npx -y @modelcontextprotocol/server-sqlite /path/to/file.db",
+  "installInstructions": "1. Pick the .db or .sqlite file you want to query\n2. Pass it as the argument to the install command\n3. The server opens the file in read-write mode by default; set `SQLITE_READ_ONLY=true` for safety",
+  "logoUrl": "/logos/sqlite.svg",
+  "trust": {
+    "securityScore": 92,
+    "qualityScore": 94,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.97,
+    "avgLatencyMs": 8,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["sql", "sqlite", "local", "database", "embedded"],
+  "useCases": ["data-analysis", "mobile-dev", "browser-storage", "analytics"],
+  "integrations": ["claude", "cursor", "windsurf", "vscode"],
+  "pricing": "free",
+  "seo": {
+    "metaTitle": "SQLite MCP Server — Query Local Databases from AI Agents",
+    "metaDescription": "Read and query local SQLite files from Claude, Cursor, or any MCP client. Reference implementation by the MCP team."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-25"
+}

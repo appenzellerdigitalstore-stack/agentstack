@@ -1,0 +1,39 @@
+{
+  "slug": "supabase-mcp",
+  "name": "Supabase MCP",
+  "tagline": "Manage your Supabase project — Postgres, auth, storage, edge functions.",
+  "shortDescription": "The official Supabase MCP server. Query your Postgres, manage auth users, list storage buckets, deploy edge functions, and inspect logs. All from your agent.",
+  "longDescription": "## What it does\n\nA complete bridge to your Supabase project. Read and write Postgres, manage auth users, upload files to storage, invoke edge functions, and read the project logs. It's the operations console as a set of MCP tools.\n\n## Why we recommend it\n\nThe Postgres support is much richer than the standalone Postgres MCP server — it understands Supabase-specific things like RLS policies, the `auth` schema, and `storage.objects`. Plus you get the rest of the Supabase platform for free.\n\n## Common patterns\n\n- \"How many users signed up today?\"\n- \"Add a new column to the `orders` table\"\n- \"Show me the last 20 auth log entries\"\n- \"Deploy this edge function and tail its logs\"",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "databases",
+  "publisher": "supabase",
+  "externalUrl": "https://supabase.com/docs/guides/getting-started/mcp",
+  "repoUrl": "https://github.com/supabase/supabase-mcp",
+  "installCommand": "npx -y @supabase/mcp-server-supabase",
+  "installInstructions": "1. Create a personal access token at https://supabase.com/dashboard/account/tokens\n2. Set `SUPABASE_ACCESS_TOKEN=sbp_your-token` in your environment\n3. Run the install command\n4. Optional: set `SUPABASE_PROJECT_REF=your-project-ref` to scope to one project",
+  "logoUrl": "/logos/supabase.svg",
+  "trust": {
+    "securityScore": 93,
+    "qualityScore": 96,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.96,
+    "avgLatencyMs": 110,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["supabase", "postgres", "auth", "storage", "edge-functions"],
+  "useCases": ["database-ops", "user-management", "log-analysis", "edge-deploys"],
+  "integrations": ["claude", "cursor", "windsurf", "vscode"],
+  "pricing": "free",
+  "seo": {
+    "metaTitle": "Supabase MCP Server — Manage Supabase from AI Agents",
+    "metaDescription": "The official Supabase MCP server. Query Postgres, manage auth, deploy edge functions, inspect logs. All from chat."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-25"
+}

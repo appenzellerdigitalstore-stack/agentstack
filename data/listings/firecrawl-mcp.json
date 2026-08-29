@@ -1,0 +1,40 @@
+{
+  "slug": "firecrawl-mcp",
+  "name": "Firecrawl MCP",
+  "tagline": "Web scraping with JS rendering, exposed to any MCP client.",
+  "shortDescription": "Give your agent a browser. Firecrawl's MCP server turns any page into clean markdown, handles JS-heavy sites, scales to thousands of URLs, and works with Claude, Cursor, and Windsurf out of the box.",
+  "longDescription": "## What it does\n\nFirecrawl is a managed web scraping service. The MCP server exposes its core primitives: `scrape` (one URL → clean markdown), `crawl` (a whole site), `extract` (structured data from a page using a schema), and `search` (search the web with structured output).\n\n## Why we recommend it\n\nIt's the best-in-class for serious scraping. Handles JS rendering, anti-bot protections, rate limiting, and proxies for you. The structured extraction feature is magical — give it a schema and a URL, get typed JSON back.\n\n## When to use it\n\n- Bulk-scraping a documentation site into a vector DB\n- Extracting structured data from product pages\n- Crawling a competitor's blog for content analysis\n- Any time Fetch or Puppeteer is too simple or too brittle\n\n## Pricing\n\nFree tier: 500 pages/month. Paid starts at $19/mo for 3,000 pages.",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "web-scraping",
+  "publisher": "mendable",
+  "externalUrl": "https://firecrawl.dev",
+  "repoUrl": "https://github.com/mendableai/firecrawl",
+  "installCommand": "npx -y @mendable/firecrawl-mcp",
+  "installInstructions": "1. Sign up at https://firecrawl.dev and get an API key\n2. Set `FIRECRAWL_API_KEY=fc-your-key` in your environment\n3. Run the install command\n4. The server is ready to use immediately",
+  "logoUrl": "/logos/firecrawl.svg",
+  "trust": {
+    "securityScore": 92,
+    "qualityScore": 95,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.98,
+    "avgLatencyMs": 1840,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["scraping", "crawling", "extraction", "anti-bot", "production"],
+  "useCases": ["research", "lead-generation", "data-pipelines", "rag-ingestion"],
+  "integrations": ["claude", "cursor", "windsurf", "vscode", "cline"],
+  "pricing": "freemium",
+  "pricingDetails": "Free: 500 pages/month. Pro: $19/mo for 3,000 pages. Scale: $99/mo for 100,000 pages.",
+  "seo": {
+    "metaTitle": "Firecrawl MCP Server — Web Scraping for AI Agents",
+    "metaDescription": "The best-in-class MCP server for serious web scraping. JS rendering, anti-bot handling, structured extraction. Works with Claude and Cursor."
+  },
+  "sponsorTier": "featured",
+  "dateAdded": "2026-08-25"
+}

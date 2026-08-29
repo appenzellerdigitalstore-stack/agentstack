@@ -1,0 +1,39 @@
+{
+  "slug": "git-mcp",
+  "name": "Git MCP",
+  "tagline": "Git operations from chat — commit, diff, log, branch.",
+  "shortDescription": "A reference MCP server for local Git operations. Your agent can read logs, diff changes, create branches, commit, and stash — without shelling out manually.",
+  "longDescription": "## What it does\n\nExposes common Git operations as MCP tools. Read commit history, view diffs, list branches, create new branches, stage and commit changes, manage stashes.\n\n## Why we recommend it\n\nIt removes the \"OK, now run this in your terminal\" back-and-forth. Your agent can inspect history, propose a change, commit it, and verify the result — all in one chat turn.\n\n## What it does NOT do\n\nThis is local-only. It does not push to GitHub, open PRs, or sync with remotes. Pair it with the GitHub MCP server for the full workflow.",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "developer-tools",
+  "publisher": "anthropic",
+  "externalUrl": "https://github.com/modelcontextprotocol/servers",
+  "repoUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/git",
+  "installCommand": "npx -y @modelcontextprotocol/server-git",
+  "installInstructions": "1. Run the install command from inside a Git repository (or pass `--repository /path/to/repo`)\n2. The server uses the local `git` CLI; make sure Git is installed\n3. For SSH remotes, ensure your SSH agent is running",
+  "logoUrl": "/logos/git.svg",
+  "trust": {
+    "securityScore": 93,
+    "qualityScore": 91,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.99,
+    "avgLatencyMs": 25,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["git", "version-control", "local", "commits", "diffs"],
+  "useCases": ["commit-automation", "history-analysis", "branch-management"],
+  "integrations": ["claude", "cursor", "windsurf", "vscode", "cline"],
+  "pricing": "free",
+  "seo": {
+    "metaTitle": "Git MCP Server — Local Git Operations from AI Agents",
+    "metaDescription": "Read git history, create commits, manage branches from your AI agent. Reference implementation by the MCP team."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-25"
+}

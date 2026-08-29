@@ -1,0 +1,65 @@
+[
+  {
+    "slug": "anthropic",
+    "name": "Anthropic",
+    "websiteUrl": "https://anthropic.com",
+    "githubHandle": "modelcontextprotocol",
+    "isVerified": true
+  },
+  {
+    "slug": "mendable",
+    "name": "Mendable (Firecrawl)",
+    "websiteUrl": "https://firecrawl.dev",
+    "githubHandle": "mendableai",
+    "isVerified": true
+  },
+  {
+    "slug": "tavily",
+    "name": "Tavily",
+    "websiteUrl": "https://tavily.com",
+    "githubHandle": "tavily-ai",
+    "isVerified": true
+  },
+  {
+    "slug": "makenotion",
+    "name": "Notion",
+    "websiteUrl": "https://notion.com",
+    "githubHandle": "makenotion",
+    "isVerified": true
+  },
+  {
+    "slug": "supabase",
+    "name": "Supabase",
+    "websiteUrl": "https://supabase.com",
+    "githubHandle": "supabase",
+    "isVerified": true
+  },
+  {
+    "slug": "cloudflare",
+    "name": "Cloudflare",
+    "websiteUrl": "https://cloudflare.com",
+    "githubHandle": "cloudflare",
+    "isVerified": true
+  },
+  {
+    "slug": "linear",
+    "name": "Linear",
+    "websiteUrl": "https://linear.app",
+    "githubHandle": "linear",
+    "isVerified": true
+  },
+  {
+    "slug": "brave",
+    "name": "Brave",
+    "websiteUrl": "https://brave.com",
+    "githubHandle": "brave",
+    "isVerified": true
+  },
+  {
+    "slug": "community",
+    "name": "Community",
+    "websiteUrl": "https://github.com/modelcontextprotocol/servers",
+    "githubHandle": null,
+    "isVerified": false
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "slug": "linear-mcp",
+  "name": "Linear MCP",
+  "tagline": "Read and write Linear issues, projects, and cycles from chat.",
+  "shortDescription": "The official Linear MCP server. Your agent can list issues, create new ones, update status, assign work, link PRs, and search across the workspace. Built for engineering teams that live in Linear.",
+  "longDescription": "## What it does\n\nFull read/write access to your Linear workspace. List issues by project, create new issues with full descriptions, update status and assignee, link GitHub PRs, and search across all your team's work.\n\n## Why we recommend it\n\nLinear's API is well-designed and the MCP wrapper is solid. The killer use case is closing the loop: your agent reads a bug, fixes it, opens a PR, and updates the Linear ticket — all in one continuous workflow.\n\n## Common workflows\n\n- \"List all issues assigned to me in the current cycle\"\n- \"Create a bug for this stack trace, high priority, in the Backend project\"\n- \"Mark ENG-1234 as done and link the PR\"\n- \"What did we ship last week?\" (queries the changelog)",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "productivity",
+  "publisher": "linear",
+  "externalUrl": "https://linear.app/docs/mcp",
+  "repoUrl": "https://github.com/linear/linear-mcp-server",
+  "installCommand": "npx -y @linear/mcp-server",
+  "installInstructions": "1. Create a personal API key at https://linear.app/settings/api\n2. Set `LINEAR_API_KEY=lin_api_your-key` in your environment\n3. Run the install command\n4. Optional: scope to a single team with `LINEAR_TEAM_ID=your-team-id`",
+  "logoUrl": "/logos/linear.svg",
+  "trust": {
+    "securityScore": 93,
+    "qualityScore": 95,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.97,
+    "avgLatencyMs": 130,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["linear", "issues", "project-management", "engineering"],
+  "useCases": ["issue-tracking", "sprint-planning", "bug-reports", "release-management"],
+  "integrations": ["claude", "cursor", "windsurf", "vscode"],
+  "pricing": "free",
+  "seo": {
+    "metaTitle": "Linear MCP Server — Read & Write Linear from AI Agents",
+    "metaDescription": "The official Linear MCP server. List, create, and update issues, projects, and cycles from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-25"
+}

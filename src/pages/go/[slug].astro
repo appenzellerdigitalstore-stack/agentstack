@@ -1,0 +1,37 @@
+---
+/**
+ * Outbound click tracker. /go/firecrawl-mcp → redirect to the listing's
+ * externalUrl. Statically generated at build time — one tiny HTML file per
+ * listing, each with a meta refresh. This lets us count outbound clicks in
+ * Cloudflare access logs and use click-through-rate as a quality signal.
+ */
+import { getAllListingSlugs, getListingBySlug } from '../../lib/listings';
+
+export async function getStaticPaths() {
+  return getAllListingSlugs().map((slug) => {
+    const listing = getListingBySlug(slug);
+    return {
+      params: { slug },
+      props: { externalUrl: listing?.externalUrl ?? '/' },
+    };
+  });
+}
+
+const { externalUrl } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content={`0;url=${externalUrl}`} />
+    <link rel="canonical" href={externalUrl} />
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <p>Redirecting to <a href={externalUrl}>{externalUrl}</a>…</p>
+    <script is:inline>
+      window.location.replace(window.location.search ? window.location.href.split('?')[0] : window.location.href);
+    </script>
+  </body>
+</html>

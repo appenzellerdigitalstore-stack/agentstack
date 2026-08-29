@@ -1,0 +1,45 @@
+name: Status Check
+
+# Every 6 hours, ping every listing's external URL to verify it's still up.
+# Updates a status.json file at the site root that the client can read to
+# display live status without a server.
+#
+# Required: enable GitHub Actions on the repo and grant write access to the
+# workflow (Settings → Actions → General → Workflow permissions: Read and write).
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Run status checks
+        run: node scripts/status-check.mjs
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "agentstack-bot"
+          git config user.email "bot@agentstack.it.com"
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add data/status.json
+            git commit -m "chore(status): refresh live status checks"
+            git push
+          else
+            echo "No status changes"
+          fi

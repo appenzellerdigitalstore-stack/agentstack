@@ -1,0 +1,39 @@
+{
+  "slug": "postgres-mcp",
+  "name": "PostgreSQL MCP",
+  "tagline": "Query, inspect, and migrate your Postgres database from chat.",
+  "shortDescription": "The reference PostgreSQL MCP server. Read-only by default, with an opt-in write mode. Includes schema introspection so your agent knows what tables and columns exist before it queries.",
+  "longDescription": "## What it does\n\nConnects your agent to any PostgreSQL database. The agent can list tables, inspect schemas, run SELECT queries, and (with explicit opt-in) run INSERT/UPDATE/DELETE/DDL.\n\n## Why we recommend it\n\nThe schema introspection is the killer feature. Most agents hallucinate column names; this one queries `information_schema` first and then writes SQL it knows will run.\n\n## Modes\n\n- **Read-only** (default): SELECT queries only. Safe for production.\n- **Read-write** (opt-in): Mutations enabled. Use with a non-production DB or a strict role.",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "databases",
+  "publisher": "anthropic",
+  "externalUrl": "https://github.com/modelcontextprotocol/servers",
+  "repoUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/postgres",
+  "installCommand": "npx -y @modelcontextprotocol/server-postgres postgresql://user:pass@host:5432/dbname",
+  "installInstructions": "1. Get your Postgres connection string (or use a read-only role for safety)\n2. Pass it as the argument to the install command\n3. The server will connect on first request and cache the connection\n4. For read-write mode, set the `ALLOW_WRITE=true` env var",
+  "logoUrl": "/logos/postgres.svg",
+  "trust": {
+    "securityScore": 90,
+    "qualityScore": 96,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.92,
+    "avgLatencyMs": 45,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["sql", "postgres", "database", "read-only", "schema"],
+  "useCases": ["data-analysis", "sql-generation", "schema-exploration", "reporting"],
+  "integrations": ["claude", "cursor", "windsurf", "vscode"],
+  "pricing": "free",
+  "seo": {
+    "metaTitle": "PostgreSQL MCP Server — Query Your DB from AI Agents",
+    "metaDescription": "Read-only by default, schema-aware PostgreSQL access for Claude, Cursor, and Windsurf. Inspect tables and write safer SQL."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-25"
+}

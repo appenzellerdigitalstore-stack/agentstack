@@ -1,0 +1,39 @@
+{
+  "slug": "memory-mcp",
+  "name": "Memory MCP",
+  "tagline": "Persistent knowledge graph for your agent — it actually remembers.",
+  "shortDescription": "A reference MCP server that gives your agent long-term memory using a knowledge graph. Store entities, relationships, and observations; query them across sessions.",
+  "longDescription": "## What it does\n\nImplements a knowledge graph backend (entities + relations + observations) that any MCP client can read from and write to. The graph is persisted to disk and survives restarts.\n\n## Why we recommend it\n\nWithout it, every Claude or Cursor session starts from zero. With it, your agent remembers your preferences, your project's architecture decisions, the bugs you fixed last week, and the names of everyone on your team.\n\n## Common patterns\n\n- **Personal memory**: store user preferences, coding style, frequently-used snippets\n- **Project memory**: capture architecture decisions, naming conventions, deployment steps\n- **Team memory**: shared graph across multiple agents, fed by PRs and Slack",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "ai-reasoning",
+  "publisher": "anthropic",
+  "externalUrl": "https://github.com/modelcontextprotocol/servers",
+  "repoUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+  "installCommand": "npx -y @modelcontextprotocol/server-memory",
+  "installInstructions": "1. Run the install command\n2. The server creates a `memory.json` file in the current directory\n3. To use a different path, set `MEMORY_FILE_PATH=/custom/path.json`\n4. For Docker, the volume-mount this file for persistence",
+  "logoUrl": "/logos/memory.svg",
+  "trust": {
+    "securityScore": 94,
+    "qualityScore": 92,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.99,
+    "avgLatencyMs": 5,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["memory", "knowledge-graph", "persistence", "long-term"],
+  "useCases": ["personal-assistant", "project-context", "team-knowledge"],
+  "integrations": ["claude", "cursor", "windsurf", "cline"],
+  "pricing": "free",
+  "seo": {
+    "metaTitle": "Memory MCP Server — Knowledge Graph for Persistent AI Memory",
+    "metaDescription": "Give your AI agent long-term memory using a knowledge graph. Store entities, relationships, and observations across sessions."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-25"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "everything-mcp",
+  "name": "Everything MCP",
+  "tagline": "The reference test server — prompts, resources, and tools, all in one.",
+  "shortDescription": "The canonical MCP reference server. Implements every kind of feature (prompts, resources, tools) so you can test clients, debug protocol behavior, and learn the spec by example.",
+  "longDescription": "## What it does\n\nExposes examples of every MCP primitive:\n\n- **Tools**: simple echo, addition, long-running task with progress\n- **Resources**: static text, dynamic JSON, binary blobs\n- **Prompts**: argumented prompt templates\n- **Notifications**: progress, log, resource-updated\n\n## Why we recommend it\n\nIf you're building an MCP client, this is the server to point it at. If you're learning MCP, this is the most readable example. If you're debugging 'is this a server bug or a client bug?', swap in this server and you know it's a client bug if it still misbehaves.\n\n## When to use it\n\n- MCP client development and testing\n- Learning the spec by reading real code\n- Reproducing bugs in a controlled environment",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "developer-tools",
+  "publisher": "anthropic",
+  "externalUrl": "https://github.com/modelcontextprotocol/servers",
+  "repoUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/everything",
+  "installCommand": "npx -y @modelcontextprotocol/server-everything",
+  "installInstructions": "1. Run the install command\n2. No configuration required\n3. Use the included test client to explore every primitive",
+  "logoUrl": "/logos/everything.svg",
+  "trust": {
+    "securityScore": 98,
+    "qualityScore": 97,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.99,
+    "avgLatencyMs": 8,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["reference", "test", "learning", "spec"],
+  "useCases": ["mcp-development", "client-testing", "spec-learning"],
+  "integrations": ["claude", "cursor", "windsurf", "vscode", "cline"],
+  "pricing": "free",
+  "seo": {
+    "metaTitle": "Everything MCP Server — Reference Implementation for Testing",
+    "metaDescription": "The canonical MCP reference server. Every primitive (tools, resources, prompts, notifications) in one place for testing and learning."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-25"
+}

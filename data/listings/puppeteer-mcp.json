@@ -1,0 +1,39 @@
+{
+  "slug": "puppeteer-mcp",
+  "name": "Puppeteer MCP",
+  "tagline": "Browser automation and web scraping via a real headless Chrome.",
+  "shortDescription": "A reference MCP server that drives a real Chromium browser via Puppeteer. Navigate, click, fill forms, take screenshots, and extract rendered HTML. The right tool when JS rendering matters.",
+  "longDescription": "## What it does\n\nLaunches a headless Chromium that your agent can drive. Navigate to URLs, click elements, fill form fields, wait for selectors, take screenshots, and extract rendered HTML (after JS executes).\n\n## Why we recommend it\n\nWhen the page is JS-rendered (SPAs, React apps, anything with a build step), Fetch and HTTP scrapers return empty or useless HTML. Puppeteer runs the JS and gives you the real DOM.\n\n## When to use it\n\n- Scraping SPAs (Gmail, Notion public pages, dashboards)\n- Automating logins or form fills\n- Taking screenshots for visual testing\n- Testing your own web app from an agent\n\n## When NOT to use it\n\n- Simple static pages (use Fetch)\n- Bulk crawling (use Firecrawl)\n- High-frequency scraping (browser startup is slow)",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "web-scraping",
+  "publisher": "anthropic",
+  "externalUrl": "https://github.com/modelcontextprotocol/servers",
+  "repoUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer",
+  "installCommand": "npx -y @modelcontextprotocol/server-puppeteer",
+  "installInstructions": "1. The first run downloads Chromium (~170MB) automatically\n2. Set `PUPPETEER_EXECUTABLE_PATH` if you want to use a system-installed browser\n3. Screenshots are saved to the current directory by default; configure with `PUPPETEER_OUTPUT_DIR`",
+  "logoUrl": "/logos/puppeteer.svg",
+  "trust": {
+    "securityScore": 85,
+    "qualityScore": 89,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 98.50,
+    "avgLatencyMs": 2400,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["browser", "automation", "scraping", "screenshots", "spa"],
+  "useCases": ["spa-scraping", "form-automation", "visual-testing", "screenshots"],
+  "integrations": ["claude", "cursor", "windsurf", "cline"],
+  "pricing": "free",
+  "seo": {
+    "metaTitle": "Puppeteer MCP Server — Headless Browser Automation for AI",
+    "metaDescription": "Drive a real Chromium browser from your AI agent. Navigate, click, fill forms, take screenshots, scrape JS-rendered pages."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-25"
+}

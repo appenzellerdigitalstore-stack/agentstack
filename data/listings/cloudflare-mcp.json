@@ -1,0 +1,39 @@
+{
+  "slug": "cloudflare-mcp",
+  "name": "Cloudflare MCP",
+  "tagline": "Manage Workers, KV, R2, D1, and DNS from your agent.",
+  "shortDescription": "The official Cloudflare MCP server. Deploy Workers, read/write KV namespaces, list R2 buckets, query D1 databases, and manage DNS records. Your entire Cloudflare account, in chat.",
+  "longDescription": "## What it does\n\nA comprehensive bridge to the Cloudflare API. Workers (deploy, list, tail logs), KV (read, write, list), R2 (list buckets and objects), D1 (query, list databases), Pages (deploy, list), DNS (list, create, update records), and more.\n\n## Why we recommend it\n\nCloudflare's dashboard is dense. Driving it from chat makes everyday ops fast. \"Tail the logs for my prod worker\" becomes a one-liner instead of opening four browser tabs.\n\n## Requirements\n\n- Cloudflare account (free tier works)\n- API token with the right scopes: Account.Workers, Account.D1, Account.R2, Account.KV, Zone.DNS (for the relevant zones)",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "cloud-infra",
+  "publisher": "cloudflare",
+  "externalUrl": "https://github.com/cloudflare/mcp-server-cloudflare",
+  "repoUrl": "https://github.com/cloudflare/mcp-server-cloudflare",
+  "installCommand": "npx -y @cloudflare/mcp-server-cloudflare",
+  "installInstructions": "1. Create an API token at https://dash.cloudflare.com/profile/api-tokens (use the 'Edit Cloudflare Workers' template as a starting point and add the resources you need)\n2. Set `CLOUDFLARE_API_TOKEN=your-token` and `CLOUDFLARE_ACCOUNT_ID=your-account-id`\n3. Run the install command",
+  "logoUrl": "/logos/cloudflare.svg",
+  "trust": {
+    "securityScore": 94,
+    "qualityScore": 94,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.99,
+    "avgLatencyMs": 95,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["cloudflare", "workers", "kv", "r2", "d1", "dns", "edge"],
+  "useCases": ["edge-deploys", "log-tailing", "dns-management", "storage-ops"],
+  "integrations": ["claude", "cursor", "windsurf", "vscode"],
+  "pricing": "free",
+  "seo": {
+    "metaTitle": "Cloudflare MCP Server — Manage Your Edge from AI Agents",
+    "metaDescription": "The official Cloudflare MCP server. Deploy Workers, query D1, list R2 buckets, manage DNS, tail logs — all from chat."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-25"
+}

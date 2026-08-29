@@ -1,0 +1,39 @@
+{
+  "slug": "sentry-mcp",
+  "name": "Sentry MCP",
+  "tagline": "Triage and fix errors from your Sentry account, in chat.",
+  "shortDescription": "The reference Sentry MCP server. List recent issues, get stack traces, assign them, mark them resolved, and trigger a release — all from your agent.",
+  "longDescription": "## What it does\n\nA direct bridge to Sentry's API. List unresolved issues, get the full stack trace and breadcrumbs for any issue, assign it to a teammate, mark it resolved, or trigger a new release.\n\n## Why we recommend it\n\nBug triage in a Sentry dashboard is a context switch. With the MCP server, your agent can:\n\n1. List the top 10 unresolved issues in your project\n2. Pick the most-frequent one and read the full stack trace\n3. Investigate the source code via the Filesystem MCP\n4. Propose (or apply) a fix\n5. Mark the issue resolved with a comment\n\nAll without leaving the chat.\n\n## What it does NOT do\n\n- Read source maps (use Sentry's dashboard for that)\n- Modify alert rules (also dashboard-only for now)",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "developer-tools",
+  "publisher": "anthropic",
+  "externalUrl": "https://github.com/modelcontextprotocol/servers",
+  "repoUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/sentry",
+  "installCommand": "npx -y @modelcontextprotocol/server-sentry",
+  "installInstructions": "1. Create an auth token at https://sentry.io/settings/account/api/auth-tokens/ with `event:read`, `event:write`, `project:read`, `project:write`, `org:read` scopes\n2. Set `SENTRY_AUTH_TOKEN=sntrys_your-token`\n3. Optionally set `SENTRY_ORG=your-org-slug` and `SENTRY_PROJECT=your-project-slug` to scope by default\n4. Run the install command",
+  "logoUrl": "/logos/sentry.svg",
+  "trust": {
+    "securityScore": 92,
+    "qualityScore": 94,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.95,
+    "avgLatencyMs": 220,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["sentry", "error-tracking", "observability", "triage"],
+  "useCases": ["bug-triage", "stack-trace-analysis", "release-management", "alerts"],
+  "integrations": ["claude", "cursor", "windsurf", "vscode"],
+  "pricing": "free",
+  "seo": {
+    "metaTitle": "Sentry MCP Server — Triage Errors from Your AI Agent",
+    "metaDescription": "The reference Sentry MCP server. List issues, read stack traces, assign and resolve them — all from chat."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-25"
+}

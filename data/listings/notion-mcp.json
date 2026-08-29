@@ -1,0 +1,39 @@
+{
+  "slug": "notion-mcp",
+  "name": "Notion MCP",
+  "tagline": "Read, write, and search your Notion workspace from chat.",
+  "shortDescription": "The official Notion MCP server. Your agent can read pages, search the workspace, create new docs, update databases, and append blocks. The missing API wrapper you've been waiting for.",
+  "longDescription": "## What it does\n\nExposes the Notion API as MCP tools. Your agent can search across pages, read content, create new pages, append blocks, query databases, and update properties. It's a full read/write bridge between your chat and your Notion workspace.\n\n## Why we recommend it\n\nNotion's REST API is famously annoying to work with directly (nested blocks, schema changes, rate limits). The MCP wrapper smooths all of that. Your agent can finally treat Notion like a first-class tool.\n\n## Common workflows\n\n- \"Add these meeting notes to my team's wiki page\"\n- \"Find every page that mentions the Q3 launch\"\n- \"Create a new task in the Sprint board with these acceptance criteria\"\n- \"Summarize the last 10 pages in the Engineering database\"",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "productivity",
+  "publisher": "makenotion",
+  "externalUrl": "https://developers.notion.com/docs/mcp",
+  "repoUrl": "https://github.com/makenotion/notion-mcp-server",
+  "installCommand": "npx -y @notionhq/notion-mcp-server",
+  "installInstructions": "1. Create an internal integration at https://www.notion.so/profile/integrations\n2. Copy the integration token\n3. Share the pages you want the agent to access with the integration (in Notion: '...' → 'Connections' → add your integration)\n4. Set `NOTION_TOKEN=secret_your-token` and run the install command",
+  "logoUrl": "/logos/notion.svg",
+  "trust": {
+    "securityScore": 90,
+    "qualityScore": 95,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.92,
+    "avgLatencyMs": 240,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["notion", "wiki", "docs", "databases", "productivity"],
+  "useCases": ["note-taking", "wiki-management", "task-tracking", "knowledge-base"],
+  "integrations": ["claude", "cursor", "windsurf", "vscode"],
+  "pricing": "free",
+  "seo": {
+    "metaTitle": "Notion MCP Server — Read & Write Notion from AI Agents",
+    "metaDescription": "The official Notion MCP server. Search, read, and write your Notion workspace from Claude, Cursor, or any MCP client."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-25"
+}

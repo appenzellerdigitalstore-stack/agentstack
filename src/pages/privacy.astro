@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Privacy Policy"
+  description="What we collect (almost nothing), what we don't collect (almost everything), and how to reach us."
+>
+  <div class="container-page max-w-3xl py-16 prose-mdx">
+    <h1>Privacy Policy</h1>
+    <p class="text-sm text-ink-500">Last updated: August 2026</p>
+
+    <h2>TL;DR</h2>
+    <p>
+      We collect almost nothing. We do not have user accounts, do not require email addresses to browse, do not run third-party tracking scripts, and do not sell any data to anyone. The only data we collect is anonymous, aggregated page-view counts via Cloudflare Web Analytics.
+    </p>
+
+    <h2>What we collect</h2>
+
+    <h3>Cloudflare Web Analytics</h3>
+    <p>
+      We use <a href="https://www.cloudflare.com/web-analytics/" target="_blank" rel="noopener">Cloudflare Web Analytics</a>, which is privacy-first by design: it does not use cookies, does not collect personal data, does not fingerprint your device, and is GDPR-compliant out of the box. It tells us how many people visited which pages, in aggregate. That's it.
+    </p>
+
+    <h3>Google AdSense (if enabled)</h3>
+    <p>
+      If you arrived after we've enabled Google AdSense, Google may set cookies or use local storage to serve ads. AdSense is a Google product, governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>. We do not control what data AdSense collects; we only see aggregated revenue reports.
+    </p>
+    <p>
+      You can opt out of personalized AdSense ads at <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>.
+    </p>
+
+    <h2>What we do NOT collect</h2>
+    <ul>
+      <li>Email addresses (unless you email us first)</li>
+      <li>Names, profiles, or any user account data (we have no user accounts)</li>
+      <li>IP addresses (Cloudflare Web Analytics strips them)</li>
+      <li>Device fingerprints, browser fingerprints, or any tracking identifiers</li>
+      <li>Behavioral data from third-party trackers (we have none)</li>
+      <li>Location data beyond country-level (from Cloudflare, not from us)</li>
+    </ul>
+
+    <h2>Server logs</h2>
+    <p>
+      Cloudflare Pages may retain access logs for up to 30 days for security and abuse prevention. We do not actively access these logs except to investigate abuse (e.g., scraping at high rates). Logs are not shared with third parties.
+    </p>
+
+    <h2>Cookies</h2>
+    <p>
+      We do not set any cookies. If we enable AdSense, Google may set its own cookies — see above. You can clear or block these in your browser at any time.
+    </p>
+
+    <h2>Your rights</h2>
+    <p>
+      Since we collect essentially no personal data, there's nothing to delete or export. If you emailed us and want that conversation deleted, just reply and ask. We'll do it within 7 days.
+    </p>
+
+    <h2>Children's privacy</h2>
+    <p>
+      AgentStack is not directed at children under 13. We do not knowingly collect any data from children.
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      If we change anything material, we'll update the "Last updated" date at the top of this page and note the change in our <a href="https://github.com/appenzellerdigitalstore-stack/agentstack/commits/main" target="_blank" rel="noopener">public commit log</a>. We will not retroactively broaden what we collect without explicit notice.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions? Use the <a href="/contact">contact form</a> or open an issue on <a href="https://github.com/appenzellerdigitalstore-stack/agentstack/issues" target="_blank" rel="noopener">GitHub</a>.
+    </p>
+  </div>
+</Layout>

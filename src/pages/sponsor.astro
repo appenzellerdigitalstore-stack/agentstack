@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Get Listed — Sponsor a Tool"
+  description="Three tiers to get your AI agent tool featured, verified, or sponsored on AgentStack. No auction, no pay-to-play ranking. Just honest visibility for tools our editors believe in."
+>
+  <div class="container-page max-w-4xl py-16">
+    <header class="text-center max-w-2xl mx-auto mb-12">
+      <h1 class="text-4xl font-bold">Get listed on AgentStack</h1>
+      <p class="mt-4 text-lg text-ink-300 leading-relaxed">
+        We don't run an auction. We don't game rankings. If your tool is good and our editors agree, we'll feature it. Sponsorship just gets you a badge and visibility — not editorial approval.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Verified -->
+      <div class="card p-6 flex flex-col">
+        <div class="text-sm font-mono uppercase tracking-wider text-blue-300 mb-2">Verified</div>
+        <div class="text-4xl font-bold text-ink-50">$49<span class="text-base text-ink-500 font-normal">/mo</span></div>
+        <p class="mt-3 text-sm text-ink-400 leading-relaxed">For tools that pass our security and quality bar.</p>
+        <ul class="mt-6 space-y-2 text-sm text-ink-300 flex-1">
+          <li class="flex gap-2"><span class="text-brand-400">✓</span> "Verified" badge on your listing</li>
+          <li class="flex gap-2"><span class="text-brand-400">✓</span> Manual security re-check every 30 days</li>
+          <li class="flex gap-2"><span class="text-brand-400">✓</span> Click analytics in your dashboard</li>
+          <li class="flex gap-2"><span class="text-brand-400">✓</span> Listed in our monthly newsletter once</li>
+          <li class="flex gap-2"><span class="text-ink-600">·</span> No ranking boost</li>
+        </ul>
+        <a href="/contact?subject=verified-sponsorship" class="btn btn-secondary mt-6">Apply for Verified</a>
+      </div>
+
+      <!-- Featured (most popular) -->
+      <div class="card p-6 flex flex-col ring-2 ring-amber-500/40 relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-amber-500 text-ink-950 text-[10px] font-bold uppercase tracking-wider">Most popular</div>
+        <div class="text-sm font-mono uppercase tracking-wider text-amber-300 mb-2">Featured</div>
+        <div class="text-4xl font-bold text-ink-50">$199<span class="text-base text-ink-500 font-normal">/mo</span></div>
+        <p class="mt-3 text-sm text-ink-400 leading-relaxed">For tools we actively want developers to discover.</p>
+        <ul class="mt-6 space-y-2 text-sm text-ink-300 flex-1">
+          <li class="flex gap-2"><span class="text-brand-400">✓</span> Everything in Verified</li>
+          <li class="flex gap-2"><span class="text-brand-400">✓</span> "Featured" badge on your listing</li>
+          <li class="flex gap-2"><span class="text-brand-400">✓</span> Top placement in your category page</li>
+          <li class="flex gap-2"><span class="text-brand-400">✓</span> Slot in the homepage "Featured" grid</li>
+          <li class="flex gap-2"><span class="text-brand-400">✓</span> Featured in 2 newsletter issues</li>
+          <li class="flex gap-2"><span class="text-ink-600">·</span> No search ranking boost (we keep search honest)</li>
+        </ul>
+        <a href="/contact?subject=featured-sponsorship" class="btn btn-primary mt-6">Apply for Featured</a>
+      </div>
+
+      <!-- Sponsor -->
+      <div class="card p-6 flex flex-col">
+        <div class="text-sm font-mono uppercase tracking-wider text-purple-300 mb-2">Sponsor</div>
+        <div class="text-4xl font-bold text-ink-50">$499<span class="text-base text-ink-500 font-normal">/mo</span></div>
+        <p class="mt-3 text-sm text-ink-400 leading-relaxed">For tools launching or rebranding and need reach.</p>
+        <ul class="mt-6 space-y-2 text-sm text-ink-300 flex-1">
+          <li class="flex gap-2"><span class="text-brand-400">✓</span> Everything in Featured</li>
+          <li class="flex gap-2"><span class="text-brand-400">✓</span> Dedicated launch announcement</li>
+          <li class="flex gap-2"><span class="text-brand-400">✓</span> Co-branded editorial review (you write, we edit and publish)</li>
+          <li class="flex gap-2"><span class="text-brand-400">✓</span> Permanent "Sponsor" badge</li>
+          <li class="flex gap-2"><span class="text-brand-400">✓</span> 3-month minimum commitment</li>
+        </ul>
+        <a href="/contact?subject=sponsor-sponsorship" class="btn btn-secondary mt-6">Apply for Sponsor</a>
+      </div>
+    </div>
+
+    <div class="mt-16 p-6 rounded-xl bg-ink-900/40 ring-1 ring-inset ring-ink-800">
+      <h2 class="text-lg font-semibold mb-3">What we don't do</h2>
+      <ul class="text-sm text-ink-300 space-y-2">
+        <li class="flex gap-2"><span class="text-red-400">✗</span> We don't boost your position in search results based on sponsorship. Search ranking is editor-decided and based on the quality score.</li>
+        <li class="flex gap-2"><span class="text-red-400">✗</span> We don't write fake reviews. Every "Featured" tool is hand-tested by our editors.</li>
+        <li class="flex gap-2"><span class="text-red-400">✗</span> We don't hide negative findings. If a tool is broken or risky, we say so — sponsorship or not.</li>
+        <li class="flex gap-2"><span class="text-red-400">✗</span> We don't auto-approve. Every sponsorship application is reviewed by an editor before it goes live.</li>
+      </ul>
+    </div>
+
+    <div class="mt-12 text-center text-sm text-ink-400">
+      Payment via PayPal invoice. <a href="/contact" class="text-brand-400 hover:text-brand-300">Email us</a> to start the conversation.
+    </div>
+  </div>
+</Layout>

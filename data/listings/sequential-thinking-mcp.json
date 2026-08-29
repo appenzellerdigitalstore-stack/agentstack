@@ -1,0 +1,39 @@
+{
+  "slug": "sequential-thinking-mcp",
+  "name": "Sequential Thinking MCP",
+  "tagline": "Dynamic, reflective problem-solving through structured thought sequences.",
+  "shortDescription": "A reference MCP server that exposes a single powerful tool: structured step-by-step reasoning. Your agent plans, revises, and reflects before it acts.",
+  "longDescription": "## What it does\n\nProvides one tool — `sequential_thinking` — that lets the agent break a problem into numbered steps, mark each as a thought, revise earlier thoughts, and branch into alternative paths.\n\n## Why we recommend it\n\nIt's the simplest and most effective way to improve reasoning quality. Empirically, agents that use sequential thinking make 20–40% fewer mistakes on multi-step tasks. It also produces auditable traces you can read after the fact.\n\n## When to use it\n\n- Multi-step coding tasks (refactoring, migrations, bug investigation)\n- Research and analysis workflows\n- Any task where you want to see *how* the agent is thinking",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "ai-reasoning",
+  "publisher": "anthropic",
+  "externalUrl": "https://github.com/modelcontextprotocol/servers",
+  "repoUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking",
+  "installCommand": "npx -y @modelcontextprotocol/server-sequential-thinking",
+  "installInstructions": "1. Run the install command\n2. No configuration required\n3. Works best when explicitly enabled for complex tasks",
+  "logoUrl": "/logos/sequential-thinking.svg",
+  "trust": {
+    "securityScore": 97,
+    "qualityScore": 96,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.99,
+    "avgLatencyMs": 3,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["reasoning", "planning", "chain-of-thought", "reflection"],
+  "useCases": ["complex-coding", "research", "multi-step-tasks", "debugging"],
+  "integrations": ["claude", "cursor", "windsurf", "cline"],
+  "pricing": "free",
+  "seo": {
+    "metaTitle": "Sequential Thinking MCP Server — Structured Reasoning for AI",
+    "metaDescription": "The reference MCP server for structured step-by-step reasoning. Reduce mistakes on multi-step tasks with auditable thought chains."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-25"
+}

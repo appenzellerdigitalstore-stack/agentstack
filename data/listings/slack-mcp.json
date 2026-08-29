@@ -1,0 +1,39 @@
+{
+  "slug": "slack-mcp",
+  "name": "Slack MCP",
+  "tagline": "Read channels, post messages, and react from your agent.",
+  "shortDescription": "The reference Slack MCP server. List channels, read message history, post messages and replies, add reactions, and search across your workspace.",
+  "longDescription": "## What it does\n\nExposes the Slack Web API as MCP tools. Your agent can list public channels, read recent message history, post a new message or reply in a thread, add emoji reactions, and run a workspace-wide search.\n\n## Why we recommend it\n\nIt's the most useful 'let my agent ping the team' tool there is. Pair it with a monitoring or CI workflow and your agent can DM you when something goes wrong, post a status update when a deploy finishes, or summarize yesterday's standup.\n\n## What it does NOT do\n\nDM history of users you don't share a channel with. Slack's permission model is strict; this server respects it.",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "communication",
+  "publisher": "anthropic",
+  "externalUrl": "https://github.com/modelcontextprotocol/servers",
+  "repoUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/slack",
+  "installCommand": "npx -y @modelcontextprotocol/server-slack",
+  "installInstructions": "1. Create a Slack app at https://api.slack.com/apps\n2. Add the `channels:history`, `channels:read`, `chat:write`, `reactions:write`, and `search:read` scopes\n3. Install the app to your workspace\n4. Set `SLACK_BOT_TOKEN=xoxb-your-token` and `SLACK_TEAM_ID=T01...`\n5. Run the install command",
+  "logoUrl": "/logos/slack.svg",
+  "trust": {
+    "securityScore": 89,
+    "qualityScore": 92,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.94,
+    "avgLatencyMs": 180,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["slack", "messaging", "notifications", "channels"],
+  "useCases": ["alerts", "team-updates", "ci-notifications", "standup-summaries"],
+  "integrations": ["claude", "cursor", "windsurf", "vscode", "cline"],
+  "pricing": "free",
+  "seo": {
+    "metaTitle": "Slack MCP Server — Read & Post Slack from AI Agents",
+    "metaDescription": "The reference Slack MCP server. List channels, read history, post messages and replies, add reactions from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-25"
+}

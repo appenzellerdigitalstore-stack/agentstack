@@ -1,0 +1,35 @@
+---
+/**
+ * Live status pill showing up/down state + uptime.
+ */
+export interface Props {
+  up: boolean;
+  uptimePct30d: number;
+  avgLatencyMs: number;
+  lastCheck: string;
+}
+
+const { up, uptimePct30d, avgLatencyMs, lastCheck } = Astro.props;
+const lastCheckDate = new Date(lastCheck);
+const minutesAgo = Math.floor((Date.now() - lastCheckDate.getTime()) / 60000);
+const timeAgo = minutesAgo < 1 ? 'just now' : minutesAgo < 60 ? `${minutesAgo}m ago` : `${Math.floor(minutesAgo / 60)}h ago`;
+---
+
+<div class="inline-flex items-center gap-2">
+  <span class:list={['relative flex h-2 w-2']}>
+    <span class:list={[
+      'absolute inline-flex h-full w-full rounded-full opacity-75',
+      up ? 'bg-brand-400 animate-ping' : 'bg-red-400',
+    ]}></span>
+    <span class:list={[
+      'relative inline-flex rounded-full h-2 w-2',
+      up ? 'bg-brand-500' : 'bg-red-500',
+    ]}></span>
+  </span>
+  <span class:list={['text-xs font-medium', up ? 'text-brand-300' : 'text-red-300']}>
+    {up ? 'Operational' : 'Down'}
+  </span>
+  <span class="text-xs text-ink-500 font-mono">
+    · {uptimePct30d.toFixed(2)}% · {avgLatencyMs}ms · {timeAgo}
+  </span>
+</div>

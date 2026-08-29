@@ -1,0 +1,40 @@
+{
+  "slug": "tavily-mcp",
+  "name": "Tavily MCP",
+  "tagline": "AI-optimized search built specifically for agents and RAG pipelines.",
+  "shortDescription": "Tavily is a search API designed for LLM consumption: ranked results, content extraction, and a built-in RAG-ready answer. The MCP server exposes all of it.",
+  "longDescription": "## What it does\n\nA single search call returns: ranked URLs with snippets, full extracted content for the top N, and (optionally) a synthesized answer. It's a search engine + content extractor + RAG answer, all in one API.\n\n## Why we recommend it\n\nTuned for agent use cases. The content extraction is clean (no nav, no ads, no cookie banners), the ranking favors authoritative sources, and the answer mode gives you a starting point rather than a blank slate.\n\n## When to use it vs Brave\n\n- **Tavily**: when you want a synthesized answer or RAG-ready chunks\n- **Brave**: when you want raw Google-like results with full control",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "web-scraping",
+  "publisher": "tavily",
+  "externalUrl": "https://tavily.com",
+  "repoUrl": "https://github.com/tavily-ai/tavily-mcp",
+  "installCommand": "npx -y @tavily/mcp-server",
+  "installInstructions": "1. Sign up at https://tavily.com and get an API key (free tier: 1,000 searches/month)\n2. Set `TAVILY_API_KEY=tvly-your-key` in your environment\n3. Run the install command\n4. Optional: set `TAVILY_INCLUDE_ANSWER=true` to enable the synthesized answer mode",
+  "logoUrl": "/logos/tavily.svg",
+  "trust": {
+    "securityScore": 91,
+    "qualityScore": 94,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.95,
+    "avgLatencyMs": 920,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["search", "rag", "extraction", "answer-synthesis"],
+  "useCases": ["research", "rag", "fact-checking", "competitive-intel"],
+  "integrations": ["claude", "cursor", "windsurf", "vscode", "cline"],
+  "pricing": "freemium",
+  "pricingDetails": "Free: 1,000 searches/month. Pay-as-you-go: $0.008 per search.",
+  "seo": {
+    "metaTitle": "Tavily MCP Server — AI-Optimized Search for Agents",
+    "metaDescription": "The search API designed for LLM consumption. Ranked results, content extraction, and a synthesized answer in one call."
+  },
+  "sponsorTier": "verified",
+  "dateAdded": "2026-08-25"
+}

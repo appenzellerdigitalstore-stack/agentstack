@@ -1,0 +1,147 @@
+/* Global styles for AgentStack. Dark-mode-first, developer-focused. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-ink-950 text-ink-100 min-h-screen;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(16, 185, 129, 0.08), transparent),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(59, 130, 246, 0.05), transparent);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight text-ink-50;
+  }
+
+  /* Better focus styles for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-ink-950;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .badge-up {
+    @apply bg-brand-500/10 text-brand-300 ring-1 ring-inset ring-brand-500/20;
+  }
+
+  .badge-down {
+    @apply bg-red-500/10 text-red-300 ring-1 ring-inset ring-red-500/20;
+  }
+
+  .badge-verified {
+    @apply bg-blue-500/10 text-blue-300 ring-1 ring-inset ring-blue-500/20;
+  }
+
+  .badge-official {
+    @apply bg-purple-500/10 text-purple-300 ring-1 ring-inset ring-purple-500/20;
+  }
+
+  .badge-featured {
+    @apply bg-amber-500/10 text-amber-300 ring-1 ring-inset ring-amber-500/20;
+  }
+
+  .badge-free {
+    @apply bg-emerald-500/10 text-emerald-300 ring-1 ring-inset ring-emerald-500/20;
+  }
+
+  .badge-freemium {
+    @apply bg-sky-500/10 text-sky-300 ring-1 ring-inset ring-sky-500/20;
+  }
+
+  .badge-paid {
+    @apply bg-orange-500/10 text-orange-300 ring-1 ring-inset ring-orange-500/20;
+  }
+
+  .card {
+    @apply rounded-xl border border-ink-800 bg-ink-900/60 backdrop-blur-sm transition-all;
+  }
+
+  .card-hover {
+    @apply hover:border-ink-700 hover:bg-ink-900/80 hover:-translate-y-0.5;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-brand-500 text-ink-950 hover:bg-brand-400;
+  }
+
+  .btn-secondary {
+    @apply bg-ink-800 text-ink-100 hover:bg-ink-700 ring-1 ring-inset ring-ink-700;
+  }
+
+  .btn-ghost {
+    @apply text-ink-300 hover:text-ink-100 hover:bg-ink-800/50;
+  }
+
+  .code {
+    @apply font-mono text-sm bg-ink-900/80 text-ink-200 rounded-md px-2 py-1 ring-1 ring-inset ring-ink-800;
+  }
+
+  .prose-mdx h1 {
+    @apply text-3xl mt-8 mb-4;
+  }
+  .prose-mdx h2 {
+    @apply text-2xl mt-6 mb-3;
+  }
+  .prose-mdx h3 {
+    @apply text-xl mt-4 mb-2;
+  }
+  .prose-mdx p {
+    @apply my-3 text-ink-300 leading-relaxed;
+  }
+  .prose-mdx ul {
+    @apply my-3 ml-6 list-disc text-ink-300;
+  }
+  .prose-mdx ol {
+    @apply my-3 ml-6 list-decimal text-ink-300;
+  }
+  .prose-mdx li {
+    @apply my-1;
+  }
+  .prose-mdx code {
+    @apply font-mono text-sm bg-ink-900/80 text-ink-200 rounded px-1.5 py-0.5 ring-1 ring-inset ring-ink-800;
+  }
+  .prose-mdx pre {
+    @apply my-4 p-4 rounded-lg bg-ink-900/80 ring-1 ring-inset ring-ink-800 overflow-x-auto;
+  }
+  .prose-mdx pre code {
+    @apply bg-transparent p-0 ring-0;
+  }
+  .prose-mdx a {
+    @apply text-brand-400 hover:text-brand-300 underline underline-offset-2;
+  }
+  .prose-mdx strong {
+    @apply text-ink-100 font-semibold;
+  }
+}

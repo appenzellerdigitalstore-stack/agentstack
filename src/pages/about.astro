@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="About — How We Curate"
+  description="How AgentStack picks, tests, and scores every AI agent tool in the directory. Our editorial process, scoring rubric, and what we don't do."
+>
+  <div class="container-page max-w-3xl py-16 prose-mdx">
+    <h1>About AgentStack</h1>
+    <p class="text-lg text-ink-300 leading-relaxed">
+      AgentStack is a hand-curated directory of MCP servers, SKILL.md agent skills, and Claude Code / Cursor / Windsurf plugins. We exist because the other directories are broken.
+    </p>
+
+    <h2>The problem</h2>
+    <p>
+      Every other directory in this space — Smithery, Glama, Influzer, BuiltWith, CodeHelper, TheWorldOfAI — is a thin wrapper over <code>import * as fs from 'fs'</code>. They auto-aggregate from GitHub, slap a generated description on it, and call it curation. The result: 11,000+ "tools" where half don't install, a third haven't been updated in a year, and you can't tell which ones are safe to run with a real API key.
+    </p>
+    <p>
+      We built AgentStack because we needed a directory we could actually trust. And since we had to build it anyway, we figured other developers building agents might want one too.
+    </p>
+
+    <h2>Our process</h2>
+    <p>Every tool in this directory goes through the same four-step process before it's listed:</p>
+    <ol>
+      <li><strong>Discovered.</strong> Either by the team (we read release notes, scan GitHub, watch HN), submitted via email by a publisher, or surfaced by a community member.</li>
+      <li><strong>Installed.</strong> We run the install command in a clean environment. If it doesn't install in 5 minutes, it doesn't ship.</li>
+      <li><strong>Tested.</strong> We exercise every advertised capability. For MCP servers, we connect with Claude, Cursor, and at least one other client, and we run the documented use cases.</li>
+      <li><strong>Reviewed.</strong> We write a hand-typed description of what it does, what it's good for, and where it falls down. The score is then set by the reviewer, not auto-generated.</li>
+    </ol>
+
+    <h2>Our scoring</h2>
+    <p>Two scores, 0–100 each:</p>
+    <ul>
+      <li><strong>Security Score</strong> — how safe is it to run with real credentials? Considers scope (filesystem path scoping, network egress, secret handling), the publisher's track record, code-level review, and the maturity of the install path. 90+ is production-grade. Below 75 is "use with caution."</li>
+      <li><strong>Quality Score</strong> — how good is the tool itself? Documentation, error handling, performance, observability, the quality of the response when things go wrong. A 95+ tool makes you smile. A 60 tool works but you'll curse it once a week.</li>
+    </ul>
+
+    <h2>What we don't do</h2>
+    <ul>
+      <li><strong>No pay-to-play.</strong> Featured placement is editor-decided, not auctioned. Sponsors get a "Featured" badge and that's it — they don't get to game the search ranking.</li>
+      <li><strong>No user accounts.</strong> We don't have logins, comments, or reviews from strangers. The directory is editorial, not crowd-sourced.</li>
+      <li><strong>No user tracking.</strong> We use Cloudflare Web Analytics (no cookies, no personal data). That's it.</li>
+      <li><strong>No auto-approve.</strong> Every listing is reviewed by a human before it appears.</li>
+    </ul>
+
+    <h2>What we charge</h2>
+    <p>The directory is free to browse. We make money in three ways:</p>
+    <ol>
+      <li><strong>Google AdSense</strong> — auto-ads on listing pages. Privacy-friendly, no paywall.</li>
+      <li><strong>Sponsored listings</strong> — $49/mo gets a "Verified" badge, $199/mo gets "Featured" placement at the top of relevant categories. The tools themselves are still editorially scored. Payment via PayPal.</li>
+      <li><strong>Donations</strong> — a small "Support us" link in the footer. Optional, no perks.</li>
+    </ol>
+    <p>That's it. No premium tier, no "Pro" features, no "unlock the full list" nonsense.</p>
+
+    <h2>Get in touch</h2>
+    <p>
+      Submit a tool: <a href="/contact">contact form</a> or email us.<br />
+      Sponsor a listing: <a href="/sponsor">sponsorship tiers</a>.<br />
+      Report a problem: <a href="https://github.com/appenzellerdigitalstore-stack/agentstack/issues" target="_blank" rel="noopener">open an issue on GitHub</a>.
+    </p>
+  </div>
+</Layout>

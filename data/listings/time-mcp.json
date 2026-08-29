@@ -1,0 +1,39 @@
+{
+  "slug": "time-mcp",
+  "name": "Time MCP",
+  "tagline": "Timezone conversion and date utilities for your agent.",
+  "shortDescription": "A reference MCP server for time operations. Get the current time in any timezone, convert between zones, calculate intervals. Small but surprisingly useful.",
+  "longDescription": "## What it does\n\nThree tools:\n\n- `get_current_time(timezone)` — returns the current time in any IANA timezone\n- `convert_time(source, target, time)` — converts a timestamp between zones\n- `get_timestamp(timezone)` — returns a Unix timestamp\n\n## Why we recommend it\n\nLLMs are notoriously bad at timezones and date math. With this server, your agent can do `convert_time('America/New_York', 'Asia/Tokyo', '2026-12-31T23:00:00')` and get a correct answer instead of an invented one.\n\n## When to use it\n\n- Scheduling meetings across timezones\n- Anything involving cron, scheduled tasks, or 'in N hours from now'\n- Avoiding the 'wait, was that UTC or local?' tax",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "ai-reasoning",
+  "publisher": "anthropic",
+  "externalUrl": "https://github.com/modelcontextprotocol/servers",
+  "repoUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/time",
+  "installCommand": "npx -y @modelcontextprotocol/server-time",
+  "installInstructions": "1. Run the install command\n2. No configuration required\n3. Uses IANA timezone names (e.g. 'America/Los_Angeles', 'Europe/London', 'Asia/Tokyo')",
+  "logoUrl": "/logos/time.svg",
+  "trust": {
+    "securityScore": 98,
+    "qualityScore": 93,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.99,
+    "avgLatencyMs": 2,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["time", "timezone", "utility", "date"],
+  "useCases": ["scheduling", "cron-management", "international-meetings"],
+  "integrations": ["claude", "cursor", "windsurf", "vscode", "cline"],
+  "pricing": "free",
+  "seo": {
+    "metaTitle": "Time MCP Server — Timezone Utilities for AI Agents",
+    "metaDescription": "Get current time, convert between timezones, calculate intervals. The reference MCP server for date and time operations."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-25"
+}

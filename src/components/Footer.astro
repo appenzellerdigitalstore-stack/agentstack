@@ -1,0 +1,74 @@
+---
+/**
+ * Site footer with links and credits.
+ */
+import { getAllCategories, getTotalListingsCount } from '../lib/listings';
+
+const categories = getAllCategories().slice(0, 6);
+const totalCount = getTotalListingsCount();
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-ink-800/80 bg-ink-950/60 mt-20">
+  <div class="container-page py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="col-span-1 md:col-span-2">
+        <a href="/" class="flex items-center gap-2.5">
+          <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-ink-950 font-bold text-lg">
+            A
+          </div>
+          <span class="text-base font-semibold text-ink-50">AgentStack</span>
+        </a>
+        <p class="mt-4 text-sm text-ink-400 max-w-md leading-relaxed">
+          The hand-curated directory of MCP servers, AI agent skills, and Claude Code plugins.
+          Every listing is installed, tested, and reviewed. No auto-aggregation. No pay-to-play.
+        </p>
+        <p class="mt-4 text-xs text-ink-500 font-mono">
+          {totalCount} tools indexed · Last verified today
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold text-ink-100 mb-3">Browse</h3>
+        <ul class="space-y-2 text-sm">
+          {categories.map((c) => (
+            <li>
+              <a href={`/category/${c.slug}`} class="text-ink-400 hover:text-ink-100 transition-colors">
+                {c.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold text-ink-100 mb-3">Project</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/about" class="text-ink-400 hover:text-ink-100 transition-colors">About</a></li>
+          <li><a href="/sponsor" class="text-ink-400 hover:text-ink-100 transition-colors">Get listed</a></li>
+          <li><a href="/contact" class="text-ink-400 hover:text-ink-100 transition-colors">Contact</a></li>
+          <li><a href="/privacy" class="text-ink-400 hover:text-ink-100 transition-colors">Privacy</a></li>
+          <li>
+            <a
+              href="https://github.com/appenzellerdigitalstore-stack/agentstack"
+              target="_blank"
+              rel="noopener"
+              class="text-ink-400 hover:text-ink-100 transition-colors"
+            >
+              GitHub
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-ink-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <p class="text-xs text-ink-500">
+        © {year} AgentStack. Not affiliated with Anthropic, OpenAI, or any listed publisher. Listings are editorial.
+      </p>
+      <p class="text-xs text-ink-500">
+        Built with <a href="https://astro.build" class="text-ink-400 hover:text-ink-200">Astro</a> · Hosted on <a href="https://pages.cloudflare.com" class="text-ink-400 hover:text-ink-200">Cloudflare Pages</a>
+      </p>
+    </div>
+  </div>
+</footer>

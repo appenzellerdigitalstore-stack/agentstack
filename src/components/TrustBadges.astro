@@ -1,0 +1,55 @@
+---
+/**
+ * Trust badges: verified, official, featured, security score, etc.
+ */
+export interface Props {
+  securityScore: number;
+  qualityScore: number;
+  isVerified: boolean;
+  isOfficial: boolean;
+  lastVerifiedAt: string;
+}
+
+const { securityScore, qualityScore, isVerified, isOfficial, lastVerifiedAt } = Astro.props;
+const lastVerifiedDate = new Date(lastVerifiedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+
+function getSecurityColor(score: number) {
+  if (score >= 90) return 'text-brand-400';
+  if (score >= 75) return 'text-amber-400';
+  return 'text-orange-400';
+}
+---
+
+<div class="flex flex-wrap items-center gap-2">
+  {isOfficial && (
+    <span class="badge badge-official" title="Officially maintained by the publisher">
+      <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+      </svg>
+      Official
+    </span>
+  )}
+
+  {isVerified && (
+    <span class="badge badge-verified" title="Hand-tested by our editors">
+      <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M10 1l3 3h4v4l3 3-3 3v4h-4l-3 3-3-3H3v-4l-3-3 3-3V4h4l3-3z"/>
+      </svg>
+      Verified
+    </span>
+  )}
+
+  <span class:list={['badge', 'ring-1', 'ring-inset', getSecurityColor(securityScore)]} style="background: rgba(0,0,0,0.2)">
+    <span class="text-ink-400">Security</span>
+    <span class:list={['font-mono', 'font-semibold', getSecurityColor(securityScore)]}>{securityScore}/100</span>
+  </span>
+
+  <span class="badge text-ink-300 ring-1 ring-inset ring-ink-700" style="background: rgba(0,0,0,0.2)">
+    <span class="text-ink-400">Quality</span>
+    <span class="font-mono font-semibold text-ink-100">{qualityScore}/100</span>
+  </span>
+
+  <span class="badge text-ink-500 ring-1 ring-inset ring-ink-800" style="background: rgba(0,0,0,0.2)">
+    Last checked {lastVerifiedDate}
+  </span>
+</div>

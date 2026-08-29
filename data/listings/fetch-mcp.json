@@ -1,0 +1,39 @@
+{
+  "slug": "fetch-mcp",
+  "name": "Fetch MCP",
+  "tagline": "Web content fetching and conversion, optimized for LLM consumption.",
+  "shortDescription": "The reference MCP server for fetching web content. Converts HTML to clean Markdown, handles redirects, and respects robots.txt. The simplest way to give an agent the ability to read a URL.",
+  "longDescription": "## What it does\n\nFetches any URL and returns the content as clean Markdown, stripped of ads, navigation, and JavaScript noise. Designed specifically for LLM consumption — the output is much smaller and more useful than raw HTML.\n\n## Why we recommend it\n\nIt's the right tool for the 80% case: \"Hey Claude, can you summarize this blog post?\" or \"Read the docs on this page and tell me how to use the API.\" For more complex scraping (JS-heavy sites, multi-page crawls), graduate to Firecrawl.\n\n## When to use something else\n\n- **JS-rendered pages**: use Firecrawl\n- **Search across the web**: use Brave Search or Tavily\n- **Authenticated content**: this server doesn't handle cookies or logins",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "web-scraping",
+  "publisher": "anthropic",
+  "externalUrl": "https://github.com/modelcontextprotocol/servers",
+  "repoUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+  "installCommand": "npx -y @modelcontextprotocol/server-fetch",
+  "installInstructions": "1. Run the install command\n2. No API keys required\n3. Optional: set `FETCH_MAX_LENGTH` to limit response size (default 50000 chars)",
+  "logoUrl": "/logos/fetch.svg",
+  "trust": {
+    "securityScore": 88,
+    "qualityScore": 90,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.90,
+    "avgLatencyMs": 850,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["web", "fetch", "markdown", "scraping", "simple"],
+  "useCases": ["summarization", "doc-reading", "research", "link-preview"],
+  "integrations": ["claude", "cursor", "windsurf", "vscode", "cline"],
+  "pricing": "free",
+  "seo": {
+    "metaTitle": "Fetch MCP Server — Read Any URL from Your AI Agent",
+    "metaDescription": "The reference MCP server for fetching web content as clean Markdown. Free, no API keys, optimized for LLM consumption."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-25"
+}

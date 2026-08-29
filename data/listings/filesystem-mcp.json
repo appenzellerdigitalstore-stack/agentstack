@@ -1,0 +1,39 @@
+{
+  "slug": "filesystem-mcp",
+  "name": "Filesystem MCP",
+  "tagline": "Secure file read/write access with configurable path scoping.",
+  "shortDescription": "Give your agent the ability to read, write, and search local files — but only in the directories you allow. The canonical reference implementation of filesystem access for MCP.",
+  "longDescription": "## What it does\n\nThe Filesystem MCP server is the reference implementation for letting agents touch the local filesystem. You grant it access to specific directories, and it can list, read, write, search, and move files within those boundaries.\n\n## Why we recommend it\n\nIt's the safest possible way to give an agent file access because the path scoping is enforced at the server level, not in the prompt. You can lock the agent to just `~/projects/myapp` and it physically cannot read `~/Documents/finance.xlsx`.\n\n## Security notes\n\nWe rate this 96/100. The only reason it isn't 100 is that any file-write tool is potentially dangerous if you give it access to the wrong directory. Scope conservatively.",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "developer-tools",
+  "publisher": "anthropic",
+  "externalUrl": "https://github.com/modelcontextprotocol/servers",
+  "repoUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+  "installCommand": "npx -y @modelcontextprotocol/server-filesystem /path/to/allowed/dir",
+  "installInstructions": "1. Pick the directory you want the agent to access (e.g. `~/projects`)\n2. Run the install command with that path as the argument\n3. The server will refuse any operation outside that path\n4. For multiple directories, pass them as additional arguments",
+  "logoUrl": "/logos/filesystem.svg",
+  "trust": {
+    "securityScore": 96,
+    "qualityScore": 95,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.99,
+    "avgLatencyMs": 12,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["files", "local", "read", "write", "scoped"],
+  "useCases": ["code-editing", "project-analysis", "log-reading", "file-search"],
+  "integrations": ["claude", "cursor", "windsurf", "vscode", "cline"],
+  "pricing": "free",
+  "seo": {
+    "metaTitle": "Filesystem MCP Server — Secure File Access for AI Agents",
+    "metaDescription": "Read, write, and search local files from your AI agent. Path-scoped for security. Official Anthropic reference implementation."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-25"
+}

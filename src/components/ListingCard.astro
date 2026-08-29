@@ -1,0 +1,76 @@
+---
+/**
+ * Compact listing card for grids (homepage, category pages).
+ */
+import type { Listing } from '../lib/listings';
+import { getCategoryBySlug, getPublisherBySlug } from '../lib/listings';
+
+export interface Props {
+  listing: Listing;
+  compact?: boolean;
+}
+
+const { listing, compact = false } = Astro.props;
+const category = getCategoryBySlug(listing.category);
+const publisher = getPublisherBySlug(listing.publisher);
+
+const pricingClass = listing.pricing === 'free' ? 'badge-free' : listing.pricing === 'freemium' ? 'badge-freemium' : listing.pricing === 'paid' ? 'badge-paid' : 'badge';
+---
+
+<a
+  href={`/listings/${listing.slug}`}
+  class:list={['card card-hover p-5 block group', compact ? 'h-full' : '']}
+>
+  <div class="flex items-start justify-between gap-3 mb-3">
+    <div class="flex items-center gap-3 min-w-0">
+      <div class="h-10 w-10 rounded-lg bg-gradient-to-br from-ink-700 to-ink-800 ring-1 ring-ink-700 flex items-center justify-center text-ink-100 font-bold text-sm flex-shrink-0">
+        {listing.name.charAt(0)}
+      </div>
+      <div class="min-w-0">
+        <div class="flex items-center gap-2">
+          <h3 class="font-semibold text-ink-50 truncate group-hover:text-brand-300 transition-colors">
+            {listing.name}
+          </h3>
+          {listing.trust.isOfficial && (
+            <svg class="h-3.5 w-3.5 text-purple-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 1l3 3h4v4l3 3-3 3v4h-4l-3 3-3-3H3v-4l-3-3 3-3V4h4l3-3z"/>
+            </svg>
+          )}
+        </div>
+        {publisher && (
+          <p class="text-xs text-ink-500 truncate">by {publisher.name}</p>
+        )}
+      </div>
+    </div>
+    <span class:list={[pricingClass, 'capitalize flex-shrink-0']}>
+      {listing.pricing}
+    </span>
+  </div>
+
+  <p class:list={['text-sm text-ink-300 leading-relaxed mb-4', compact ? 'line-clamp-2' : 'line-clamp-3']}>
+    {listing.shortDescription}
+  </p>
+
+  <div class="flex items-center justify-between gap-2 text-xs">
+    <div class="flex flex-wrap items-center gap-1.5 min-w-0">
+      {category && (
+        <span class="badge text-ink-400 ring-1 ring-inset ring-ink-700" style="background: rgba(0,0,0,0.3)">
+          {category.name}
+        </span>
+      )}
+      {listing.sponsorTier === 'featured' && (
+        <span class="badge badge-featured">Featured</span>
+      )}
+      {listing.sponsorTier === 'verified' && (
+        <span class="badge badge-verified">Verified</span>
+      )}
+    </div>
+    <div class="flex items-center gap-1.5 text-ink-500 flex-shrink-0">
+      <span class:list={[
+        'inline-block h-1.5 w-1.5 rounded-full',
+        listing.status.up ? 'bg-brand-500' : 'bg-red-500',
+      ]}></span>
+      <span class="font-mono">{listing.status.avgLatencyMs}ms</span>
+    </div>
+  </div>
+</a>

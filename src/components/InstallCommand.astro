@@ -1,0 +1,54 @@
+---
+/**
+ * Install command display with copy-to-clipboard.
+ */
+export interface Props {
+  command: string;
+  language?: string;
+}
+
+const { command, language = 'bash' } = Astro.props;
+const id = `cmd-${Math.random().toString(36).slice(2, 11)}`;
+---
+
+<div class="relative group my-4">
+  <div class="absolute top-2 right-2 z-10">
+    <button
+      type="button"
+      data-copy-target={id}
+      data-copy-text={command}
+      class="copy-btn inline-flex items-center gap-1.5 rounded-md bg-ink-800/80 hover:bg-ink-700 px-2.5 py-1 text-xs font-medium text-ink-200 ring-1 ring-inset ring-ink-700 opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity"
+      aria-label="Copy command"
+    >
+      <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+      </svg>
+      <span class="copy-label">Copy</span>
+    </button>
+  </div>
+  <pre id={id} class="overflow-x-auto rounded-lg bg-ink-900/90 p-4 ring-1 ring-inset ring-ink-800 text-sm leading-relaxed"><code class="font-mono text-ink-100"><span class="text-ink-500 select-none">$ </span>{command}</code></pre>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const text = btn.getAttribute('data-copy-text') || '';
+      const label = btn.querySelector('.copy-label');
+      try {
+        await navigator.clipboard.writeText(text);
+        if (label) {
+          const original = label.textContent;
+          label.textContent = 'Copied!';
+          setTimeout(() => { if (label) label.textContent = original; }, 2000);
+        }
+      } catch (err) {
+        console.error('Copy failed', err);
+        if (label) {
+          const original = label.textContent;
+          label.textContent = 'Failed';
+          setTimeout(() => { if (label) label.textContent = original; }, 2000);
+        }
+      }
+    });
+  });
+</script>

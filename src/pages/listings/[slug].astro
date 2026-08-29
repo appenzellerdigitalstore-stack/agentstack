@@ -1,0 +1,226 @@
+---
+/**
+ * Listing detail page. SEO-optimized, with install command, status, and
+ * related listings. Statically generated at build time.
+ */
+import Layout from '../../layouts/Layout.astro';
+import ListingCard from '../../components/ListingCard.astro';
+import StatusPill from '../../components/StatusPill.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
+import InstallCommand from '../../components/InstallCommand.astro';
+import {
+  getAllListingSlugs,
+  getListingBySlug,
+  getCategoryBySlug,
+  getPublisherBySlug,
+  getRelatedListings,
+} from '../../lib/listings';
+
+export async function getStaticPaths() {
+  return getAllListingSlugs().map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const listing = getListingBySlug(slug!);
+
+if (!listing) {
+  return Astro.redirect('/404');
+}
+
+const category = getCategoryBySlug(listing.category);
+const publisher = getPublisherBySlug(listing.publisher);
+const related = getRelatedListings(listing, 3);
+
+// Simple markdown-to-HTML for the long description (basic — supports h2/h3, p, ul, ol, code, pre, strong, em, a)
+function renderMarkdown(md: string): string {
+  let html = md;
+  // Escape HTML first
+  html = html.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  // Code blocks
+  html = html.replace(/```([\s\S]*?)```/g, (_, code) => `<pre><code>${code.trim()}</code></pre>`);
+  // Headings
+  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  // Lists
+  html = html.replace(/(?:^|\n)((?:- .+(?:\n|$))+)/g, (_, list) => {
+    const items = list.trim().split('\n').map((l: string) => `<li>${l.replace(/^- /, '')}</li>`).join('');
+    return `\n<ul>${items}</ul>`;
+  });
+  html = html.replace(/(?:^|\n)((?:\d+\. .+(?:\n|$))+)/g, (_, list) => {
+    const items = list.trim().split('\n').map((l: string) => `<li>${l.replace(/^\d+\. /, '')}</li>`).join('');
+    return `\n<ol>${items}</ol>`;
+  });
+  // Inline code, bold, italic, links
+  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+  html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" rel="noopener" target="_blank">$1</a>');
+  // Paragraphs
+  html = html.split(/\n{2,}/).map((p) => {
+    if (p.startsWith('<h') || p.startsWith('<ul') || p.startsWith('<ol') || p.startsWith('<pre')) return p;
+    return `<p>${p.trim()}</p>`;
+  }).join('\n');
+  return html;
+}
+
+const longHtml = renderMarkdown(listing.longDescription);
+---
+
+<Layout
+  title={listing.seo.metaTitle}
+  description={listing.seo.metaDescription}
+  ogType="article"
+>
+  <article class="container-page max-w-4xl py-12">
+    <!-- Breadcrumb -->
+    <nav class="text-xs text-ink-500 mb-6 font-mono">
+      <a href="/" class="hover:text-ink-300">Home</a>
+      <span class="mx-2">/</span>
+      {category && (
+        <>
+          <a href={`/category/${category.slug}`} class="hover:text-ink-300">{category.name}</a>
+          <span class="mx-2">/</span>
+        </>
+      )}
+      <span class="text-ink-300">{listing.name}</span>
+    </nav>
+
+    <!-- Header -->
+    <header class="mb-8">
+      <div class="flex items-start gap-4 mb-4">
+        <div class="h-16 w-16 rounded-xl bg-gradient-to-br from-ink-700 to-ink-800 ring-1 ring-ink-700 flex items-center justify-center text-ink-100 font-bold text-2xl flex-shrink-0">
+          {listing.name.charAt(0)}
+        </div>
+        <div class="min-w-0 flex-1">
+          <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-ink-50">{listing.name}</h1>
+          <p class="mt-2 text-lg text-ink-300">{listing.tagline}</p>
+          <div class="mt-3 flex flex-wrap items-center gap-3 text-sm text-ink-500">
+            {publisher && (
+              <span>by <a href={publisher.websiteUrl} target="_blank" rel="noopener" class="text-ink-300 hover:text-ink-100">{publisher.name}</a></span>
+            )}
+            {category && (
+              <>
+                <span>·</span>
+                <a href={`/category/${category.slug}`} class="text-ink-300 hover:text-ink-100">{category.name}</a>
+              </>
+            )}
+            <span>·</span>
+            <span class="font-mono uppercase tracking-wider text-xs">{listing.kind.replace('_', ' ')}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status + Trust row -->
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-3 mt-6 p-4 rounded-xl bg-ink-900/40 ring-1 ring-inset ring-ink-800">
+        <StatusPill
+          up={listing.status.up}
+          uptimePct30d={listing.status.uptimePct30d}
+          avgLatencyMs={listing.status.avgLatencyMs}
+          lastCheck={listing.status.lastCheck}
+        />
+        <span class="text-ink-700">|</span>
+        <TrustBadges
+          securityScore={listing.trust.securityScore}
+          qualityScore={listing.trust.qualityScore}
+          isVerified={listing.trust.isVerified}
+          isOfficial={listing.trust.isOfficial}
+          lastVerifiedAt={listing.trust.lastVerifiedAt}
+        />
+      </div>
+    </header>
+
+    <!-- Quick actions -->
+    <div class="flex flex-wrap gap-2 mb-8">
+      <a href={listing.externalUrl} target="_blank" rel="noopener" class="btn btn-primary">
+        Visit {listing.name}
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+        </svg>
+      </a>
+      {listing.repoUrl && (
+        <a href={listing.repoUrl} target="_blank" rel="noopener" class="btn btn-secondary">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.17c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.62-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.31-.54-1.54.11-3.2 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.89.12 3.2.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.19.7.8.58C20.57 21.79 24 17.3 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          Source
+        </a>
+      )}
+      {listing.installCommand && (
+        <a href="#install" class="btn btn-ghost">Jump to install ↓</a>
+      )}
+    </div>
+
+    <!-- Long description -->
+    <div class="prose-mdx" set:html={longHtml} />
+
+    <!-- Install section -->
+    {listing.installCommand && (
+      <section id="install" class="mt-12 p-6 rounded-xl bg-ink-900/40 ring-1 ring-inset ring-ink-800">
+        <h2 class="text-xl font-semibold mb-2">Install</h2>
+        <p class="text-sm text-ink-400 mb-4">Run this in your terminal. Make sure Node.js 20+ is installed.</p>
+        <InstallCommand command={listing.installCommand} />
+        {listing.installInstructions && (
+          <div class="mt-4">
+            <h3 class="text-sm font-semibold text-ink-200 mb-2">Setup</h3>
+            <div class="text-sm text-ink-300 whitespace-pre-line leading-relaxed">{listing.installInstructions}</div>
+          </div>
+        )}
+      </section>
+    )}
+
+    <!-- Tags + integrations -->
+    <section class="mt-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-sm font-semibold text-ink-200 mb-3">Tags</h3>
+          <div class="flex flex-wrap gap-1.5">
+            {listing.tags.map((t) => (
+              <span class="badge text-ink-300 ring-1 ring-inset ring-ink-700" style="background: rgba(0,0,0,0.3)">
+                #{t}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-ink-200 mb-3">Works with</h3>
+          <div class="flex flex-wrap gap-1.5">
+            {listing.integrations.map((i) => (
+              <span class="badge text-ink-300 ring-1 ring-inset ring-ink-700 capitalize" style="background: rgba(0,0,0,0.3)">
+                {i}
+              </span>
+            ))}
+          </div>
+        </div>
+        {listing.useCases.length > 0 && (
+          <div class="md:col-span-2">
+            <h3 class="text-sm font-semibold text-ink-200 mb-3">Common use cases</h3>
+            <ul class="text-sm text-ink-300 space-y-1">
+              {listing.useCases.map((u) => (
+                <li class="flex items-start gap-2">
+                  <span class="text-brand-400 mt-0.5">→</span>
+                  <span>{u}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {listing.pricingDetails && (
+          <div class="md:col-span-2">
+            <h3 class="text-sm font-semibold text-ink-200 mb-3">Pricing</h3>
+            <p class="text-sm text-ink-300">{listing.pricingDetails}</p>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- Related -->
+    {related.length > 0 && (
+      <section class="mt-16">
+        <h2 class="text-xl font-semibold mb-4">Related tools</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {related.map((r) => <ListingCard listing={r} compact />)}
+        </div>
+      </section>
+    )}
+  </article>
+</Layout>

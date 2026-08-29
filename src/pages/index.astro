@@ -1,0 +1,131 @@
+---
+/**
+ * Homepage: hero search, featured listings, latest additions, category grid.
+ */
+import Layout from '../layouts/Layout.astro';
+import ListingCard from '../components/ListingCard.astro';
+import SearchBox from '../components/SearchBox.astro';
+import {
+  getAllListings,
+  getFeaturedListings,
+  getAllCategories,
+  getCategoryCounts,
+  getTotalListingsCount,
+} from '../lib/listings';
+
+const totalCount = getTotalListingsCount();
+const featured = getFeaturedListings();
+const latest = getAllListings().slice(0, 6);
+const categories = getAllCategories();
+const counts = getCategoryCounts();
+---
+
+<Layout
+  title="Hand-Curated MCP Servers, Skills & AI Agent Tools"
+  description={`The hand-curated directory of ${totalCount} MCP servers, SKILL.md agent skills, and Claude Code plugins. Every tool is installed, tested, and reviewed by editors. No auto-aggregation, no pay-to-play.`}
+>
+  <!-- Hero -->
+  <section class="container-page pt-16 sm:pt-24 pb-12 text-center">
+    <div class="inline-flex items-center gap-2 rounded-full bg-brand-500/10 ring-1 ring-inset ring-brand-500/20 px-3 py-1 text-xs font-medium text-brand-300 mb-6">
+      <span class="inline-block h-1.5 w-1.5 rounded-full bg-brand-400 animate-pulse"></span>
+      {totalCount} tools indexed · Updated daily
+    </div>
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight max-w-4xl mx-auto leading-[1.05]">
+      The directory of
+      <span class="bg-gradient-to-r from-brand-300 to-brand-500 bg-clip-text text-transparent">
+        AI agent components
+      </span>
+      <br />
+      that actually work.
+    </h1>
+    <p class="mt-6 text-lg text-ink-300 max-w-2xl mx-auto leading-relaxed">
+      Hand-curated MCP servers, SKILL.md skills, and Claude Code plugins. Every tool is installed, tested, and reviewed by editors — not auto-aggregated from a GitHub README.
+    </p>
+
+    <div class="mt-10 max-w-2xl mx-auto">
+      <SearchBox />
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="container-page py-12 border-t border-ink-800/60">
+    <div class="flex items-end justify-between mb-6">
+      <div>
+        <h2 class="text-2xl font-semibold">Browse by category</h2>
+        <p class="text-sm text-ink-400 mt-1">Every category is hand-organized. New categories added as the ecosystem grows.</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+      {categories.map((c) => (
+        <a
+          href={`/category/${c.slug}`}
+          class="card card-hover p-4 group flex items-start justify-between gap-3"
+        >
+          <div class="min-w-0">
+            <h3 class="font-medium text-ink-100 group-hover:text-brand-300 transition-colors">{c.name}</h3>
+            <p class="text-xs text-ink-500 mt-0.5 line-clamp-2">{c.description}</p>
+          </div>
+          <span class="text-sm font-mono text-ink-500 flex-shrink-0">{counts[c.slug] || 0}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Featured -->
+  {featured.length > 0 && (
+    <section class="container-page py-12 border-t border-ink-800/60">
+      <div class="flex items-end justify-between mb-6">
+        <div>
+          <h2 class="text-2xl font-semibold">Featured tools</h2>
+          <p class="text-sm text-ink-400 mt-1">Tools our editors recommend for production use.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {featured.map((l) => <ListingCard listing={l} />)}
+      </div>
+    </section>
+  )}
+
+  <!-- Latest -->
+  <section class="container-page py-12 border-t border-ink-800/60">
+    <div class="flex items-end justify-between mb-6">
+      <div>
+        <h2 class="text-2xl font-semibold">Latest additions</h2>
+        <p class="text-sm text-ink-400 mt-1">Newly curated and reviewed.</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {latest.map((l) => <ListingCard listing={l} />)}
+    </div>
+  </section>
+
+  <!-- Why we exist -->
+  <section class="container-page py-16 border-t border-ink-800/60">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-semibold">Built different.</h2>
+      <p class="mt-4 text-ink-300 text-lg leading-relaxed">
+        Other directories auto-aggregate from GitHub and call it curation. We don't. Every tool listed here is installed, tested, and reviewed by an editor who has actually used it.
+      </p>
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+        <div class="card p-5">
+          <div class="text-2xl mb-2">🔍</div>
+          <h3 class="font-semibold text-ink-50">Hand-curated</h3>
+          <p class="text-sm text-ink-400 mt-1">No auto-approval. Every listing is reviewed by a human editor before it ships.</p>
+        </div>
+        <div class="card p-5">
+          <div class="text-2xl mb-2">🛡️</div>
+          <h3 class="font-semibold text-ink-50">Security-scored</h3>
+          <p class="text-sm text-ink-400 mt-1">Every tool gets a security score from 0–100. We tell you when something is risky.</p>
+        </div>
+        <div class="card p-5">
+          <div class="text-2xl mb-2">⚡</div>
+          <h3 class="font-semibold text-ink-50">One-click install</h3>
+          <p class="text-sm text-ink-400 mt-1">Every listing has a copy-pasteable install command. No hunting for docs.</p>
+        </div>
+      </div>
+      <div class="mt-10">
+        <a href="/about" class="btn btn-secondary">Learn more about our process</a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,40 @@
+{
+  "slug": "github-mcp",
+  "name": "GitHub MCP",
+  "tagline": "Full GitHub API access for your AI agent.",
+  "shortDescription": "Connect Claude, Cursor, or any MCP client to GitHub. Create issues, open pull requests, search code, manage repositories, and review diffs — all from your agent.",
+  "longDescription": "## What it does\n\nThe official GitHub MCP server exposes the entire GitHub API as a set of tools your agent can call. Your agent can create issues, open PRs, search code across repos, manage branches, read files, and review diffs without you leaving the chat.\n\n## Why we recommend it\n\nIt's the most-used MCP server in production today. The Anthropic team maintains it alongside the MCP spec, which means it tracks API changes faster than any community alternative. Authentication is a single GitHub PAT (or GitHub App for orgs).\n\n## Common use cases\n\n- Triage new issues automatically based on labels and content\n- Search code across your org to find usages before refactoring\n- Open PRs with AI-generated descriptions\n- Read release notes and changelogs to draft summaries\n- Auto-review PRs against your team's style guide",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "developer-tools",
+  "publisher": "anthropic",
+  "externalUrl": "https://github.com/modelcontextprotocol/servers",
+  "repoUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/github",
+  "installCommand": "npx -y @modelcontextprotocol/server-github",
+  "installInstructions": "1. Create a GitHub personal access token at https://github.com/settings/tokens (needs `repo`, `read:org`, `read:user` scopes)\n2. Set the `GITHUB_TOKEN` environment variable\n3. Run the install command above\n4. Add the server to your MCP client config (`~/.config/claude/config.json` for Claude Code)",
+  "logoUrl": "/logos/github.svg",
+  "trust": {
+    "securityScore": 95,
+    "qualityScore": 98,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.95,
+    "avgLatencyMs": 180,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": ["git", "github", "code-review", "issues", "pull-requests"],
+  "useCases": ["code-review", "issue-triage", "repo-search", "release-notes"],
+  "integrations": ["claude", "cursor", "windsurf", "vscode", "cline"],
+  "pricing": "free",
+  "pricingDetails": "Free. Requires a free GitHub account; higher rate limits with GitHub Pro/Team.",
+  "seo": {
+    "metaTitle": "GitHub MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official GitHub MCP server. Install command, security score, live uptime, and which AI agents support it."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-25"
+}
