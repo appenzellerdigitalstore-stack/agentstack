@@ -1,0 +1,38 @@
+---
+/**
+ * Reusable disclosure block. Shown on /support, /about, and in the footer
+ * of every page. Honest, short, and explicit about the no-affiliate stance.
+ */
+export interface Props {
+  variant?: 'full' | 'compact';
+}
+const { variant = 'full' } = Astro.props;
+---
+
+{variant === 'full' ? (
+  <aside class="rounded-xl border border-ink-800 bg-ink-900/40 p-5 my-6">
+    <h3 class="text-sm font-semibold text-ink-100 mb-2 flex items-center gap-2">
+      <svg class="h-4 w-4 text-ink-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-2h2v2h-2zm0-10v6h2V7h-2z"/>
+      </svg>
+      How this site makes money
+    </h3>
+    <p class="text-sm text-ink-300 leading-relaxed mb-2">
+      AgentStack is free to use. We do not earn affiliate commissions from any of the links on this site. If you click through to a tool's website and sign up, we do not get paid.
+    </p>
+    <p class="text-sm text-ink-300 leading-relaxed mb-2">
+      The site is funded by:
+    </p>
+    <ul class="text-sm text-ink-300 space-y-1 mb-2 list-disc list-inside">
+      <li>Google AdSense display ads (Google pays us when you see or click an ad)</li>
+      <li>Voluntary PayPal donations from users who want to support the project</li>
+    </ul>
+    <p class="text-sm text-ink-300 leading-relaxed">
+      You will never be charged anything by using this site. We have no customer relationship with you.
+    </p>
+  </aside>
+) : (
+  <p class="text-xs text-ink-500">
+    This site is free. We do not use affiliate links — we earn from display ads and voluntary donations only. <a href="/about#disclosure" class="underline hover:text-ink-300">Full disclosure</a>.
+  </p>
+)}
