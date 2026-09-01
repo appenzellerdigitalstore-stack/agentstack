@@ -1,11 +1,4 @@
 # Ads.txt for AgentStack
-# Replace the placeholder below with your real AdSense publisher ID once approved.
-# Format: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+# Pub-ID is account-level (works for all your AdSense sites).
 # The fourth field (f08c47fec0942fa0) is Google's fixed certification authority ID.
-#
-# Until AdSense is approved, this file is intentionally minimal.
-# AdSense will not serve ads without a valid entry, but missing ads.txt hurts
-# your AdSense application and your fill rate. Apply for AdSense as soon as
-# you have 20+ quality pages and a few hundred organic visits per day.
-#
-# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+google.com, pub-8749554989768993, DIRECT, f08c47fec0942fa0
