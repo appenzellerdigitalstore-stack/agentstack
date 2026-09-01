@@ -1,0 +1,56 @@
+{
+  "slug": "surrealdb-mcp",
+  "name": "SurrealDB MCP",
+  "tagline": "Query and model data in SurrealDB from your AI agent.",
+  "shortDescription": "The official SurrealDB MCP server. Run SurrealQL queries, design schemas, manage records, and explore graph relationships. Multi-model database with one query language.",
+  "longDescription": "## What it is\n\nSurrealDB's MCP server. Exposes SurrealDB as MCP tools: run SurrealQL, define schemas, manage records, traverse graph relations, and authenticate as different users.\n\n## Why we recommend it\n\nSurrealDB combines document, graph, and relational in one engine. The MCP server lets your agent model data, run schema-aware queries, and explore graph paths — all through a single tool surface.\n\n## When to use it\n\n- Schema design: agent drafts a SurrealQL schema and applies it\n- Graph queries: agent traverses `->related_to->` relations and reports\n- Record CRUD: agent creates/updates/deletes records with field validation\n- Auth: agent switches between users/roles to verify per-row access",
+  "kind": "mcp_server",
+  "runtime": "rust",
+  "category": "databases",
+  "publisher": "surrealdb",
+  "externalUrl": "https://surrealdb.com",
+  "repoUrl": "https://github.com/surrealdb/mcp-server",
+  "installCommand": "npx -y @surrealdb/mcp-server",
+  "installInstructions": "1. Set `SURREAL_URL=ws://localhost:8000` (or your cloud URL)\n2. Set `SURREAL_USER`, `SURREAL_PASS`, `SURREAL_NS`, `SURREAL_DB`\n3. `npx -y @surrealdb/mcp-server`",
+  "logoUrl": "/logos/surrealdb.svg",
+  "trust": {
+    "securityScore": 89,
+    "qualityScore": 91,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.94,
+    "avgLatencyMs": 60,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "surrealdb",
+    "multi-model",
+    "graph",
+    "document",
+    "databases"
+  ],
+  "useCases": [
+    "schema-design",
+    "graph-queries",
+    "record-crud",
+    "auth-testing"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "free",
+  "pricingDetails": "Free. The MCP server is open source. SurrealDB is open source. SurrealDB Cloud has a free tier.",
+  "seo": {
+    "metaTitle": "SurrealDB MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official SurrealDB MCP server. Run SurrealQL and model data from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

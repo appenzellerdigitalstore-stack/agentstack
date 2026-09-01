@@ -1,0 +1,55 @@
+{
+  "slug": "digitalocean-mcp",
+  "name": "DigitalOcean MCP",
+  "tagline": "Manage DigitalOcean droplets, apps, and databases from chat.",
+  "shortDescription": "The DigitalOcean MCP server. List and manage droplets, App Platform apps, managed databases, Kubernetes clusters, and Spaces (object storage). The simplest cloud for indie devs.",
+  "longDescription": "## What it is\n\nDigitalOcean's official MCP server. Exposes the DigitalOcean API as MCP tools: manage droplets, App Platform apps, managed Postgres/MySQL/Redis, DOKS clusters, and Spaces (S3-compatible object storage).\n\n## Why we recommend it\n\nIf you use DigitalOcean, this is the cleanest way to let an agent help. The API is simple, the pricing is predictable, and the MCP server covers the most-used services.\n\n## When to use it\n\n- Droplets: agent creates, resizes, snapshots, and destroys droplets\n- App Platform: agent deploys apps, scales them, views logs\n- Databases: agent creates managed Postgres, manages users, runs queries\n- Spaces: agent uploads/downloads files to S3-compatible storage",
+  "kind": "mcp_server",
+  "runtime": "go",
+  "category": "cloud-infra",
+  "publisher": "digitalocean",
+  "externalUrl": "https://www.digitalocean.com",
+  "repoUrl": "https://github.com/digitalocean/mcp",
+  "installCommand": "npx -y @digitalocean/mcp",
+  "installInstructions": "1. Generate a personal access token at https://cloud.digitalocean.com/account/api/tokens\n2. Set `DO_TOKEN=...`\n3. `npx -y @digitalocean/mcp`",
+  "logoUrl": "/logos/digitalocean.svg",
+  "trust": {
+    "securityScore": 90,
+    "qualityScore": 92,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.96,
+    "avgLatencyMs": 195,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "digitalocean",
+    "droplets",
+    "kubernetes",
+    "hosting"
+  ],
+  "useCases": [
+    "droplets",
+    "app-platform",
+    "databases",
+    "spaces"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "free",
+  "pricingDetails": "Free. The MCP server is open source. DigitalOcean: $200 free credit for new accounts (60 days).",
+  "seo": {
+    "metaTitle": "DigitalOcean MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official DigitalOcean MCP server. Manage droplets and apps from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

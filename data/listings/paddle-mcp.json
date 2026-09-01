@@ -1,0 +1,55 @@
+{
+  "slug": "paddle-mcp",
+  "name": "Paddle MCP",
+  "tagline": "Manage Paddle subscriptions, checkouts, and analytics from chat.",
+  "shortDescription": "The Paddle MCP server. List products, manage subscriptions, view analytics, and handle refunds. Another merchant-of-record option for SaaS companies.",
+  "longDescription": "## What it is\n\nA community-built MCP server for Paddle. Exposes the Paddle Billing API as MCP tools: list products and prices, create checkout sessions, manage subscriptions, view analytics, and issue refunds.\n\n## Why we recommend it\n\nLike Lemon Squeezy, Paddle is a merchant of record — they handle global tax compliance for you. The MCP server gives your agent the same view you have in the Paddle dashboard.\n\n## When to use it\n\n- Subscriptions: agent manages MRR, churn, and customer status\n- Analytics: agent pulls 'MRR by plan' or 'churn rate by cohort'\n- Refunds: agent processes refunds on customer request\n- Products: agent creates new products, prices, and discount codes",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "payments",
+  "publisher": "paddle",
+  "externalUrl": "https://www.paddle.com",
+  "repoUrl": "https://github.com/paddle/mcp",
+  "installCommand": "npx -y @paddle/mcp",
+  "installInstructions": "1. Get an API key at https://vendors.paddle.com/authentication\n2. Set `PADDLE_API_KEY=...`\n3. `npx -y @paddle/mcp`",
+  "logoUrl": "/logos/paddle.svg",
+  "trust": {
+    "securityScore": 91,
+    "qualityScore": 92,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.97,
+    "avgLatencyMs": 190,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "paddle",
+    "merchant-of-record",
+    "subscriptions",
+    "saas"
+  ],
+  "useCases": [
+    "subscriptions",
+    "analytics",
+    "refunds",
+    "products"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Paddle: 5% + $0.50 per transaction.",
+  "seo": {
+    "metaTitle": "Paddle MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Paddle MCP server. Manage subscriptions from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

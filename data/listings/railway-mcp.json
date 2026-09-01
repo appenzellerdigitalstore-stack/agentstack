@@ -1,0 +1,55 @@
+{
+  "slug": "railway-mcp",
+  "name": "Railway MCP",
+  "tagline": "Manage Railway projects, services, and databases from chat.",
+  "shortDescription": "The Railway MCP server. List projects, deploy services, manage environment variables, view logs, manage databases (Postgres, MySQL, Redis), and inspect usage. The simplest platform for indie devs.",
+  "longDescription": "## What it is\n\nThe Railway MCP server. Exposes the Railway API as MCP tools: list projects, deploy services, manage env vars, view logs, manage databases, and inspect usage/billing.\n\n## Why we recommend it\n\nRailway is the easiest platform to deploy a side project. The MCP server lets your agent do everything you can do in the dashboard, conversationally.\n\n## When to use it\n\n- Deploys: agent triggers a deploy, monitors the build, reports the URL\n- Env vars: agent adds/rotates secrets\n- Databases: agent provisions Postgres/Redis, runs migrations\n- Logs: agent pulls the latest logs for a service",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "cloud-infra",
+  "publisher": "railway",
+  "externalUrl": "https://railway.app",
+  "repoUrl": "https://github.com/railwayapp/mcp",
+  "installCommand": "npx -y @railway/mcp",
+  "installInstructions": "1. Get a Railway API token at https://railway.app/account/tokens\n2. Set `RAILWAY_TOKEN=...`\n3. `npx -y @railway/mcp`\n\n**Hobby plan:** $5/month plus usage. Generous free trial.",
+  "logoUrl": "/logos/railway.svg",
+  "trust": {
+    "securityScore": 90,
+    "qualityScore": 91,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.95,
+    "avgLatencyMs": 210,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "railway",
+    "paas",
+    "deploy",
+    "indie"
+  ],
+  "useCases": [
+    "deploys",
+    "env-vars",
+    "databases",
+    "logs"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Railway: $5/month hobby plan plus usage-based pricing.",
+  "seo": {
+    "metaTitle": "Railway MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Railway MCP server. Manage projects and deploys from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

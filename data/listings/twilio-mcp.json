@@ -1,0 +1,56 @@
+{
+  "slug": "twilio-mcp",
+  "name": "Twilio MCP",
+  "tagline": "Send SMS, make calls, and manage Twilio from chat.",
+  "shortDescription": "The official Twilio MCP server. Send SMS and WhatsApp messages, make and receive calls, manage phone numbers, query message logs. Programmable comms from your agent.",
+  "longDescription": "## What it is\n\nTwilio's official MCP server. Exposes the Twilio API as MCP tools: send SMS/MMS, make outbound calls, send WhatsApp messages, manage phone numbers, query message logs, and inspect call recordings.\n\n## Why we recommend it\n\nIf you use Twilio for any messaging or voice, this is the cleanest way to let an agent help. The agent can send notifications, place calls (with TTS), and query your comm logs.\n\n## When to use it\n\n- Notifications: agent sends SMS alerts when a job fails\n- Two-factor: agent generates and sends OTP codes via SMS\n- Voice: agent places a call, reads text via TTS, captures the response\n- WhatsApp: agent sends WhatsApp template messages",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "communication",
+  "publisher": "twilio",
+  "externalUrl": "https://www.twilio.com",
+  "repoUrl": "https://github.com/twilio/mcp",
+  "installCommand": "npx -y @twilio/mcp",
+  "installInstructions": "1. Get Account SID and Auth Token at https://console.twilio.com\n2. Set `TWILIO_ACCOUNT_SID=...` and `TWILIO_AUTH_TOKEN=...`\n3. `npx -y @twilio/mcp`\n\n**Free trial:** Twilio gives free credits for testing.",
+  "logoUrl": "/logos/twilio.svg",
+  "trust": {
+    "securityScore": 92,
+    "qualityScore": 93,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.98,
+    "avgLatencyMs": 220,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "twilio",
+    "sms",
+    "voice",
+    "whatsapp",
+    "notifications"
+  ],
+  "useCases": [
+    "notifications",
+    "two-factor",
+    "voice",
+    "whatsapp"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Twilio: pay-per-message (~$0.0079/SMS in US).",
+  "seo": {
+    "metaTitle": "Twilio MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Twilio MCP server. Send SMS, make calls, and manage comms from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

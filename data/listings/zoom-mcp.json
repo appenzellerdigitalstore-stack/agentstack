@@ -1,0 +1,55 @@
+{
+  "slug": "zoom-mcp",
+  "name": "Zoom MCP",
+  "tagline": "Schedule, join, and summarize Zoom meetings from chat.",
+  "shortDescription": "The Zoom MCP server. Schedule meetings, list recordings, pull transcripts, generate summaries, and manage participants. The canonical way to give an agent access to your meeting stack.",
+  "longDescription": "## What it is\n\nA community-built MCP server for Zoom. Exposes the Zoom API as MCP tools: schedule and update meetings, list recordings, pull transcripts, send invites, and manage participants.\n\n## Why we recommend it\n\nIf your team runs on Zoom, this is the cleanest way to make meetings conversational. The agent can schedule a meeting, pull the recording, generate a summary, and share action items.\n\n## When to use it\n\n- Scheduling: agent finds a free time, sends invites, adds the agenda\n- Summaries: agent pulls a recording's transcript, writes a summary, lists action items\n- Follow-ups: agent drafts a recap email after a meeting\n- Search: agent finds meetings that mentioned a topic",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "communication",
+  "publisher": "zoom",
+  "externalUrl": "https://zoom.us",
+  "repoUrl": "https://github.com/zoom/mcp",
+  "installCommand": "npx -y @zoom/mcp",
+  "installInstructions": "1. Create a Zoom OAuth app at https://marketplace.zoom.us/develop/create\n2. Set scopes: `meeting:read`, `meeting:write`, `recording:read`\n3. Set `ZOOM_ACCOUNT_ID`, `ZOOM_CLIENT_ID`, `ZOOM_CLIENT_SECRET`\n4. `npx -y @zoom/mcp`",
+  "logoUrl": "/logos/zoom.svg",
+  "trust": {
+    "securityScore": 89,
+    "qualityScore": 91,
+    "isVerified": true,
+    "isOfficial": false,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.95,
+    "avgLatencyMs": 195,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "zoom",
+    "meetings",
+    "recordings",
+    "transcripts"
+  ],
+  "useCases": [
+    "scheduling",
+    "summaries",
+    "follow-ups",
+    "search"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Zoom: free tier supports 40-min meetings. Pro: $15/month.",
+  "seo": {
+    "metaTitle": "Zoom MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Zoom MCP server. Schedule meetings and pull transcripts from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

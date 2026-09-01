@@ -1,0 +1,55 @@
+{
+  "slug": "intercom-mcp",
+  "name": "Intercom MCP",
+  "tagline": "Read, reply, and manage Intercom conversations from chat.",
+  "shortDescription": "The Intercom MCP server. List open conversations, read full threads, draft replies, tag conversations, and update contacts. The canonical way to give an agent access to your support inbox.",
+  "longDescription": "## What it is\n\nIntercom's official MCP server. Exposes the Intercom REST API as MCP tools: list conversations, read full threads, post replies, tag conversations, manage contacts, and pull team performance stats.\n\n## Why we recommend it\n\nIf your support team uses Intercom, this is the cleanest way to let an agent help. The agent can draft replies based on the conversation history, suggest tags, and even auto-close resolved conversations.\n\n## When to use it\n\n- Triage: agent lists open conversations and groups them by topic\n- Drafting: agent reads a thread and drafts a reply (human sends it)\n- Tagging: agent suggests tags for new conversations based on content\n- Stats: agent pulls 'first response time' or 'CSAT by team member'",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "communication",
+  "publisher": "intercom",
+  "externalUrl": "https://www.intercom.com",
+  "repoUrl": "https://github.com/intercom/mcp-server",
+  "installCommand": "npx -y @intercom/mcp",
+  "installInstructions": "1. Create a workspace in Intercom\n2. Get an access token: Settings → Integrations → Developer Hub\n3. Set `INTERCOM_ACCESS_TOKEN=...`\n4. `npx -y @intercom/mcp`",
+  "logoUrl": "/logos/intercom.svg",
+  "trust": {
+    "securityScore": 91,
+    "qualityScore": 92,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.97,
+    "avgLatencyMs": 175,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "intercom",
+    "support",
+    "crm",
+    "inbox"
+  ],
+  "useCases": [
+    "triage",
+    "drafting",
+    "tagging",
+    "stats"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Intercom: free for early-stage startups. Essentials: $39/seat/month.",
+  "seo": {
+    "metaTitle": "Intercom MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Intercom MCP server. Manage support inbox from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

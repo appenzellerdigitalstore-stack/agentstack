@@ -1,0 +1,56 @@
+{
+  "slug": "obsidian-mcp",
+  "name": "Obsidian MCP",
+  "tagline": "Read, write, and link notes in your Obsidian vault from chat.",
+  "shortDescription": "An MCP server for Obsidian vaults. Read and write markdown notes, follow links, search across the vault, manage tags, and use templates. Local-first, works offline.",
+  "longDescription": "## What it is\n\nA community-maintained MCP server for Obsidian. Exposes your local vault as MCP tools: read/write markdown files, follow `[[wikilinks]]`, search by tag or content, list daily notes, and apply templates.\n\n## Why we recommend it\n\nIf you keep your second brain in Obsidian, this is the simplest way to let an agent help. The agent can search the vault, draft new notes with proper links, and apply templates — all locally, no data leaving your machine.\n\n## When to use it\n\n- Note drafting: agent writes a meeting note and links it to today's daily note\n- Search: agent finds all notes mentioning a topic across the vault\n- Templates: agent applies your 'project' or 'person' template to a new note\n- Backlinks: agent shows you which notes reference a given note",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "productivity",
+  "publisher": "obsidian",
+  "externalUrl": "https://obsidian.md",
+  "repoUrl": "https://github.com/obsidianmd/obsidian-mcp",
+  "installCommand": "npx -y obsidian-mcp",
+  "installInstructions": "1. Open your Obsidian vault in Obsidian\n2. Install the Obsidian Local REST API community plugin\n3. Set `OBSIDIAN_API_KEY=...` (from the plugin) and `OBSIDIAN_HOST=http://127.0.0.1:27123`\n4. `npx -y obsidian-mcp`\n\n**Local:** Everything runs locally — no cloud, no API quota.",
+  "logoUrl": "/logos/obsidian.svg",
+  "trust": {
+    "securityScore": 87,
+    "qualityScore": 90,
+    "isVerified": true,
+    "isOfficial": false,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.99,
+    "avgLatencyMs": 15,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "obsidian",
+    "notes",
+    "markdown",
+    "local",
+    "second-brain"
+  ],
+  "useCases": [
+    "note-drafting",
+    "search",
+    "templates",
+    "backlinks"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "free",
+  "pricingDetails": "Free. The MCP server is open source. Obsidian is free for personal use (commercial license $50/year).",
+  "seo": {
+    "metaTitle": "Obsidian MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Obsidian MCP server. Read and write notes in your vault from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

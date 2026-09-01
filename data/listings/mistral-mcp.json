@@ -1,0 +1,56 @@
+{
+  "slug": "mistral-mcp",
+  "name": "Mistral AI MCP",
+  "tagline": "Use Mistral models, embeddings, and OCR from chat.",
+  "shortDescription": "The Mistral AI MCP server. Run any Mistral model (Mistral Large, Codestral, Pixtral), generate embeddings, run OCR, and use function calling. The OpenAI-compatible alternative.",
+  "longDescription": "## What it is\n\nMistral's official MCP server. Exposes the Mistral API as MCP tools: chat completions with any Mistral model (Large, Small, Codestral, Pixtral), embeddings, OCR, and function calling. OpenAI-compatible API.\n\n## Why we recommend it\n\nMistral is the strongest European open-weights LLM provider. The MCP server makes it as easy to use as OpenAI — and the Codestral model is excellent for code generation.\n\n## When to use it\n\n- Code generation: agent uses Codestral for code completion\n- Vision: agent uses Pixtral to analyze images\n- Embeddings: agent generates embeddings for RAG\n- OCR: agent extracts text from PDFs and images",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "ai-reasoning",
+  "publisher": "mistral",
+  "externalUrl": "https://mistral.ai",
+  "repoUrl": "https://github.com/mistralai/mcp",
+  "installCommand": "npx -y @mistralai/mcp",
+  "installInstructions": "1. Get an API key at https://console.mistral.ai\n2. Set `MISTRAL_API_KEY=...`\n3. `npx -y @mistralai/mcp`",
+  "logoUrl": "/logos/mistral.svg",
+  "trust": {
+    "securityScore": 90,
+    "qualityScore": 92,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.98,
+    "avgLatencyMs": 130,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "mistral",
+    "codestral",
+    "pixtral",
+    "ocr",
+    "european"
+  ],
+  "useCases": [
+    "code-generation",
+    "vision",
+    "embeddings",
+    "ocr"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "free",
+  "pricingDetails": "Free. The MCP server is open source. Mistral: pay per token. Free tier for experimentation.",
+  "seo": {
+    "metaTitle": "Mistral AI MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Mistral AI MCP server. Use Mistral models from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

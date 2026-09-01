@@ -1,0 +1,55 @@
+{
+  "slug": "honeycomb-mcp",
+  "name": "Honeycomb MCP",
+  "tagline": "Observe complex systems with high-cardinality event data from chat.",
+  "shortDescription": "The Honeycomb MCP server. Query events, run traces, set up SLOs, and debug production issues. The gold standard for high-cardinality observability.",
+  "longDescription": "## What it is\n\nHoneycomb's official MCP server. Exposes the Honeycomb API as MCP tools: query events with arbitrary dimensions, run distributed traces, manage SLOs, and inspect query results.\n\n## Why we recommend it\n\nHoneycomb pioneered the high-cardinality observability model. The MCP server lets your agent slice and dice production data by any dimension — user ID, request ID, build SHA, anything.\n\n## When to use it\n\n- Debugging: agent queries by a custom dimension to find the root cause\n- SLOs: agent defines and tracks SLOs\n- Traces: agent inspects a slow trace, finds the bottleneck\n- Investigation: agent runs a multi-step query to find patterns",
+  "kind": "mcp_server",
+  "runtime": "go",
+  "category": "monitoring",
+  "publisher": "honeycomb",
+  "externalUrl": "https://www.honeycomb.io",
+  "repoUrl": "https://github.com/honeycombio/mcp",
+  "installCommand": "npx -y @honeycombio/mcp",
+  "installInstructions": "1. Get an API key at https://ui.honeycomb.io/settings/api-keys\n2. Set `HONEYCOMB_API_KEY=...`\n3. `npx -y @honeycombio/mcp`",
+  "logoUrl": "/logos/honeycomb.svg",
+  "trust": {
+    "securityScore": 93,
+    "qualityScore": 94,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.98,
+    "avgLatencyMs": 140,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "honeycomb",
+    "observability",
+    "high-cardinality",
+    "slo"
+  ],
+  "useCases": [
+    "debugging",
+    "slos",
+    "traces",
+    "investigation"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Honeycomb: 20M events/month free. Pro: $130/month.",
+  "seo": {
+    "metaTitle": "Honeycomb MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Honeycomb MCP server. Query high-cardinality events from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

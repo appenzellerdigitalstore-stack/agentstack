@@ -1,0 +1,55 @@
+{
+  "slug": "salesforce-mcp",
+  "name": "Salesforce MCP",
+  "tagline": "Query and update Salesforce records from your AI agent.",
+  "shortDescription": "The Salesforce MCP server. Run SOQL queries, manage leads, contacts, opportunities, and accounts, pull reports, and trigger flows. The canonical way to give an agent access to Salesforce.",
+  "longDescription": "## What it is\n\nThe official Salesforce MCP server. Exposes the Salesforce REST and SOQL APIs as MCP tools: run SOQL queries, CRUD records across standard and custom objects, manage opportunities, pull reports, and trigger flows.\n\n## Why we recommend it\n\nIf your org runs on Salesforce, this is the cleanest way to let an agent help. The agent can run reports, update records, and trigger workflows — without anyone logging into Salesforce.\n\n## When to use it\n\n- Reporting: agent runs SOQL, builds a report, returns results\n- Data updates: agent updates hundreds of records matching a query\n- Lead routing: agent assigns new leads based on rules\n- Workflow triggers: agent kicks off a flow when a record changes",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "communication",
+  "publisher": "salesforce",
+  "externalUrl": "https://www.salesforce.com",
+  "repoUrl": "https://github.com/salesforce/mcp",
+  "installCommand": "npx -y @salesforce/mcp",
+  "installInstructions": "1. Create a connected app in Salesforce (Setup → App Manager)\n2. Enable OAuth scopes: `api`, `refresh_token`, `offline_access`\n3. Set `SALESFORCE_CLIENT_ID`, `SALESFORCE_CLIENT_SECRET`, `SALESFORCE_USERNAME`, `SALESFORCE_PASSWORD`\n4. `npx -y @salesforce/mcp`",
+  "logoUrl": "/logos/salesforce.svg",
+  "trust": {
+    "securityScore": 91,
+    "qualityScore": 93,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.96,
+    "avgLatencyMs": 280,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "salesforce",
+    "crm",
+    "soql",
+    "enterprise"
+  ],
+  "useCases": [
+    "reporting",
+    "data-updates",
+    "lead-routing",
+    "workflow-triggers"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Salesforce has a free Developer Edition org for testing.",
+  "seo": {
+    "metaTitle": "Salesforce MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Salesforce MCP server. Run SOQL and manage records from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

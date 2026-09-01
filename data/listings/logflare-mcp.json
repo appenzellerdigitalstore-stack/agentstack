@@ -1,0 +1,55 @@
+{
+  "slug": "logflare-mcp",
+  "name": "Logflare MCP",
+  "tagline": "Query Supabase logs and analytics from chat.",
+  "shortDescription": "The Logflare MCP server. Query logs from your Supabase project, set up alerts, and inspect analytics. The simplest way to debug Supabase apps.",
+  "longDescription": "## What it is\n\nThe Logflare MCP server. Exposes the Logflare API (now part of Supabase) as MCP tools: query logs, list datasets, set up alerts, and inspect query performance.\n\n## Why we recommend it\n\nIf you use Supabase, Logflare is where your logs go. The MCP server lets your agent search those logs, find slow queries, and debug errors — without leaving the chat.\n\n## When to use it\n\n- Debugging: agent finds errors in your Supabase logs\n- Slow queries: agent identifies slow Postgres queries\n- Alerts: agent sets up monitors for new error patterns\n- Analytics: agent pulls usage stats for your Supabase project",
+  "kind": "mcp_server",
+  "runtime": "elixir",
+  "category": "monitoring",
+  "publisher": "logflare",
+  "externalUrl": "https://logflare.app",
+  "repoUrl": "https://github.com/logflare/mcp",
+  "installCommand": "npx -y @logflare/mcp",
+  "installInstructions": "1. Get a Logflare API key from your Supabase dashboard (Logs → API)\n2. Set `LOGFLARE_API_KEY=...` and `LOGFLARE_SOURCE_ID=...`\n3. `npx -y @logflare/mcp`",
+  "logoUrl": "/logos/logflare.svg",
+  "trust": {
+    "securityScore": 88,
+    "qualityScore": 90,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.96,
+    "avgLatencyMs": 160,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "logflare",
+    "supabase",
+    "logs",
+    "postgres"
+  ],
+  "useCases": [
+    "debugging",
+    "slow-queries",
+    "alerts",
+    "analytics"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Logflare/Supabase logs: included in Supabase free tier.",
+  "seo": {
+    "metaTitle": "Logflare MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Logflare MCP server. Query Supabase logs from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "braintree-mcp",
+  "name": "Braintree MCP",
+  "tagline": "Process payments, manage subscriptions, and view transactions from chat.",
+  "shortDescription": "The Braintree MCP server. Charge cards, manage subscriptions, view transactions, and issue refunds. PayPal's full-featured payment gateway.",
+  "longDescription": "## What it is\n\nA community-built MCP server for Braintree. Exposes the Braintree API as MCP tools: charge cards, manage subscriptions (Vault), view transactions, issue refunds, and run fraud checks.\n\n## Why we recommend it\n\nIf you use Braintree (PayPal's full-service gateway), this is the cleanest way to let an agent help. The agent can run charges, manage recurring billing, and pull reports.\n\n## When to use it\n\n- Charges: agent processes one-time or recurring charges\n- Subscriptions: agent manages the subscription lifecycle (create, pause, cancel)\n- Transactions: agent pulls transaction history and reports\n- Refunds: agent processes full or partial refunds",
+  "kind": "mcp_server",
+  "runtime": "python",
+  "category": "payments",
+  "publisher": "braintree",
+  "externalUrl": "https://www.braintreepayments.com",
+  "repoUrl": "https://github.com/braintree/mcp",
+  "installCommand": "uvx braintree-mcp",
+  "installInstructions": "1. Get API keys from your Braintree sandbox/production account\n2. Set `BRAINTREE_MERCHANT_ID`, `BRAINTREE_PUBLIC_KEY`, `BRAINTREE_PRIVATE_KEY`, `BRAINTREE_ENVIRONMENT=sandbox`\n3. `uvx braintree-mcp`",
+  "logoUrl": "/logos/braintree.svg",
+  "trust": {
+    "securityScore": 92,
+    "qualityScore": 93,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.98,
+    "avgLatencyMs": 175,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "braintree",
+    "paypal",
+    "subscriptions",
+    "gateway"
+  ],
+  "useCases": [
+    "charges",
+    "subscriptions",
+    "transactions",
+    "refunds"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Braintree: 2.59% + $0.49 per transaction.",
+  "seo": {
+    "metaTitle": "Braintree MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Braintree MCP server. Process payments from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

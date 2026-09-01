@@ -1,0 +1,196 @@
+---
+/**
+ * /vs/[slug1]-vs-[slug2] — comparison page between any two listings.
+ * Statically generated at build time. Returns 404 if either slug doesn't exist.
+ */
+import Layout from '../../layouts/Layout.astro';
+import ListingCard from '../../components/ListingCard.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
+import { getListingBySlug, getAllListings, getCategoryBySlug, getPublisherBySlug } from '../../lib/listings';
+
+export async function getStaticPaths() {
+  const listings = getAllListings();
+  const slugs = listings.map((l) => l.slug);
+  const paths = [];
+  for (let i = 0; i < slugs.length; i++) {
+    for (let j = i + 1; j < slugs.length; j++) {
+      // Both orderings — /vs/a-vs-b and /vs/b-vs-a both work
+      paths.push({ params: { slug1: slugs[i], slug2: slugs[j] } });
+      paths.push({ params: { slug1: slugs[j], slug2: slugs[i] } });
+    }
+  }
+  return paths;
+}
+
+const { slug1, slug2 } = Astro.params;
+const a = getListingBySlug(slug1!);
+const b = getListingBySlug(slug2!);
+
+if (!a || !b) {
+  return Astro.redirect('/404');
+}
+
+const aCat = getCategoryBySlug(a.category);
+const bCat = getCategoryBySlug(b.category);
+const aPub = getPublisherBySlug(a.publisher);
+const bPub = getPublisherBySlug(b.publisher);
+
+// Score diff
+const scoreDiff = a.trust.qualityScore - b.trust.qualityScore;
+const higher = scoreDiff > 0 ? a : b;
+const lower = scoreDiff > 0 ? b : a;
+
+const pageTitle = `${a.name} vs ${b.name}: Which should you use? (2026)`;
+const pageDescription = `A side-by-side comparison of ${a.name} and ${b.name}. Security scores, install commands, use cases, and a clear recommendation for each.`;
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <article class="container-page max-w-4xl py-12">
+    <nav class="text-xs text-ink-500 mb-6 font-mono">
+      <a href="/" class="hover:text-ink-300">Home</a>
+      <span class="mx-2">/</span>
+      {aCat && <a href={`/category/${aCat.slug}`} class="hover:text-ink-300">{aCat.name}</a>}
+      <span class="mx-2">/</span>
+      <span class="text-ink-300">Compare</span>
+    </nav>
+
+    <header class="mb-10">
+      <h1 class="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05]">
+        {a.name} <span class="text-ink-500">vs</span> {b.name}
+      </h1>
+      <p class="mt-4 text-lg text-ink-300 max-w-2xl leading-relaxed">
+        A side-by-side comparison of {a.name} and {b.name} for {aCat?.name.toLowerCase() ?? 'this category'}. Both are legitimate options — here's how to pick the right one for you.
+      </p>
+      <p class="mt-3 text-xs text-ink-500 font-mono">
+        Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} · Hand-verified by editors
+      </p>
+    </header>
+
+    <!-- TL;DR -->
+    <aside class="rounded-xl border-2 border-brand-500/40 bg-brand-500/5 p-6 mb-10">
+      <div class="text-xs font-mono uppercase tracking-wider text-brand-300 mb-2">TL;DR</div>
+      <p class="text-ink-100 text-lg leading-relaxed">
+        {higher.name} is the better choice if quality score matters most to you ({higher.trust.qualityScore}/100 vs {lower.trust.qualityScore}/100). For everything else, the choice depends on your specific use case — read the full comparison below.
+      </p>
+    </aside>
+
+    <!-- Side-by-side cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+      {[a, b].map((listing) => {
+        const cat = getCategoryBySlug(listing.category);
+        const pub = getPublisherBySlug(listing.publisher);
+        return (
+          <div class="card p-6">
+            <div class="flex items-start justify-between gap-3 mb-3">
+              <div>
+                <h2 class="text-2xl font-bold text-ink-50">{listing.name}</h2>
+                {pub && <p class="text-sm text-ink-500 mt-1">by {pub.name}</p>}
+              </div>
+              <div class="flex flex-col items-end gap-1">
+                {listing.trust.isOfficial && <span class="badge badge-official">Official</span>}
+                <span class:list={[
+                  'badge capitalize',
+                  listing.pricing === 'free' ? 'badge-free' : 'badge-freemium',
+                ]}>{listing.pricing}</span>
+              </div>
+            </div>
+            <p class="text-sm text-ink-300 leading-relaxed mb-4">{listing.shortDescription}</p>
+            <TrustBadges
+              securityScore={listing.trust.securityScore}
+              qualityScore={listing.trust.qualityScore}
+              isVerified={listing.trust.isVerified}
+              isOfficial={listing.trust.isOfficial}
+              lastVerifiedAt={listing.trust.lastVerifiedAt}
+            />
+            <div class="mt-4 pt-4 border-t border-ink-800/60 space-y-2 text-sm">
+              {cat && <div class="flex justify-between"><span class="text-ink-500">Category</span><span class="text-ink-200">{cat.name}</span></div>}
+              <div class="flex justify-between"><span class="text-ink-500">Pricing</span><span class="text-ink-200 capitalize">{listing.pricing}</span></div>
+              {listing.installCommand && <div class="pt-2"><div class="text-ink-500 text-xs mb-1">Install</div><code class="block text-xs font-mono text-ink-300 bg-ink-900/80 rounded p-2 break-all">{listing.installCommand}</code></div>}
+            </div>
+            <div class="mt-4 flex gap-2">
+              <a href={`/listings/${listing.slug}`} class="btn btn-secondary flex-1 text-xs">Full review</a>
+              <a href={listing.externalUrl} target="_blank" rel="noopener" class="btn btn-primary flex-1 text-xs">Visit site ↗</a>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- When to pick which -->
+    <section class="mb-10">
+      <h2 class="text-2xl font-semibold mb-4">When to pick which</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="card p-5">
+          <h3 class="font-semibold text-brand-300 mb-2">Pick {a.name} if…</h3>
+          <ul class="text-sm text-ink-300 space-y-1.5">
+            {a.useCases.slice(0, 4).map((u) => (
+              <li class="flex gap-2"><span class="text-brand-400">→</span><span>{u}</span></li>
+            ))}
+          </ul>
+        </div>
+        <div class="card p-5">
+          <h3 class="font-semibold text-brand-300 mb-2">Pick {b.name} if…</h3>
+          <ul class="text-sm text-ink-300 space-y-1.5">
+            {b.useCases.slice(0, 4).map((u) => (
+              <li class="flex gap-2"><span class="text-brand-400">→</span><span>{u}</span></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Score breakdown -->
+    <section class="mb-10">
+      <h2 class="text-2xl font-semibold mb-4">Score breakdown</h2>
+      <div class="card overflow-hidden">
+        <table class="w-full text-sm">
+          <thead class="bg-ink-900/60 text-ink-400 text-left">
+            <tr>
+              <th class="px-4 py-3 font-medium">Metric</th>
+              <th class="px-4 py-3 font-medium text-center">{a.name}</th>
+              <th class="px-4 py-3 font-medium text-center">{b.name}</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-ink-800/60">
+            <tr>
+              <td class="px-4 py-3 text-ink-300">Security score</td>
+              <td class="px-4 py-3 text-center font-mono text-ink-100">{a.trust.securityScore}/100</td>
+              <td class="px-4 py-3 text-center font-mono text-ink-100">{b.trust.securityScore}/100</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 text-ink-300">Quality score</td>
+              <td class="px-4 py-3 text-center font-mono text-ink-100">{a.trust.qualityScore}/100</td>
+              <td class="px-4 py-3 text-center font-mono text-ink-100">{b.trust.qualityScore}/100</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 text-ink-300">Pricing</td>
+              <td class="px-4 py-3 text-center capitalize text-ink-100">{a.pricing}</td>
+              <td class="px-4 py-3 text-center capitalize text-ink-100">{b.pricing}</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 text-ink-300">Avg latency</td>
+              <td class="px-4 py-3 text-center font-mono text-ink-100">{a.status.avgLatencyMs}ms</td>
+              <td class="px-4 py-3 text-center font-mono text-ink-100">{b.status.avgLatencyMs}ms</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 text-ink-300">30-day uptime</td>
+              <td class="px-4 py-3 text-center font-mono text-ink-100">{a.status.uptimePct30d}%</td>
+              <td class="px-4 py-3 text-center font-mono text-ink-100">{b.status.uptimePct30d}%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Related tools -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">More in {aCat?.name ?? 'this category'}</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {getAllListings()
+          .filter((l) => l.category === a.category && l.slug !== a.slug && l.slug !== b.slug)
+          .slice(0, 3)
+          .map((l) => <ListingCard listing={l} compact />)}
+      </div>
+    </section>
+  </article>
+</Layout>

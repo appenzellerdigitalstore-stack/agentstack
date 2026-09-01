@@ -1,0 +1,56 @@
+{
+  "slug": "oxylabs-mcp",
+  "name": "Oxylabs MCP",
+  "tagline": "Web scraping with managed proxies and anti-bot bypass from chat.",
+  "shortDescription": "The official Oxylabs MCP server. Scrape any site with managed proxy rotation, browser fingerprinting, and CAPTCHA solving. Production-grade scraping infrastructure for AI agents.",
+  "longDescription": "## What it is\n\nOxylabs' MCP server. Exposes Oxylabs' Web Scraper API as MCP tools: scrape any URL, run Google search scraping, handle anti-bot protections, render JavaScript, and extract structured data with AI.\n\n## Why we recommend it\n\nIf Firecrawl fails on a hard site, Oxylabs is the next thing to try. Their proxy pool covers 195+ countries, the AI-powered scraper handles anti-bot challenges, and the pricing is per-GB rather than per-request.\n\n## When to use it\n\n- Hard-to-scrape sites: agent scrapes sites that block naive requests\n- SERP scraping: agent pulls Google/Bing results with location targeting\n- E-commerce: agent scrapes product pages at scale with rate limiting\n- Compliance: Oxylabs is GDPR/CCPA compliant with a public data ethics policy",
+  "kind": "mcp_server",
+  "runtime": "python",
+  "category": "web-scraping",
+  "publisher": "oxylabs",
+  "externalUrl": "https://oxylabs.io",
+  "repoUrl": "https://github.com/oxylabs/oxylabs-mcp",
+  "installCommand": "uvx oxylabs-mcp",
+  "installInstructions": "1. Sign up at https://oxylabs.io and get an API username/password\n2. Set `OXYLABS_USERNAME` and `OXYLABS_PASSWORD`\n3. `uvx oxylabs-mcp`\n\n**Free trial:** 7-day free trial with 5K requests.",
+  "logoUrl": "/logos/oxylabs.svg",
+  "trust": {
+    "securityScore": 91,
+    "qualityScore": 92,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.96,
+    "avgLatencyMs": 1380,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "oxylabs",
+    "scraping",
+    "proxies",
+    "anti-bot",
+    "serp"
+  ],
+  "useCases": [
+    "hard-sites",
+    "serp-scraping",
+    "ecommerce",
+    "compliance"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free trial: 7 days, 5K requests. Paid: from $49/month for 50K requests.",
+  "seo": {
+    "metaTitle": "Oxylabs MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Oxylabs MCP server. Web scraping with managed proxies from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

@@ -1,0 +1,56 @@
+{
+  "slug": "apify-mcp",
+  "name": "Apify MCP",
+  "tagline": "Run any of 5,000+ Apify scrapers from your AI agent.",
+  "shortDescription": "The official Apify MCP server. Search the Apify marketplace, run any actor (scraper, crawler, automation), and get structured results back. The Agent Store for the public web.",
+  "longDescription": "## What it is\n\nApify's MCP server. Connects your agent to the entire Apify platform: search 5,000+ pre-built scrapers (Actors), run them on demand, get results as JSON, and even save them to an Apify Dataset for later.\n\n## Why we recommend it\n\nApify is the marketplace of scrapers — for almost any site, someone has already built an Actor. The MCP server exposes that whole marketplace to your agent: it can find the right scraper, run it, and return the data. No need to write a custom scraper for every site.\n\n## When to use it\n\n- Lead generation: agent runs a LinkedIn/Google Maps actor on demand\n- Market research: agent scrapes product listings from any e-commerce site\n- Social listening: agent pulls recent tweets/Reddit posts matching a query\n- One-off data: agent finds the right Actor, runs it, returns clean JSON",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "web-scraping",
+  "publisher": "apify",
+  "externalUrl": "https://apify.com",
+  "repoUrl": "https://github.com/apify/mcp-server",
+  "installCommand": "npx -y @apify/mcp-server",
+  "installInstructions": "1. Sign up at https://apify.com and get an API token\n2. Set `APIFY_TOKEN=...`\n3. `npx -y @apify/mcp-server`\n\n**Free tier:** $5/month in platform credits, no card required.",
+  "logoUrl": "/logos/apify.svg",
+  "trust": {
+    "securityScore": 90,
+    "qualityScore": 93,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.97,
+    "avgLatencyMs": 420,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "apify",
+    "scraping",
+    "marketplace",
+    "actors",
+    "automation"
+  ],
+  "useCases": [
+    "lead-generation",
+    "market-research",
+    "social-listening",
+    "one-off-data"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Apify: $5/month free platform credits. Pay-as-you-go after that.",
+  "seo": {
+    "metaTitle": "Apify MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Apify MCP server. Run 5,000+ scrapers from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "render-mcp",
+  "name": "Render MCP",
+  "tagline": "Manage Render services, deploys, and databases from chat.",
+  "longDescription": "## What it is\n\nRender's official MCP server. Exposes the Render API as MCP tools: list services, trigger deploys, manage env vars, view deploy logs, manage Postgres/Redis/Key Value stores.\n\n## Why we recommend it\n\nRender is the easiest way to host a modern web app. The MCP server lets your agent deploy, scale, and debug — without opening the Render dashboard.\n\n## When to use it\n\n- Deploys: agent triggers a deploy, monitors the build, reports the URL\n- Rollback: agent rolls back to a previous deploy\n- Env vars: agent adds/rotates secrets per environment\n- Databases: agent manages Postgres, runs migrations, queries",
+  "shortDescription": "Manage Render services, deploys, and databases from your AI agent. The official Render MCP server.",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "cloud-infra",
+  "publisher": "render",
+  "externalUrl": "https://render.com",
+  "repoUrl": "https://github.com/render-oss/mcp",
+  "installCommand": "npx -y @render/mcp",
+  "installInstructions": "1. Get an API key at https://dashboard.render.com/u/settings/api-keys\n2. Set `RENDER_API_KEY=...`\n3. `npx -y @render/mcp`",
+  "logoUrl": "/logos/render.svg",
+  "trust": {
+    "securityScore": 91,
+    "qualityScore": 92,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.96,
+    "avgLatencyMs": 200,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "render",
+    "deploy",
+    "paas",
+    "databases"
+  ],
+  "useCases": [
+    "deploys",
+    "rollback",
+    "env-vars",
+    "databases"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Render: free tier for static sites and web services.",
+  "seo": {
+    "metaTitle": "Render MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Render MCP server. Manage services and deploys from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

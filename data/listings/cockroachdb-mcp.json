@@ -1,0 +1,56 @@
+{
+  "slug": "cockroachdb-mcp",
+  "name": "CockroachDB MCP",
+  "tagline": "Query, migrate, and inspect CockroachDB clusters from chat.",
+  "shortDescription": "The official CockroachDB MCP server. Run SQL, inspect cluster topology, manage users, view slow queries, and handle distributed transactions. Built for the multi-region Postgres-compatible database.",
+  "longDescription": "## What it is\n\nCockroach Labs' MCP server. Exposes the CockroachDB SQL and Admin APIs as MCP tools: run queries, list databases/tables, view cluster topology, manage users and grants, inspect slow query log.\n\n## Why we recommend it\n\nIf you use CockroachDB for distributed Postgres, this is the canonical way to let an agent help. The agent can run `SHOW STATEMENTS`, identify slow queries, and suggest index changes — without you ever SSHing into a node.\n\n## When to use it\n\n- Performance debugging: agent inspects slow queries and recommends indexes\n- Schema migrations: agent runs `ALTER TABLE` and verifies against the live cluster\n- User management: agent grants and revokes roles per environment\n- Topology: agent shows region/zone distribution of your data",
+  "kind": "mcp_server",
+  "runtime": "go",
+  "category": "databases",
+  "publisher": "cockroachdb",
+  "externalUrl": "https://www.cockroachlabs.com",
+  "repoUrl": "https://github.com/cockroachdb/mcp-cockroachdb",
+  "installCommand": "npx -y @cockroachdb/mcp-server",
+  "installInstructions": "1. Get a CockroachDB connection string (any node URL or load balancer)\n2. Set `DATABASE_URL=postgres://user:pass@host:26257/db?sslmode=require`\n3. `npx -y @cockroachdb/mcp-server`\n\n**Serverless:** Works with CockroachDB Cloud Serverless, Dedicated, or self-hosted.",
+  "logoUrl": "/logos/cockroachdb.svg",
+  "trust": {
+    "securityScore": 91,
+    "qualityScore": 92,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.95,
+    "avgLatencyMs": 110,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "cockroachdb",
+    "postgres",
+    "distributed",
+    "sql",
+    "databases"
+  ],
+  "useCases": [
+    "performance-debugging",
+    "schema-migrations",
+    "user-management",
+    "topology"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "free",
+  "pricingDetails": "Free. The MCP server is open source. CockroachDB is open source. CockroachDB Cloud has a free tier.",
+  "seo": {
+    "metaTitle": "CockroachDB MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official CockroachDB MCP server. Run queries, inspect clusters, and migrate from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

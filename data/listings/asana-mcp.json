@@ -1,0 +1,55 @@
+{
+  "slug": "asana-mcp",
+  "name": "Asana MCP",
+  "tagline": "Manage Asana projects, tasks, and timelines from chat.",
+  "shortDescription": "The Asana MCP server. Create and update tasks, manage projects, assign work, set due dates, and view portfolios. The canonical way to give an agent access to your team's work.",
+  "longDescription": "## What it is\n\nThe official Asana MCP server. Exposes the Asana API as MCP tools: create/update/complete tasks, manage projects and sections, assign work, set due dates, add followers, and view portfolios.\n\n## Why we recommend it\n\nIf your team plans work in Asana, this is the cleanest way to let an agent help. The agent can turn chat into tasks, organize a project by section, and report status — without anyone opening Asana.\n\n## When to use it\n\n- Status reports: agent pulls 'what's done / in progress / blocked' for standups\n- Task creation: agent turns a chat conversation into a well-formed task\n- Workload: agent lists tasks by assignee to find who's overloaded\n- Project hygiene: agent closes stale tasks, archives done projects",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "productivity",
+  "publisher": "asana",
+  "externalUrl": "https://asana.com",
+  "repoUrl": "https://github.com/asana/mcp-server",
+  "installCommand": "npx -y @asana/mcp",
+  "installInstructions": "1. Get a personal access token at https://app.asana.com/0/my-apps\n2. Set `ASANA_TOKEN=...`\n3. `npx -y @asana/mcp`",
+  "logoUrl": "/logos/asana.svg",
+  "trust": {
+    "securityScore": 90,
+    "qualityScore": 92,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.96,
+    "avgLatencyMs": 160,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "asana",
+    "project-management",
+    "tasks",
+    "teams"
+  ],
+  "useCases": [
+    "status-reports",
+    "task-creation",
+    "workload",
+    "project-hygiene"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "free",
+  "pricingDetails": "Free. The MCP server is open source. Asana has a generous free tier (up to 10 users).",
+  "seo": {
+    "metaTitle": "Asana MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Asana MCP server. Manage tasks and projects from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

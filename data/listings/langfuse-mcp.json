@@ -1,0 +1,55 @@
+{
+  "slug": "langfuse-mcp",
+  "name": "Langfuse MCP",
+  "tagline": "Observe and debug LLM applications from your agent.",
+  "shortDescription": "The Langfuse MCP server. Inspect traces, query logs, score completions, and pull analytics for any LLM app instrumented with Langfuse. The open source LangSmith alternative.",
+  "longDescription": "## What it is\n\nThe Langfuse MCP server. Connects your agent to Langfuse: list traces, inspect completions, score responses, query logs, and pull usage analytics. Works with any LLM framework (LangChain, LlamaIndex, custom).\n\n## Why we recommend it\n\nIf you ship LLM features, you need observability. Langfuse is the open source LangSmith. The MCP server lets your agent inspect traces, find regressions, and score completions — all conversationally.\n\n## When to use it\n\n- Debugging: agent pulls traces for a failing prompt, finds the regression\n- Evaluation: agent scores recent completions against a rubric\n- Analytics: agent pulls 'token usage by model' or 'latency by prompt'\n- Cost tracking: agent shows you which prompts are eating your budget",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "ai-reasoning",
+  "publisher": "langfuse",
+  "externalUrl": "https://langfuse.com",
+  "repoUrl": "https://github.com/langfuse/mcp",
+  "installCommand": "npx -y @langfuse/mcp",
+  "installInstructions": "1. Sign up at https://cloud.langfuse.com (or self-host)\n2. Create an API key: Settings → API Keys\n3. Set `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_HOST`\n4. `npx -y @langfuse/mcp`",
+  "logoUrl": "/logos/langfuse.svg",
+  "trust": {
+    "securityScore": 92,
+    "qualityScore": 94,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.97,
+    "avgLatencyMs": 100,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "langfuse",
+    "observability",
+    "tracing",
+    "llm-evals"
+  ],
+  "useCases": [
+    "debugging",
+    "evaluation",
+    "analytics",
+    "cost-tracking"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server and Langfuse core are open source. Cloud: 50K observations/month free.",
+  "seo": {
+    "metaTitle": "Langfuse MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Langfuse MCP server. Observe and debug LLM apps from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

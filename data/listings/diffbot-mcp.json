@@ -1,0 +1,56 @@
+{
+  "slug": "diffbot-mcp",
+  "name": "Diffbot MCP",
+  "tagline": "The Knowledge Graph — structured data from any public web page.",
+  "shortDescription": "The Diffbot MCP server. Extract structured entities (products, articles, people, companies, discussions) from any URL. Trained on the public web, returns typed JSON.",
+  "longDescription": "## What it is\n\nDiffbot's MCP server. Connects your agent to the Diffbot Knowledge Graph: extract structured data from any URL using Diffbot's trained extractors, query the global Knowledge Graph for entities, and resolve ambiguities.\n\n## Why we recommend it\n\nDiffbot has been crawling the public web since 2010 and has one of the most complete structured knowledge graphs. The MCP server gives your agent access to a vast database of products, articles, companies, and people — all queryable by URL or natural language.\n\n## When to use it\n\n- Product data: agent extracts full product details from a URL\n- People/companies: agent resolves a name to canonical entity + facts\n- News: agent finds all articles about a topic from the past year\n- Competitive intel: agent builds a structured picture of a competitor's web footprint",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "web-scraping",
+  "publisher": "diffbot",
+  "externalUrl": "https://www.diffbot.com",
+  "repoUrl": "https://github.com/diffbot/mcp",
+  "installCommand": "npx -y @diffbot/mcp",
+  "installInstructions": "1. Sign up at https://www.diffbot.com and get an API token\n2. Set `DIFFBOT_TOKEN=...`\n3. `npx -y @diffbot/mcp`\n\n**Free tier:** 10K API calls/month, no card required.",
+  "logoUrl": "/logos/diffbot.svg",
+  "trust": {
+    "securityScore": 91,
+    "qualityScore": 93,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.98,
+    "avgLatencyMs": 380,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "diffbot",
+    "knowledge-graph",
+    "extraction",
+    "entities",
+    "scraping"
+  ],
+  "useCases": [
+    "product-data",
+    "people-companies",
+    "news",
+    "competitive-intel"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free tier: 10K calls/month. Developer: $299/month for 250K calls. Enterprise: custom.",
+  "seo": {
+    "metaTitle": "Diffbot MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Diffbot MCP server. Query the Knowledge Graph from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

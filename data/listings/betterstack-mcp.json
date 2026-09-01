@@ -1,0 +1,55 @@
+{
+  "slug": "betterstack-mcp",
+  "name": "Better Stack MCP",
+  "tagline": "Uptime monitoring, log management, and incidents from chat.",
+  "shortDescription": "The Better Stack MCP server. Create uptime monitors, manage on-call schedules, query logs, and handle incidents. Uptime Robot + PagerDuty in one.",
+  "longDescription": "## What it is\n\nBetter Stack's official MCP server. Exposes the Better Stack API as MCP tools: create/manage uptime monitors, view incidents, query logs, manage on-call schedules, and post status page updates.\n\n## Why we recommend it\n\nBetter Stack combines uptime monitoring, log management, on-call, and status pages in one. The MCP server lets your agent handle incidents conversationally — create monitors, page the right person, post updates.\n\n## When to use it\n\n- Uptime: agent adds monitors for new endpoints\n- Incidents: agent triggers an incident, pages the on-call, posts a status update\n- Logs: agent queries Better Stack Logs (built on ClickHouse)\n- On-call: agent manages schedules and escalations",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "monitoring",
+  "publisher": "betterstack",
+  "externalUrl": "https://betterstack.com",
+  "repoUrl": "https://github.com/betterstack/mcp",
+  "installCommand": "npx -y @betterstack/mcp",
+  "installInstructions": "1. Get an API token at https://betterstack.com/settings/api-tokens\n2. Set `BETTERSTACK_TOKEN=...`\n3. `npx -y @betterstack/mcp`\n\n**Free tier:** 10 monitors, 5-minute checks, 3-day log retention.",
+  "logoUrl": "/logos/betterstack.svg",
+  "trust": {
+    "securityScore": 90,
+    "qualityScore": 92,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.97,
+    "avgLatencyMs": 165,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "betterstack",
+    "uptime",
+    "logs",
+    "on-call"
+  ],
+  "useCases": [
+    "uptime",
+    "incidents",
+    "logs",
+    "on-call"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Better Stack: 10 monitors free. Paid: from $25/month.",
+  "seo": {
+    "metaTitle": "Better Stack MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Better Stack MCP server. Uptime, logs, and on-call from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

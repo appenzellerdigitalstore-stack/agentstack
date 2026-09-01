@@ -1,0 +1,56 @@
+{
+  "slug": "gitlab-mcp",
+  "name": "GitLab MCP",
+  "tagline": "Manage GitLab repos, merge requests, issues, and CI pipelines from chat.",
+  "shortDescription": "The official GitLab MCP server. Create and review merge requests, manage issues, trigger CI pipelines, inspect jobs, and read repository files. Works with self-hosted GitLab and GitLab.com.",
+  "longDescription": "## What it is\n\nGitLab's official MCP server. Exposes the GitLab REST and GraphQL APIs as MCP tools: create/merge/close MRs, file and update issues, trigger pipelines, inspect job logs, list project files, manage milestones, and search across code.\n\n## Why we recommend it\n\nIt comes from GitLab itself, so the auth, pagination, and rate limits all work as expected. Self-hosted GitLab is fully supported (point it at your instance URL), and the read-only mode is a great default for safe exploration.\n\n## When to use it\n\n- Triage: agent lists your open MRs and groups them by status/reviewer\n- Issue creation: agent turns a chat conversation into a well-formed issue\n- CI: agent inspects a failing pipeline, pulls job logs, and suggests fixes\n- Code review: agent reads diffs and leaves inline-style comments",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "developer-tools",
+  "publisher": "gitlab",
+  "externalUrl": "https://gitlab.com",
+  "repoUrl": "https://gitlab.com/gitlab-org/duo-workflow",
+  "installCommand": "npx -y @gitlab/mcp-server",
+  "installInstructions": "1. Create a GitLab personal access token at https://gitlab.com/-/user_settings/personal_access_tokens (scope: `api`)\n2. Set `GITLAB_TOKEN=glpat-...` and `GITLAB_URL=https://gitlab.com` (or your self-hosted URL)\n3. `npx -y @gitlab/mcp-server`\n\n**Self-hosted:** Set `GITLAB_URL` to your instance (e.g. `https://gitlab.mycompany.com`).",
+  "logoUrl": "/logos/gitlab.svg",
+  "trust": {
+    "securityScore": 90,
+    "qualityScore": 93,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.96,
+    "avgLatencyMs": 165,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "gitlab",
+    "git",
+    "ci",
+    "merge-requests",
+    "issues"
+  ],
+  "useCases": [
+    "code-review",
+    "ci-debugging",
+    "issue-triage",
+    "self-hosted-git"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "free",
+  "pricingDetails": "Free. The MCP server is open source. GitLab is open source. GitLab.com is free for unlimited public repos.",
+  "seo": {
+    "metaTitle": "GitLab MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official GitLab MCP server. Manage merge requests, issues, and CI from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

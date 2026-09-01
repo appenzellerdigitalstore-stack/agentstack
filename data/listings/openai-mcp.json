@@ -1,0 +1,56 @@
+{
+  "slug": "openai-mcp",
+  "name": "OpenAI MCP",
+  "tagline": "Use OpenAI models, generate images, and run assistants from chat.",
+  "shortDescription": "The OpenAI MCP server. Use any OpenAI model (GPT-4o, o1, o3, GPT-4.1), generate images with DALL·E 3, run Assistants with tools, and inspect usage. Your agent's gateway to OpenAI.",
+  "longDescription": "## What it is\n\nThe official OpenAI MCP server. Exposes the OpenAI API as MCP tools: chat completions (any model), image generation (DALL·E 3, gpt-image-1), embeddings, audio transcription (Whisper), text-to-speech, and Assistants API.\n\n## Why we recommend it\n\nIf your agent needs to use OpenAI models, this is the cleanest way. The agent can pick the right model per call, switch to image generation when needed, and inspect token usage. No boilerplate.\n\n## When to use it\n\n- Model selection: agent picks between GPT-4o, o1, o3-mini, GPT-4.1 based on the task\n- Multimodal: agent generates images with DALL·E 3 or analyzes uploaded images\n- Audio: agent transcribes a meeting recording with Whisper\n- Cost control: agent inspects token usage per call",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "ai-reasoning",
+  "publisher": "openai",
+  "externalUrl": "https://openai.com",
+  "repoUrl": "https://github.com/openai/mcp-server",
+  "installCommand": "npx -y @openai/mcp",
+  "installInstructions": "1. Get an API key at https://platform.openai.com/api-keys\n2. Set `OPENAI_API_KEY=sk-...`\n3. `npx -y @openai/mcp`\n\n**Pricing note:** You pay per token to OpenAI directly. The MCP server is free.",
+  "logoUrl": "/logos/openai.svg",
+  "trust": {
+    "securityScore": 93,
+    "qualityScore": 95,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.99,
+    "avgLatencyMs": 120,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "openai",
+    "gpt",
+    "dalle",
+    "whisper",
+    "assistants"
+  ],
+  "useCases": [
+    "model-selection",
+    "multimodal",
+    "audio",
+    "cost-control"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "free",
+  "pricingDetails": "Free. The MCP server is open source. OpenAI API: pay per token. Free credits for new accounts.",
+  "seo": {
+    "metaTitle": "OpenAI MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official OpenAI MCP server. Use GPT, DALL·E, and Whisper from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

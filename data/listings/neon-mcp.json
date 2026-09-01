@@ -1,0 +1,56 @@
+{
+  "slug": "neon-mcp",
+  "name": "Neon MCP",
+  "tagline": "Manage serverless Postgres branches, schemas, and queries from chat.",
+  "shortDescription": "The official Neon MCP server. Create database branches for every PR, run queries, manage schemas, and tear down dev environments. Postgres with git-like branching.",
+  "longDescription": "## What it is\n\nThe Neon MCP server, by Neon. Exposes Neon's branching API and Postgres query engine as MCP tools: create/list/delete branches, run SQL queries, manage roles, inspect connection strings, and migrate schemas.\n\n## Why we recommend it\n\nNeon's killer feature is branching — every PR gets its own Postgres copy in 1 second. The MCP server makes that workflow conversational: your agent can spin up a branch, run the migration, run the tests, and tear it all down.\n\n## When to use it\n\n- Ephemeral environments: agent creates a branch per PR, with seeded data\n- Schema reviews: agent shows the diff between two branches' schemas\n- Migrations: agent runs a migration on a branch, tests it, then promotes\n- Query debugging: agent runs a slow query with EXPLAIN ANALYZE",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "databases",
+  "publisher": "neon",
+  "externalUrl": "https://neon.tech",
+  "repoUrl": "https://github.com/neondatabase/mcp-server-neon",
+  "installCommand": "npx -y @neondatabase/mcp-server-neon",
+  "installInstructions": "1. Get a Neon API key at https://console.neon.tech/app/settings/api-keys\n2. Set `NEON_API_KEY=...`\n3. `npx -y @neondatabase/mcp-server-neon`",
+  "logoUrl": "/logos/neon.svg",
+  "trust": {
+    "securityScore": 93,
+    "qualityScore": 95,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.99,
+    "avgLatencyMs": 80,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "postgres",
+    "neon",
+    "branching",
+    "serverless",
+    "databases"
+  ],
+  "useCases": [
+    "ephemeral-envs",
+    "schema-reviews",
+    "migrations",
+    "query-debugging"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Neon free tier: 0.5GB storage, 190 compute hours/month, unlimited branches.",
+  "seo": {
+    "metaTitle": "Neon MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Neon MCP server. Branch Postgres databases from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

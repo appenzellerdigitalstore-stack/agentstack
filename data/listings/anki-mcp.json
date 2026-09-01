@@ -1,0 +1,55 @@
+{
+  "slug": "anki-mcp",
+  "name": "Anki MCP",
+  "tagline": "Create and review Anki flashcards from your AI agent.",
+  "shortDescription": "An MCP server for Anki. Add cards, search your deck, generate cards from text, and trigger review sessions. The fastest way to turn what you learn into long-term memory.",
+  "longDescription": "## What it is\n\nA community MCP server for Anki. Connects to AnkiConnect (the Anki plugin) and exposes card operations: add cards, search your deck, get due cards, generate cards from text, and trigger reviews.\n\n## Why we recommend it\n\nSpaced repetition is the most evidence-backed learning technique. The MCP server lets your agent turn any text into a deck — perfect for technical docs, vocabulary, or interview prep.\n\n## When to use it\n\n- Doc-to-deck: agent reads a doc and generates cloze-deletion cards\n- Vocabulary: agent turns a glossary into bidirectional cards\n- Interview prep: agent generates 'explain X in your own words' cards\n- Bulk import: agent takes a CSV and creates hundreds of cards in one call",
+  "kind": "mcp_server",
+  "runtime": "python",
+  "category": "productivity",
+  "publisher": "anki",
+  "externalUrl": "https://apps.ankiweb.net",
+  "repoUrl": "https://github.com/ankitects/anki-mcp",
+  "installCommand": "uvx anki-mcp",
+  "installInstructions": "1. Install Anki desktop from https://apps.ankiweb.net\n2. Install the AnkiConnect add-on (code: 2055492159)\n3. Make sure Anki is running\n4. `uvx anki-mcp`",
+  "logoUrl": "/logos/anki.svg",
+  "trust": {
+    "securityScore": 88,
+    "qualityScore": 90,
+    "isVerified": true,
+    "isOfficial": false,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.99,
+    "avgLatencyMs": 25,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "anki",
+    "spaced-repetition",
+    "flashcards",
+    "learning"
+  ],
+  "useCases": [
+    "doc-to-deck",
+    "vocabulary",
+    "interview-prep",
+    "bulk-import"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "free",
+  "pricingDetails": "Free. The MCP server is open source. Anki is free. AnkiMobile (iOS) is a one-time $25.",
+  "seo": {
+    "metaTitle": "Anki MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Anki MCP server. Create and review flashcards from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

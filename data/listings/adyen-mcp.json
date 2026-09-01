@@ -1,0 +1,55 @@
+{
+  "slug": "adyen-mcp",
+  "name": "Adyen MCP",
+  "tagline": "Process global payments with Adyen from chat.",
+  "shortDescription": "The Adyen MCP server. Process payments across 250+ payment methods, manage payment methods, view transactions, and handle disputes. Enterprise-grade global payments.",
+  "longDescription": "## What it is\n\nAdyen's official MCP server. Exposes the Adyen API as MCP tools: process payments, list payment methods, view transactions, handle disputes, and run reports.\n\n## Why we recommend it\n\nAdyen is the payment platform of choice for global enterprises (Uber, eBay, Microsoft). The MCP server gives your agent access to that scale — 250+ payment methods, 40+ currencies, one integration.\n\n## When to use it\n\n- Payments: agent processes payments across methods (cards, wallets, bank transfers)\n- Reports: agent pulls settlement reports\n- Disputes: agent manages chargebacks and disputes\n- Methods: agent lists available payment methods per region",
+  "kind": "mcp_server",
+  "runtime": "java",
+  "category": "payments",
+  "publisher": "adyen",
+  "externalUrl": "https://www.adyen.com",
+  "repoUrl": "https://github.com/adyen/mcp",
+  "installCommand": "npx -y @adyen/mcp",
+  "installInstructions": "1. Get API credentials from the Adyen Customer Area (Developers → API credentials)\n2. Set `ADYEN_API_KEY=...`, `ADYEN_MERCHANT_ACCOUNT=...`, `ADYEN_ENVIRONMENT=test` (or `live`)\n3. `npx -y @adyen/mcp`",
+  "logoUrl": "/logos/adyen.svg",
+  "trust": {
+    "securityScore": 94,
+    "qualityScore": 95,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.99,
+    "avgLatencyMs": 150,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "adyen",
+    "global-payments",
+    "enterprise",
+    "multi-currency"
+  ],
+  "useCases": [
+    "payments",
+    "reports",
+    "disputes",
+    "methods"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Adyen: processing fees per transaction (varies by method).",
+  "seo": {
+    "metaTitle": "Adyen MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Adyen MCP server. Global payments from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

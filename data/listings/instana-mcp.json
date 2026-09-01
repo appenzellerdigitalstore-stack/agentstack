@@ -1,0 +1,55 @@
+{
+  "slug": "instana-mcp",
+  "name": "Instana MCP",
+  "tagline": "Observe distributed applications from your AI agent.",
+  "shortDescription": "The Instana MCP server. Query traces, inspect application topology, view metrics, and debug distributed transactions. IBM's enterprise APM platform.",
+  "longDescription": "## What it is\n\nInstana's official MCP server. Exposes the Instana API as MCP tools: query traces, inspect application topology, view metrics, manage alerts, and find bottlenecks across distributed services.\n\n## Why we recommend it\n\nIf you use Instana for APM, this is the cleanest way to let an agent help. The agent can trace a slow request across services, find the bottleneck, and suggest fixes.\n\n## When to use it\n\n- Distributed tracing: agent pulls the full trace for a slow request\n- Topology: agent shows the dependency graph for a service\n- Metrics: agent queries time-series metrics\n- Alerts: agent manages monitors and incident response",
+  "kind": "mcp_server",
+  "runtime": "go",
+  "category": "monitoring",
+  "publisher": "instana",
+  "externalUrl": "https://www.instana.com",
+  "repoUrl": "https://github.com/instana/mcp",
+  "installCommand": "npx -y @instana/mcp",
+  "installInstructions": "1. Get an API token from your Instana tenant (Settings → API Tokens)\n2. Set `INSTANA_API_TOKEN=...` and `INSTANA_HOST=...`\n3. `npx -y @instana/mcp`",
+  "logoUrl": "/logos/instana.svg",
+  "trust": {
+    "securityScore": 92,
+    "qualityScore": 93,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.97,
+    "avgLatencyMs": 175,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "instana",
+    "apm",
+    "tracing",
+    "ibm"
+  ],
+  "useCases": [
+    "distributed-tracing",
+    "topology",
+    "metrics",
+    "alerts"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Instana: free trial. Enterprise: custom pricing.",
+  "seo": {
+    "metaTitle": "Instana MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Instana MCP server. Observe distributed apps from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

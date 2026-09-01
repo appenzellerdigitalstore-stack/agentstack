@@ -1,0 +1,55 @@
+{
+  "slug": "square-mcp",
+  "name": "Square MCP",
+  "tagline": "Manage Square payments, inventory, and customers from chat.",
+  "shortDescription": "The Square MCP server. View payments, manage inventory, list customers, create invoices, and process refunds. Square's full commerce platform.",
+  "longDescription": "## What it is\n\nSquare's official MCP server. Exposes the Square API as MCP tools: list payments, manage inventory, list customers, create invoices, process refunds, and view sales reports.\n\n## Why we recommend it\n\nIf you use Square for in-person or online payments, this is the cleanest way to let an agent help. The agent can pull daily sales, manage inventory, and even issue refunds.\n\n## When to use it\n\n- Sales reports: agent pulls 'sales today' or 'top items this week'\n- Inventory: agent updates stock levels, alerts on low stock\n- Customers: agent finds customers, looks up purchase history\n- Invoices: agent creates and sends invoices",
+  "kind": "mcp_server",
+  "runtime": "java",
+  "category": "payments",
+  "publisher": "square",
+  "externalUrl": "https://squareup.com",
+  "repoUrl": "https://github.com/square/mcp",
+  "installCommand": "npx -y @square/mcp",
+  "installInstructions": "1. Create a Square app at https://developer.squareup.com/apps\n2. Get an access token (sandbox or production)\n3. Set `SQUARE_ACCESS_TOKEN=...` and `SQUARE_ENVIRONMENT=sandbox` (or `production`)\n4. `npx -y @square/mcp`",
+  "logoUrl": "/logos/square.svg",
+  "trust": {
+    "securityScore": 92,
+    "qualityScore": 93,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.98,
+    "avgLatencyMs": 185,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "square",
+    "payments",
+    "pos",
+    "invoices"
+  ],
+  "useCases": [
+    "sales-reports",
+    "inventory",
+    "customers",
+    "invoices"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Square: 2.6% + $0.10 per in-person transaction. Online: 2.9% + $0.30.",
+  "seo": {
+    "metaTitle": "Square MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Square MCP server. Manage payments and inventory from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

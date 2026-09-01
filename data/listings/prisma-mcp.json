@@ -1,0 +1,56 @@
+{
+  "slug": "prisma-mcp",
+  "name": "Prisma MCP",
+  "tagline": "Inspect, migrate, and query Prisma databases from chat.",
+  "shortDescription": "The official Prisma MCP server. Inspect your schema, run migrations, execute queries, generate Prisma Client, and debug connection issues — all from your AI agent.",
+  "longDescription": "## What it is\n\nThe Prisma MCP server, by the Prisma team. Exposes the Prisma CLI and query engine as MCP tools: introspect schema, run `prisma migrate`, generate Prisma Client, execute raw queries, format schema files, and validate.\n\n## Why we recommend it\n\nPrisma users run into the same problems repeatedly: forgotten migrations, drift between schema and DB, slow queries. The MCP server makes those problems conversational — your agent can run `migrate status` and tell you what's pending without you ever opening a terminal.\n\n## When to use it\n\n- Schema work: agent edits `schema.prisma`, runs `prisma format`, runs `migrate dev`\n- Drift detection: agent compares the DB schema to the Prisma schema\n- Query help: agent writes a query, tests it, and tells you the result\n- Migrations: agent runs `migrate deploy` and reports status",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "developer-tools",
+  "publisher": "prisma",
+  "externalUrl": "https://www.prisma.io",
+  "repoUrl": "https://github.com/prisma/mcp",
+  "installCommand": "npx -y @prisma/mcp",
+  "installInstructions": "1. Install Prisma in your project: `npm i prisma`\n2. Set `DATABASE_URL` to your database connection string\n3. `npx -y @prisma/mcp`\n\n**Security note:** This server can run migrations. Use a read-only DB connection for safe exploration.",
+  "logoUrl": "/logos/prisma.svg",
+  "trust": {
+    "securityScore": 92,
+    "qualityScore": 94,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.97,
+    "avgLatencyMs": 95,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "prisma",
+    "orm",
+    "migrations",
+    "schema",
+    "databases"
+  ],
+  "useCases": [
+    "schema-work",
+    "drift-detection",
+    "migrations",
+    "query-help"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "free",
+  "pricingDetails": "Free. The MCP server is open source. Prisma ORM is open source. Prisma Accelerate (managed connection pool) has a free tier.",
+  "seo": {
+    "metaTitle": "Prisma MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Prisma MCP server. Inspect schema, run migrations, and query from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

@@ -1,0 +1,56 @@
+{
+  "slug": "arangodb-mcp",
+  "name": "ArangoDB MCP",
+  "tagline": "Query ArangoDB multi-model data from your AI agent.",
+  "shortDescription": "The ArangoDB MCP server. Run AQL queries, manage documents, traverse graphs, and explore schemas. Document + graph in one engine, one query language.",
+  "longDescription": "## What it is\n\nThe ArangoDB MCP server. Exposes ArangoDB as MCP tools: run AQL (ArangoDB Query Language) queries, list collections, manage documents, traverse graphs, and inspect query plans.\n\n## Why we recommend it\n\nIf you use ArangoDB, this is the simplest way to give an agent access. The agent runs AQL — which works for documents, graphs, and key-value in a single query — and gets back typed results.\n\n## When to use it\n\n- AQL queries: agent writes a query, runs it, reports results\n- Graph traversal: agent uses AQL graph patterns to find paths\n- Schema exploration: agent lists collections and inspects indexes\n- Document CRUD: agent creates, updates, and deletes documents",
+  "kind": "mcp_server",
+  "runtime": "python",
+  "category": "databases",
+  "publisher": "arangodb",
+  "externalUrl": "https://arangodb.com",
+  "repoUrl": "https://github.com/arangodb/mcp",
+  "installCommand": "uvx arangodb-mcp",
+  "installInstructions": "1. Set `ARANGO_URL=http://localhost:8529`\n2. Set `ARANGO_USER`, `ARANGO_PASSWORD`, `ARANGO_DB`\n3. `uvx arangodb-mcp`",
+  "logoUrl": "/logos/arangodb.svg",
+  "trust": {
+    "securityScore": 88,
+    "qualityScore": 90,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.91,
+    "avgLatencyMs": 90,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "arangodb",
+    "multi-model",
+    "graph",
+    "document",
+    "databases"
+  ],
+  "useCases": [
+    "aql-queries",
+    "graph-traversal",
+    "schema-exploration",
+    "document-crud"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "free",
+  "pricingDetails": "Free. The MCP server is open source. ArangoDB Community is free. ArangoDB Cloud has a free tier.",
+  "seo": {
+    "metaTitle": "ArangoDB MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the ArangoDB MCP server. Run AQL and manage multi-model data from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "lemonsqueezy-mcp",
+  "name": "Lemon Squeezy MCP",
+  "tagline": "Manage Lemon Squeezy products, subscriptions, and checkouts from chat.",
+  "shortDescription": "The Lemon Squeezy MCP server. List products, create checkouts, manage subscriptions, view sales analytics, and issue refunds. The merchant-of-record alternative to Stripe.",
+  "longDescription": "## What it is\n\nA community-built MCP server for Lemon Squeezy. Exposes the Lemon Squeezy API as MCP tools: list products, create checkout links, manage subscriptions, view sales, and issue refunds.\n\n## Why we recommend it\n\nIf you sell digital products, Lemon Squeezy handles VAT/sales tax for you. The MCP server lets your agent do the routine work — list products, check sales, manage subscriptions.\n\n## When to use it\n\n- Sales reports: agent pulls 'sales this month' or 'top products'\n- Subscriptions: agent pauses, resumes, or cancels subscriptions\n- Refunds: agent issues refunds for customer requests\n- Products: agent creates new products and variants",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "payments",
+  "publisher": "lemonsqueezy",
+  "externalUrl": "https://www.lemonsqueezy.com",
+  "repoUrl": "https://github.com/lmsqueezy/mcp",
+  "installCommand": "npx -y lmsqueezy-mcp",
+  "installInstructions": "1. Get an API key at https://app.lemonsqueezy.com/settings/api\n2. Set `LEMON_SQUEEZY_API_KEY=...` and `LEMON_SQUEEZY_STORE_ID=...`\n3. `npx -y lmsqueezy-mcp`",
+  "logoUrl": "/logos/lemonsqueezy.svg",
+  "trust": {
+    "securityScore": 90,
+    "qualityScore": 91,
+    "isVerified": true,
+    "isOfficial": false,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.96,
+    "avgLatencyMs": 200,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "lemonsqueezy",
+    "merchant-of-record",
+    "subscriptions",
+    "digital-products"
+  ],
+  "useCases": [
+    "sales-reports",
+    "subscriptions",
+    "refunds",
+    "products"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Lemon Squeezy: 5% + $0.50 per transaction, no monthly fee.",
+  "seo": {
+    "metaTitle": "Lemon Squeezy MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Lemon Squeezy MCP server. Manage products and subscriptions from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

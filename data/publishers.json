@@ -58,8 +58,561 @@
   {
     "slug": "community",
     "name": "Community",
-    "websiteUrl": "https://github.com/modelcontextprotocol/servers",
+    "websiteUrl": "https://github.com/modelcontextprotocol",
     "githubHandle": null,
     "isVerified": false
+  },
+  {
+    "slug": "openai",
+    "name": "OpenAI",
+    "websiteUrl": "https://openai.com",
+    "githubHandle": "openai",
+    "isVerified": true
+  },
+  {
+    "slug": "docker",
+    "name": "Docker",
+    "websiteUrl": "https://www.docker.com",
+    "githubHandle": "docker",
+    "isVerified": true
+  },
+  {
+    "slug": "kubernetes",
+    "name": "Kubernetes (CNCF)",
+    "websiteUrl": "https://kubernetes.io",
+    "githubHandle": "kubernetes-sigs",
+    "isVerified": true
+  },
+  {
+    "slug": "hashicorp",
+    "name": "HashiCorp",
+    "websiteUrl": "https://www.hashicorp.com",
+    "githubHandle": "hashicorp",
+    "isVerified": true
+  },
+  {
+    "slug": "aws",
+    "name": "Amazon Web Services",
+    "websiteUrl": "https://aws.amazon.com",
+    "githubHandle": "aws",
+    "isVerified": true
+  },
+  {
+    "slug": "google-cloud",
+    "name": "Google Cloud",
+    "websiteUrl": "https://cloud.google.com",
+    "githubHandle": "GoogleCloudPlatform",
+    "isVerified": true
+  },
+  {
+    "slug": "azure",
+    "name": "Microsoft Azure",
+    "websiteUrl": "https://azure.microsoft.com",
+    "githubHandle": "Azure",
+    "isVerified": true
+  },
+  {
+    "slug": "digitalocean",
+    "name": "DigitalOcean",
+    "websiteUrl": "https://www.digitalocean.com",
+    "githubHandle": "digitalocean",
+    "isVerified": true
+  },
+  {
+    "slug": "vercel",
+    "name": "Vercel",
+    "websiteUrl": "https://vercel.com",
+    "githubHandle": "vercel",
+    "isVerified": true
+  },
+  {
+    "slug": "netlify",
+    "name": "Netlify",
+    "websiteUrl": "https://www.netlify.com",
+    "githubHandle": "netlify",
+    "isVerified": true
+  },
+  {
+    "slug": "e2b",
+    "name": "E2B",
+    "websiteUrl": "https://e2b.dev",
+    "githubHandle": "e2b-dev",
+    "isVerified": true
+  },
+  {
+    "slug": "huggingface",
+    "name": "Hugging Face",
+    "websiteUrl": "https://huggingface.co",
+    "githubHandle": "huggingface",
+    "isVerified": true
+  },
+  {
+    "slug": "replicate",
+    "name": "Replicate",
+    "websiteUrl": "https://replicate.com",
+    "githubHandle": "replicate",
+    "isVerified": true
+  },
+  {
+    "slug": "groq",
+    "name": "Groq",
+    "websiteUrl": "https://groq.com",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "ollama",
+    "name": "Ollama",
+    "websiteUrl": "https://ollama.com",
+    "githubHandle": "ollama",
+    "isVerified": true
+  },
+  {
+    "slug": "perplexity",
+    "name": "Perplexity",
+    "websiteUrl": "https://www.perplexity.ai",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "exa",
+    "name": "Exa",
+    "websiteUrl": "https://exa.ai",
+    "githubHandle": "exa-labs",
+    "isVerified": true
+  },
+  {
+    "slug": "stripe",
+    "name": "Stripe",
+    "websiteUrl": "https://stripe.com",
+    "githubHandle": "stripe",
+    "isVerified": true
+  },
+  {
+    "slug": "twilio",
+    "name": "Twilio",
+    "websiteUrl": "https://www.twilio.com",
+    "githubHandle": "twilio",
+    "isVerified": true
+  },
+  {
+    "slug": "hubspot",
+    "name": "HubSpot",
+    "websiteUrl": "https://www.hubspot.com",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "salesforce",
+    "name": "Salesforce",
+    "websiteUrl": "https://www.salesforce.com",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "atlassian",
+    "name": "Atlassian",
+    "websiteUrl": "https://www.atlassian.com",
+    "githubHandle": "atlassian",
+    "isVerified": true
+  },
+  {
+    "slug": "asana",
+    "name": "Asana",
+    "websiteUrl": "https://asana.com",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "airtable",
+    "name": "Airtable",
+    "websiteUrl": "https://airtable.com",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "discord",
+    "name": "Discord",
+    "websiteUrl": "https://discord.com",
+    "githubHandle": "discord",
+    "isVerified": true
+  },
+  {
+    "slug": "telegram",
+    "name": "Telegram",
+    "websiteUrl": "https://telegram.org",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "redis",
+    "name": "Redis",
+    "websiteUrl": "https://redis.io",
+    "githubHandle": "redis",
+    "isVerified": true
+  },
+  {
+    "slug": "mongodb",
+    "name": "MongoDB",
+    "websiteUrl": "https://www.mongodb.com",
+    "githubHandle": "mongodb",
+    "isVerified": true
+  },
+  {
+    "slug": "clickhouse",
+    "name": "ClickHouse",
+    "websiteUrl": "https://clickhouse.com",
+    "githubHandle": "ClickHouse",
+    "isVerified": true
+  },
+  {
+    "slug": "snowflake",
+    "name": "Snowflake",
+    "websiteUrl": "https://snowflake.com",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "pinecone",
+    "name": "Pinecone",
+    "websiteUrl": "https://www.pinecone.io",
+    "githubHandle": "pinecone-io",
+    "isVerified": true
+  },
+  {
+    "slug": "qdrant",
+    "name": "Qdrant",
+    "websiteUrl": "https://qdrant.tech",
+    "githubHandle": "qdrant",
+    "isVerified": true
+  },
+  {
+    "slug": "weaviate",
+    "name": "Weaviate",
+    "websiteUrl": "https://weaviate.io",
+    "githubHandle": "weaviate",
+    "isVerified": true
+  },
+  {
+    "slug": "chroma",
+    "name": "Chroma",
+    "websiteUrl": "https://www.trychroma.com",
+    "githubHandle": "chroma-core",
+    "isVerified": true
+  },
+  {
+    "slug": "langchain",
+    "name": "LangChain",
+    "websiteUrl": "https://www.langchain.com",
+    "githubHandle": "langchain-ai",
+    "isVerified": true
+  },
+  {
+    "slug": "llamaindex",
+    "name": "LlamaIndex",
+    "websiteUrl": "https://www.llamaindex.ai",
+    "githubHandle": "run-llama",
+    "isVerified": true
+  },
+  {
+    "slug": "langfuse",
+    "name": "Langfuse",
+    "websiteUrl": "https://langfuse.com",
+    "githubHandle": "langfuse",
+    "isVerified": true
+  },
+  {
+    "slug": "jina",
+    "name": "Jina AI",
+    "websiteUrl": "https://jina.ai",
+    "githubHandle": "jina-ai",
+    "isVerified": true
+  },
+  {
+    "slug": "diffbot",
+    "name": "Diffbot",
+    "websiteUrl": "https://www.diffbot.com",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "algolia",
+    "name": "Algolia",
+    "websiteUrl": "https://www.algolia.com",
+    "githubHandle": "algolia",
+    "isVerified": true
+  },
+  {
+    "slug": "kagi",
+    "name": "Kagi",
+    "websiteUrl": "https://kagi.com",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "datadog",
+    "name": "Datadog",
+    "websiteUrl": "https://www.datadoghq.com",
+    "githubHandle": "DataDog",
+    "isVerified": true
+  },
+  {
+    "slug": "grafana",
+    "name": "Grafana Labs",
+    "websiteUrl": "https://grafana.com",
+    "githubHandle": "grafana",
+    "isVerified": true
+  },
+  {
+    "slug": "newrelic",
+    "name": "New Relic",
+    "websiteUrl": "https://newrelic.com",
+    "githubHandle": "newrelic",
+    "isVerified": true
+  },
+  {
+    "slug": "pagerduty",
+    "name": "PagerDuty",
+    "websiteUrl": "https://www.pagerduty.com",
+    "githubHandle": "PagerDuty",
+    "isVerified": true
+  },
+  {
+    "slug": "mailchimp",
+    "name": "Mailchimp",
+    "websiteUrl": "https://mailchimp.com",
+    "githubHandle": "mailchimp",
+    "isVerified": true
+  },
+  {
+    "slug": "gmail",
+    "name": "Gmail (Google)",
+    "websiteUrl": "https://mail.google.com",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "gitlab",
+    "name": "GitLab",
+    "websiteUrl": "https://gitlab.com",
+    "githubHandle": "gitlab-org",
+    "isVerified": true
+  },
+  {
+    "slug": "prisma",
+    "name": "Prisma",
+    "websiteUrl": "https://www.prisma.io",
+    "githubHandle": "prisma",
+    "isVerified": true
+  },
+  {
+    "slug": "sanity",
+    "name": "Sanity",
+    "websiteUrl": "https://www.sanity.io",
+    "githubHandle": "sanity-io",
+    "isVerified": true
+  },
+  {
+    "slug": "neon",
+    "name": "Neon",
+    "websiteUrl": "https://neon.tech",
+    "githubHandle": "neondatabase",
+    "isVerified": true
+  },
+  {
+    "slug": "cockroachdb",
+    "name": "CockroachDB",
+    "websiteUrl": "https://www.cockroachlabs.com",
+    "githubHandle": "cockroachdb",
+    "isVerified": true
+  },
+  {
+    "slug": "surrealdb",
+    "name": "SurrealDB",
+    "websiteUrl": "https://surrealdb.com",
+    "githubHandle": "surrealdb",
+    "isVerified": true
+  },
+  {
+    "slug": "neo4j",
+    "name": "Neo4j",
+    "websiteUrl": "https://neo4j.com",
+    "githubHandle": "neo4j",
+    "isVerified": true
+  },
+  {
+    "slug": "arangodb",
+    "name": "ArangoDB",
+    "websiteUrl": "https://arangodb.com",
+    "githubHandle": "arangodb",
+    "isVerified": true
+  },
+  {
+    "slug": "apify",
+    "name": "Apify",
+    "websiteUrl": "https://apify.com",
+    "githubHandle": "apify",
+    "isVerified": true
+  },
+  {
+    "slug": "oxylabs",
+    "name": "Oxylabs",
+    "websiteUrl": "https://oxylabs.io",
+    "githubHandle": "oxylabs",
+    "isVerified": true
+  },
+  {
+    "slug": "browserless",
+    "name": "Browserless",
+    "websiteUrl": "https://www.browserless.io",
+    "githubHandle": "browserless",
+    "isVerified": true
+  },
+  {
+    "slug": "scrapegraph",
+    "name": "ScrapeGraphAI",
+    "websiteUrl": "https://scrapegraphai.com",
+    "githubHandle": "ScrapeGraphAI",
+    "isVerified": true
+  },
+  {
+    "slug": "obsidian",
+    "name": "Obsidian",
+    "websiteUrl": "https://obsidian.md",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "todoist",
+    "name": "Todoist",
+    "websiteUrl": "https://todoist.com",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "anki",
+    "name": "Anki (open source)",
+    "websiteUrl": "https://apps.ankiweb.net",
+    "githubHandle": "ankitects",
+    "isVerified": true
+  },
+  {
+    "slug": "zoom",
+    "name": "Zoom",
+    "websiteUrl": "https://zoom.us",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "intercom",
+    "name": "Intercom",
+    "websiteUrl": "https://www.intercom.com",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "mistral",
+    "name": "Mistral AI",
+    "websiteUrl": "https://mistral.ai",
+    "githubHandle": "mistralai",
+    "isVerified": true
+  },
+  {
+    "slug": "cohere",
+    "name": "Cohere",
+    "websiteUrl": "https://cohere.com",
+    "githubHandle": "cohere-ai",
+    "isVerified": true
+  },
+  {
+    "slug": "render",
+    "name": "Render",
+    "websiteUrl": "https://render.com",
+    "githubHandle": "render-oss",
+    "isVerified": true
+  },
+  {
+    "slug": "railway",
+    "name": "Railway",
+    "websiteUrl": "https://railway.app",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "fly",
+    "name": "Fly.io",
+    "websiteUrl": "https://fly.io",
+    "githubHandle": "superfly",
+    "isVerified": true
+  },
+  {
+    "slug": "axiom",
+    "name": "Axiom",
+    "websiteUrl": "https://axiom.co",
+    "githubHandle": "axiomhq",
+    "isVerified": true
+  },
+  {
+    "slug": "logflare",
+    "name": "Logflare (Supabase)",
+    "websiteUrl": "https://logflare.app",
+    "githubHandle": "logflare",
+    "isVerified": true
+  },
+  {
+    "slug": "instana",
+    "name": "Instana (IBM)",
+    "websiteUrl": "https://www.instana.com",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "betterstack",
+    "name": "Better Stack",
+    "websiteUrl": "https://betterstack.com",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "honeycomb",
+    "name": "Honeycomb",
+    "websiteUrl": "https://www.honeycomb.io",
+    "githubHandle": "honeycombio",
+    "isVerified": true
+  },
+  {
+    "slug": "lemonsqueezy",
+    "name": "Lemon Squeezy",
+    "websiteUrl": "https://www.lemonsqueezy.com",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "paddle",
+    "name": "Paddle",
+    "websiteUrl": "https://www.paddle.com",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "square",
+    "name": "Square (Block)",
+    "websiteUrl": "https://squareup.com",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "braintree",
+    "name": "Braintree (PayPal)",
+    "websiteUrl": "https://www.braintreepayments.com",
+    "githubHandle": null,
+    "isVerified": true
+  },
+  {
+    "slug": "adyen",
+    "name": "Adyen",
+    "websiteUrl": "https://www.adyen.com",
+    "githubHandle": "adyen",
+    "isVerified": true
   }
 ]

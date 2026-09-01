@@ -1,58 +1,11 @@
 [
-  {
-    "slug": "developer-tools",
-    "name": "Developer Tools",
-    "description": "Git, GitHub, code review, version control, and CI/CD tools for AI coding agents.",
-    "icon": "code",
-    "displayOrder": 1
-  },
-  {
-    "slug": "databases",
-    "name": "Databases",
-    "description": "Connect your agent to SQL, NoSQL, vector, and graph databases. Query, migrate, and inspect schemas from chat.",
-    "icon": "database",
-    "displayOrder": 2
-  },
-  {
-    "slug": "web-scraping",
-    "name": "Web Scraping & Search",
-    "description": "Fetch, extract, search, and crawl the live web. Pages, papers, images, news — anything an agent needs from the public internet.",
-    "icon": "globe",
-    "displayOrder": 3
-  },
-  {
-    "slug": "productivity",
-    "name": "Productivity & Notes",
-    "description": "Notion, Linear, calendars, tasks, and knowledge bases. Give your agent long-term memory and a place to write things down.",
-    "icon": "notebook",
-    "displayOrder": 4
-  },
-  {
-    "slug": "communication",
-    "name": "Communication",
-    "description": "Slack, email, messaging. Let your agent notify the right human at the right time.",
-    "icon": "message",
-    "displayOrder": 5
-  },
-  {
-    "slug": "ai-reasoning",
-    "name": "AI & Reasoning",
-    "description": "Structured thinking, memory, planning, and chain-of-thought helpers. Tools that make any agent smarter.",
-    "icon": "brain",
-    "displayOrder": 6
-  },
-  {
-    "slug": "cloud-infra",
-    "name": "Cloud & Infrastructure",
-    "description": "AWS, Cloudflare, Vercel, Docker, Kubernetes. Production infrastructure an agent can touch.",
-    "icon": "cloud",
-    "displayOrder": 7
-  },
-  {
-    "slug": "design-media",
-    "name": "Design & Media",
-    "description": "Figma, image generation, video, and asset libraries. Creative tools for design-aware agents.",
-    "icon": "palette",
-    "displayOrder": 8
-  }
+  { "slug": "developer-tools", "name": "Developer Tools", "description": "Git, GitHub, code review, version control, CI/CD, and infrastructure-as-code for AI coding agents.", "icon": "code", "displayOrder": 1 },
+  { "slug": "databases", "name": "Databases", "description": "Connect your agent to SQL, NoSQL, vector, and graph databases. Query, migrate, and inspect schemas from chat.", "icon": "database", "displayOrder": 2 },
+  { "slug": "web-scraping", "name": "Web Scraping & Search", "description": "Fetch, extract, search, and crawl the live web. Pages, papers, images, news — anything an agent needs from the public internet.", "icon": "globe", "displayOrder": 3 },
+  { "slug": "productivity", "name": "Productivity & Notes", "description": "Notion, Linear, calendars, tasks, spreadsheets, and knowledge bases. Give your agent long-term memory.", "icon": "notebook", "displayOrder": 4 },
+  { "slug": "communication", "name": "Communication", "description": "Slack, email, messaging, video conferencing. Let your agent notify the right human at the right time.", "icon": "message", "displayOrder": 5 },
+  { "slug": "ai-reasoning", "name": "AI & Reasoning", "description": "Vector databases, embedding models, LLM providers, observability, and chain-of-thought helpers.", "icon": "brain", "displayOrder": 6 },
+  { "slug": "cloud-infra", "name": "Cloud & Infrastructure", "description": "AWS, Cloudflare, Vercel, Docker, Kubernetes, Terraform. Production infrastructure an agent can touch.", "icon": "cloud", "displayOrder": 7 },
+  { "slug": "monitoring", "name": "Monitoring & Observability", "description": "Logs, metrics, traces, error tracking, alerting. The eyes and ears for your production stack.", "icon": "activity", "displayOrder": 8 },
+  { "slug": "payments", "name": "Payments & Billing", "description": "Stripe, Twilio, invoicing, subscriptions. The money pipes most apps need.", "icon": "credit-card", "displayOrder": 9 }
 ]

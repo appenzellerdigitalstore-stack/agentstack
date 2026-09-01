@@ -1,0 +1,55 @@
+{
+  "slug": "fly-mcp",
+  "name": "Fly.io MCP",
+  "tagline": "Manage Fly.io apps, machines, and Postgres from chat.",
+  "shortDescription": "The Fly.io MCP server. List apps, deploy machines, manage regions, scale up/down, view logs, and manage Fly Postgres. Edge-first platform with global distribution.",
+  "longDescription": "## What it is\n\nThe Fly.io MCP server. Exposes the Fly API as MCP tools: list apps, deploy and scale machines across regions, view logs, manage secrets, and manage Fly Postgres.\n\n## Why we recommend it\n\nIf you want to run your app close to your users, Fly.io is the easiest way. The MCP server lets your agent deploy, scale, and debug — across regions.\n\n## When to use it\n\n- Multi-region: agent deploys your app to multiple regions\n- Scaling: agent adds/removes machines based on load\n- Logs: agent pulls logs from any region\n- Postgres: agent manages Fly Postgres, runs migrations",
+  "kind": "mcp_server",
+  "runtime": "go",
+  "category": "cloud-infra",
+  "publisher": "fly",
+  "externalUrl": "https://fly.io",
+  "repoUrl": "https://github.com/superfly/mcp",
+  "installCommand": "npx -y @fly/mcp",
+  "installInstructions": "1. Get a Fly API token: `fly auth token`\n2. Set `FLY_API_TOKEN=...`\n3. `npx -y @fly/mcp`\n\n**Free tier:** 3 shared VMs, 3GB persistent volume, 160GB outbound data transfer.",
+  "logoUrl": "/logos/fly.svg",
+  "trust": {
+    "securityScore": 89,
+    "qualityScore": 90,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.94,
+    "avgLatencyMs": 220,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "fly",
+    "edge",
+    "multi-region",
+    "postgres"
+  ],
+  "useCases": [
+    "multi-region",
+    "scaling",
+    "logs",
+    "postgres"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Fly.io: generous free tier. Paid: usage-based.",
+  "seo": {
+    "metaTitle": "Fly.io MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Fly.io MCP server. Deploy edge apps from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

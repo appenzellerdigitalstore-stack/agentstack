@@ -1,0 +1,56 @@
+{
+  "slug": "gemini-mcp",
+  "name": "Gemini MCP",
+  "tagline": "Use Google Gemini models, embeddings, and vision from chat.",
+  "shortDescription": "The Gemini MCP server. Run any Gemini model (Pro, Flash, Flash-Lite), use the 1M+ token context window, generate embeddings, and analyze images and video. The fast and cheap option.",
+  "longDescription": "## What it is\n\nThe official Google Gemini MCP server. Exposes the Gemini API as MCP tools: chat completions with any Gemini model (2.5 Pro, 2.5 Flash, Flash-Lite), embeddings, vision, video understanding, and function calling.\n\n## Why we recommend it\n\nGemini's context window (1M+ tokens) and price/performance ratio make it the best choice for long-context tasks. The MCP server gives your agent access to all of it.\n\n## When to use it\n\n- Long context: agent loads an entire codebase or book into context\n- Vision/video: agent analyzes images and video with Gemini\n- Embeddings: agent uses Gemini embeddings for RAG\n- Cost: Gemini Flash is one of the cheapest capable models",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "ai-reasoning",
+  "publisher": "google-cloud",
+  "externalUrl": "https://cloud.google.com",
+  "repoUrl": "https://github.com/google-gemini/mcp",
+  "installCommand": "npx -y @google-gemini/mcp",
+  "installInstructions": "1. Get an API key at https://aistudio.google.com/apikey\n2. Set `GOOGLE_API_KEY=...`\n3. `npx -y @google-gemini/mcp`\n\n**Free tier:** 15 requests/minute, 1M tokens/day, 1,500 requests/day.",
+  "logoUrl": "/logos/gemini.svg",
+  "trust": {
+    "securityScore": 92,
+    "qualityScore": 93,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.98,
+    "avgLatencyMs": 95,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "gemini",
+    "google",
+    "long-context",
+    "vision",
+    "cheap"
+  ],
+  "useCases": [
+    "long-context",
+    "vision-video",
+    "embeddings",
+    "cost"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Gemini: generous free tier. Paid: $0.075-$3.50 per 1M tokens.",
+  "seo": {
+    "metaTitle": "Gemini MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Gemini MCP server. Use Gemini models from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

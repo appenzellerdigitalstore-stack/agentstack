@@ -1,0 +1,55 @@
+{
+  "slug": "netlify-mcp",
+  "name": "Netlify MCP",
+  "tagline": "Manage Netlify sites, deploys, and functions from chat.",
+  "shortDescription": "The Netlify MCP server. List sites, trigger deploys, manage environment variables, view deploy logs, and inspect functions. The canonical way to let an agent operate your Netlify sites.",
+  "longDescription": "## What it is\n\nNetlify's official MCP server. Exposes the Netlify API as MCP tools: list sites, trigger deploys, manage env vars, view deploy logs, list/invoke functions, and manage DNS.\n\n## Why we recommend it\n\nIf you deploy to Netlify, this is the cleanest way to let an agent help. The agent can trigger a deploy, roll back a bad release, and inspect function logs — without opening the Netlify dashboard.\n\n## When to use it\n\n- Deploys: agent triggers a deploy, monitors the build, reports the URL\n- Rollback: agent rolls back to the last good deploy when something breaks\n- Env vars: agent adds/rotates environment variables per environment\n- Function logs: agent pulls the latest log lines for a failing function",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "cloud-infra",
+  "publisher": "netlify",
+  "externalUrl": "https://www.netlify.com",
+  "repoUrl": "https://github.com/netlify/mcp",
+  "installCommand": "npx -y @netlify/mcp",
+  "installInstructions": "1. Get a personal access token at https://app.netlify.com/user/applications/personal\n2. Set `NETLIFY_TOKEN=...`\n3. `npx -y @netlify/mcp`",
+  "logoUrl": "/logos/netlify.svg",
+  "trust": {
+    "securityScore": 91,
+    "qualityScore": 92,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.97,
+    "avgLatencyMs": 175,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "netlify",
+    "deploy",
+    "jamstack",
+    "functions"
+  ],
+  "useCases": [
+    "deploys",
+    "rollback",
+    "env-vars",
+    "function-logs"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Netlify: free tier with 100GB bandwidth, 300 build minutes.",
+  "seo": {
+    "metaTitle": "Netlify MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Netlify MCP server. Manage deploys and sites from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

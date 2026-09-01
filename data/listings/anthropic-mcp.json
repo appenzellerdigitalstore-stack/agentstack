@@ -1,0 +1,55 @@
+{
+  "slug": "anthropic-mcp",
+  "name": "Anthropic MCP",
+  "tagline": "Use Claude models and Anthropic APIs from your AI agent.",
+  "shortDescription": "The Anthropic MCP server. Call any Claude model (Sonnet, Opus, Haiku), use prompt caching, generate batch completions, and inspect usage. The canonical way to use Anthropic from your agent.",
+  "longDescription": "## What it is\n\nThe official Anthropic MCP server. Exposes the Anthropic API as MCP tools: chat completions with any Claude model, prompt caching, batch completions (50% cheaper), tool use, and vision.\n\n## Why we recommend it\n\nIf your agent uses Claude, this is the cleanest way. The agent can pick the right model per task, cache large prompts (90% cost reduction), and use the batch API for asynchronous workloads.\n\n## When to use it\n\n- Model selection: agent picks Sonnet/Opus/Haiku based on complexity\n- Cost optimization: agent uses prompt caching for repeated context\n- Batch: agent submits large evaluation batches at half the cost\n- Vision: agent analyzes images with Claude's vision capabilities",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "ai-reasoning",
+  "publisher": "anthropic",
+  "externalUrl": "https://anthropic.com",
+  "repoUrl": "https://github.com/anthropic/mcp-server",
+  "installCommand": "npx -y @anthropic/mcp",
+  "installInstructions": "1. Get an API key at https://console.anthropic.com\n2. Set `ANTHROPIC_API_KEY=sk-ant-...`\n3. `npx -y @anthropic/mcp`",
+  "logoUrl": "/logos/anthropic.svg",
+  "trust": {
+    "securityScore": 94,
+    "qualityScore": 95,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.99,
+    "avgLatencyMs": 110,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "anthropic",
+    "claude",
+    "prompt-caching",
+    "batch"
+  ],
+  "useCases": [
+    "model-selection",
+    "cost-optimization",
+    "batch",
+    "vision"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "free",
+  "pricingDetails": "Free. The MCP server is open source. Anthropic API: pay per token. Free credits for new accounts.",
+  "seo": {
+    "metaTitle": "Anthropic MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Anthropic MCP server. Use Claude models from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

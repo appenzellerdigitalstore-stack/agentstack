@@ -1,0 +1,56 @@
+{
+  "slug": "browserless-mcp",
+  "name": "Browserless MCP",
+  "tagline": "Headless Chrome automation from your AI agent.",
+  "shortDescription": "The Browserless MCP server. Run headless Chrome instances in the cloud, take screenshots, scrape rendered pages, generate PDFs, and run automated browser flows at scale.",
+  "longDescription": "## What it is\n\nBrowserless' MCP server. Exposes the Browserless cloud browser API as MCP tools: navigate to a URL, take screenshots, run JavaScript, generate PDFs, intercept network requests, and run multi-step browser flows.\n\n## Why we recommend it\n\nIf you need real headless Chrome without managing the infra, Browserless is the canonical choice. It handles browser lifecycle, blocks ads/trackers, and scales to thousands of concurrent sessions.\n\n## When to use it\n\n- Visual testing: agent takes screenshots of pages across viewports\n- PDF generation: agent renders a page to PDF\n- Form automation: agent fills and submits a multi-step form\n- Heavy scraping: agent uses a real browser to handle JS-rendered pages",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "web-scraping",
+  "publisher": "browserless",
+  "externalUrl": "https://www.browserless.io",
+  "repoUrl": "https://github.com/browserless/mcp",
+  "installCommand": "npx -y @browserless/mcp",
+  "installInstructions": "1. Sign up at https://www.browserless.io and get an API token\n2. Set `BROWSERLESS_TOKEN=...`\n3. `npx -y @browserless/mcp`\n\n**Self-hosted:** Docker image available for self-hosting.",
+  "logoUrl": "/logos/browserless.svg",
+  "trust": {
+    "securityScore": 90,
+    "qualityScore": 91,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.94,
+    "avgLatencyMs": 980,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "browserless",
+    "headless-chrome",
+    "automation",
+    "screenshots",
+    "pdf"
+  ],
+  "useCases": [
+    "visual-testing",
+    "pdf-generation",
+    "form-automation",
+    "heavy-scraping"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Browserless: free tier with limited units. Pro from $50/month.",
+  "seo": {
+    "metaTitle": "Browserless MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Browserless MCP server. Headless Chrome automation from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

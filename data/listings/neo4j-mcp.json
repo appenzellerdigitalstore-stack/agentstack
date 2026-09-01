@@ -1,0 +1,56 @@
+{
+  "slug": "neo4j-mcp",
+  "name": "Neo4j MCP",
+  "tagline": "Query and explore Neo4j graph databases from your AI agent.",
+  "shortDescription": "The official Neo4j MCP server. Run Cypher queries, manage nodes and relationships, explore graph schemas, and inspect query plans. The canonical way to give an agent access to your graph data.",
+  "longDescription": "## What it is\n\nNeo4j's MCP server. Exposes the Neo4j driver as MCP tools: run Cypher queries, list node/relationship labels, inspect the schema, manage constraints and indexes, and view query plans.\n\n## Why we recommend it\n\nIf your data is in Neo4j, this is the cleanest way to let an agent help. The agent can run Cypher, explore the schema, and reason about graph structure — without writing boilerplate connection code.\n\n## When to use it\n\n- Graph exploration: agent starts with `CALL db.schema.visualization()` to understand the data\n- Query help: agent writes a Cypher query, tests it, returns the result\n- Schema work: agent creates constraints and indexes\n- Import/Export: agent loads CSV into a graph or exports a subgraph",
+  "kind": "mcp_server",
+  "runtime": "python",
+  "category": "databases",
+  "publisher": "neo4j",
+  "externalUrl": "https://neo4j.com",
+  "repoUrl": "https://github.com/neo4j-contrib/mcp-neo4j",
+  "installCommand": "uvx mcp-neo4j",
+  "installInstructions": "1. Get a Neo4j connection: `bolt://localhost:7687` (or Aura cloud URL)\n2. Set `NEO4J_URI`, `NEO4J_USER`, `NEO4J_PASSWORD`\n3. `uvx mcp-neo4j`\n\n**Aura:** Works with Neo4j Aura free/professional tiers.",
+  "logoUrl": "/logos/neo4j.svg",
+  "trust": {
+    "securityScore": 92,
+    "qualityScore": 93,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.96,
+    "avgLatencyMs": 75,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "neo4j",
+    "graph",
+    "cypher",
+    "databases",
+    "graphrag"
+  ],
+  "useCases": [
+    "graph-exploration",
+    "query-help",
+    "schema-work",
+    "import-export"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "free",
+  "pricingDetails": "Free. The MCP server is open source. Neo4j Community is free. Neo4j Aura has a free tier.",
+  "seo": {
+    "metaTitle": "Neo4j MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Neo4j MCP server. Run Cypher and explore graphs from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

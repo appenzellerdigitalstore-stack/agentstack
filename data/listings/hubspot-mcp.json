@@ -1,0 +1,55 @@
+{
+  "slug": "hubspot-mcp",
+  "name": "HubSpot MCP",
+  "tagline": "Manage HubSpot CRM, deals, contacts, and emails from chat.",
+  "shortDescription": "The HubSpot MCP server. Read and update contacts, manage deals through the pipeline, log activities, send emails, and pull reports. The canonical way to give an agent access to your CRM.",
+  "longDescription": "## What it is\n\nHubSpot's official MCP server. Exposes the HubSpot CRM API as MCP tools: read/update contacts and companies, manage deals and pipeline stages, log activities, send emails, and pull sales reports.\n\n## Why we recommend it\n\nIf your sales team lives in HubSpot, this is the cleanest way to let an agent help. The agent can update deal stages, log meeting notes, and draft follow-up emails — without anyone opening HubSpot.\n\n## When to use it\n\n- Lead enrichment: agent enriches a contact with public data and logs it\n- Pipeline updates: agent moves deals through stages as they progress\n- Reporting: agent pulls 'deals by stage' or 'MRR by owner' on demand\n- Outreach: agent drafts personalized emails and schedules sends",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "communication",
+  "publisher": "hubspot",
+  "externalUrl": "https://www.hubspot.com",
+  "repoUrl": "https://github.com/HubSpot/mcp-server",
+  "installCommand": "npx -y @hubspot/mcp",
+  "installInstructions": "1. Create a private app in HubSpot: Settings → Integrations → Private apps\n2. Grant scopes: `crm.objects.contacts.read/write`, `crm.objects.deals.read/write`, etc.\n3. Set `HUBSPOT_ACCESS_TOKEN=...`\n4. `npx -y @hubspot/mcp`",
+  "logoUrl": "/logos/hubspot.svg",
+  "trust": {
+    "securityScore": 90,
+    "qualityScore": 92,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.97,
+    "avgLatencyMs": 210,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "hubspot",
+    "crm",
+    "sales",
+    "marketing"
+  ],
+  "useCases": [
+    "lead-enrichment",
+    "pipeline-updates",
+    "reporting",
+    "outreach"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. HubSpot free CRM: unlimited contacts, 1,000 marketing emails/month.",
+  "seo": {
+    "metaTitle": "HubSpot MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official HubSpot MCP server. Manage CRM and deals from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

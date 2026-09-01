@@ -1,0 +1,55 @@
+{
+  "slug": "axiom-mcp",
+  "name": "Axiom MCP",
+  "tagline": "Query logs, metrics, and traces from chat.",
+  "shortDescription": "The Axiom MCP server. Run APL queries, set up alerts, and explore observability data. The cost-effective alternative to Datadog for high-cardinality log analytics.",
+  "longDescription": "## What it is\n\nAxiom's official MCP server. Exposes the Axiom API as MCP tools: run APL (Axiom Processing Language) queries, list datasets, set up monitors, and inspect event streams.\n\n## Why we recommend it\n\nAxiom is the best-in-class for high-cardinality log analytics — you can query 100M+ events without breaking the bank. The MCP server makes that power available to your agent.\n\n## When to use it\n\n- Log search: agent finds errors across the last 30 days of logs\n- Alerting: agent sets up monitors for new error patterns\n- Investigation: agent runs a multi-step query to find the root cause\n- Cost: Axiom charges per GB ingested, not per query",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "monitoring",
+  "publisher": "axiom",
+  "externalUrl": "https://axiom.co",
+  "repoUrl": "https://github.com/axiomhq/mcp",
+  "installCommand": "npx -y @axiom/mcp",
+  "installInstructions": "1. Get an API token at https://app.axiom.co/settings/api-tokens\n2. Set `AXIOM_TOKEN=...` and `AXIOM_ORG_ID=...`\n3. `npx -y @axiom/mcp`\n\n**Free tier:** 500GB ingest/month.",
+  "logoUrl": "/logos/axiom.svg",
+  "trust": {
+    "securityScore": 92,
+    "qualityScore": 93,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.98,
+    "avgLatencyMs": 145,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "axiom",
+    "logs",
+    "observability",
+    "high-cardinality"
+  ],
+  "useCases": [
+    "log-search",
+    "alerting",
+    "investigation",
+    "cost"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Axiom: 500GB/month free. Paid: $0.30/GB.",
+  "seo": {
+    "metaTitle": "Axiom MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Axiom MCP server. Query logs from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "todoist-mcp",
+  "name": "Todoist MCP",
+  "tagline": "Manage Todoist tasks, projects, and labels from chat.",
+  "shortDescription": "The Todoist MCP server. Add and complete tasks, manage projects, set due dates and reminders, organize by label, and view your productivity stats. Natural-language task management.",
+  "longDescription": "## What it is\n\nA community-built MCP server for Todoist. Exposes the Todoist REST API as MCP tools: create/update/complete tasks, manage projects and sections, set due dates, apply labels, and read your task history.\n\n## Why we recommend it\n\nIf you live in Todoist, this is the simplest way to make it conversational. The agent can add tasks from chat, group them by project, and even use Todoist's natural-language date parsing.\n\n## When to use it\n\n- Quick capture: agent adds tasks as you think of them in chat\n- Daily review: agent lists today's tasks, grouped by project\n- Bulk cleanup: agent closes stale tasks, archives done projects\n- Statistics: agent pulls your completed-tasks-by-day chart",
+  "kind": "mcp_server",
+  "runtime": "python",
+  "category": "productivity",
+  "publisher": "todoist",
+  "externalUrl": "https://todoist.com",
+  "repoUrl": "https://github.com/doist/todoist-mcp",
+  "installCommand": "uvx todoist-mcp",
+  "installInstructions": "1. Get a Todoist API token at https://todoist.com/prefs/integrations\n2. Set `TODOIST_TOKEN=...`\n3. `uvx todoist-mcp`",
+  "logoUrl": "/logos/todoist.svg",
+  "trust": {
+    "securityScore": 89,
+    "qualityScore": 91,
+    "isVerified": true,
+    "isOfficial": false,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.93,
+    "avgLatencyMs": 140,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "todoist",
+    "tasks",
+    "productivity",
+    "gtd"
+  ],
+  "useCases": [
+    "quick-capture",
+    "daily-review",
+    "bulk-cleanup",
+    "statistics"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Todoist: free for personal use. Pro: $4/month.",
+  "seo": {
+    "metaTitle": "Todoist MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Todoist MCP server. Manage tasks and projects from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

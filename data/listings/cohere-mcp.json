@@ -1,0 +1,56 @@
+{
+  "slug": "cohere-mcp",
+  "name": "Cohere MCP",
+  "tagline": "Use Cohere for embeddings, RAG, and reranking from chat.",
+  "shortDescription": "The Cohere MCP server. Generate embeddings, run RAG with citation, rerank search results, and classify text. The enterprise-focused LLM provider with strong RAG tooling.",
+  "longDescription": "## What it is\n\nCohere's official MCP server. Exposes the Cohere API as MCP tools: embeddings (embed-v3), RAG with citations, rerank, classify, and summarize.\n\n## Why we recommend it\n\nCohere is the gold standard for RAG — their rerank model is the best in the industry for relevance. The MCP server makes that power available to your agent.\n\n## When to use it\n\n- RAG: agent builds a RAG pipeline with Cohere embeddings + rerank\n- Search: agent reranks search results for better relevance\n- Classification: agent classifies incoming messages or documents\n- Summarization: agent summarizes long documents",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "ai-reasoning",
+  "publisher": "cohere",
+  "externalUrl": "https://cohere.com",
+  "repoUrl": "https://github.com/cohere-ai/mcp",
+  "installCommand": "npx -y @cohere/mcp",
+  "installInstructions": "1. Get an API key at https://dashboard.cohere.com/api-keys\n2. Set `COHERE_API_KEY=...`\n3. `npx -y @cohere/mcp`\n\n**Free tier:** 1K requests/month for trial keys.",
+  "logoUrl": "/logos/cohere.svg",
+  "trust": {
+    "securityScore": 91,
+    "qualityScore": 93,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.98,
+    "avgLatencyMs": 140,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "cohere",
+    "embeddings",
+    "rag",
+    "rerank",
+    "enterprise"
+  ],
+  "useCases": [
+    "rag",
+    "search",
+    "classification",
+    "summarization"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Cohere: 1K free trial requests/month. Production: $1/1K requests.",
+  "seo": {
+    "metaTitle": "Cohere MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Cohere MCP server. Use embeddings, RAG, and rerank from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

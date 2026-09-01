@@ -1,0 +1,56 @@
+{
+  "slug": "scrapegraph-mcp",
+  "name": "ScrapeGraphAI MCP",
+  "tagline": "LLM-powered structured extraction from any web page.",
+  "shortDescription": "The ScrapeGraphAI MCP server. Give it a URL and a schema, get typed JSON back. The LLM-driven extraction handles unstructured pages, and the API is open source.",
+  "longDescription": "## What it is\n\nScrapeGraphAI's MCP server. Wraps the ScrapeGraphAI library: scrape a URL, extract structured data using a natural-language prompt or JSON schema, and get back typed results. The scraping is LLM-driven, so it handles unstructured pages.\n\n## Why we recommend it\n\nThe cleanest way to do schema-based extraction. You give the agent a URL and a JSON schema (or a prompt like 'extract all product names and prices'), and it returns structured data. No CSS selectors, no XPath.\n\n## When to use it\n\n- Product extraction: agent extracts product details from e-commerce pages\n- Article parsing: agent pulls author, date, body, tags from blog posts\n- Lead enrichment: agent scrapes a company page and returns structured fields\n- One-off extraction: agent builds the schema on the fly from your prompt",
+  "kind": "mcp_server",
+  "runtime": "python",
+  "category": "web-scraping",
+  "publisher": "scrapegraph",
+  "externalUrl": "https://scrapegraphai.com",
+  "repoUrl": "https://github.com/ScrapeGraphAI/ScrapeGraphAI",
+  "installCommand": "uvx scrapegraph-mcp",
+  "installInstructions": "1. Get an OpenAI key (ScrapeGraphAI uses GPT for extraction)\n2. Set `OPENAI_API_KEY=...`\n3. `uvx scrapegraph-mcp`\n\n**Local mode:** Can also run without a remote API by hosting the LLM locally (Ollama).",
+  "logoUrl": "/logos/scrapegraph.svg",
+  "trust": {
+    "securityScore": 88,
+    "qualityScore": 90,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.92,
+    "avgLatencyMs": 2100,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "scrapegraph",
+    "llm-extraction",
+    "schema",
+    "scraping",
+    "structured"
+  ],
+  "useCases": [
+    "product-extraction",
+    "article-parsing",
+    "lead-enrichment",
+    "one-off-extraction"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "free",
+  "pricingDetails": "Free. The MCP server and library are open source. You pay for the LLM (OpenAI, Ollama, or any provider).",
+  "seo": {
+    "metaTitle": "ScrapeGraphAI MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the ScrapeGraphAI MCP server. LLM-powered extraction from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

@@ -1,0 +1,56 @@
+{
+  "slug": "bitbucket-mcp",
+  "name": "Bitbucket MCP",
+  "tagline": "Manage Bitbucket repos, pull requests, and pipelines from chat.",
+  "shortDescription": "Atlassian's MCP server for Bitbucket Cloud. Create and review pull requests, manage branches, inspect pipeline runs, and work with issues. Same auth as Jira — one token covers both.",
+  "longDescription": "## What it is\n\nThe official Atlassian MCP server for Bitbucket Cloud. Exposes Bitbucket's REST API as MCP tools: list repos, create/merge/approve PRs, manage branches, list and trigger pipelines, read pipeline logs, and search code.\n\n## Why we recommend it\n\nIf your team uses Bitbucket Cloud, this is the canonical way to let an agent help. The auth is the same Atlassian token you might already use for Jira, so the setup is one credential.\n\n## When to use it\n\n- Code review: agent lists open PRs, summarizes diffs, and drafts comments\n- CI: agent inspects failed pipeline steps and suggests fixes\n- Branch management: agent cleans up stale feature branches\n- Search: agent searches code across your workspace",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "developer-tools",
+  "publisher": "atlassian",
+  "externalUrl": "https://bitbucket.org",
+  "repoUrl": "https://github.com/atlassian/mcp-bitbucket",
+  "installCommand": "npx -y @atlassian/mcp-bitbucket",
+  "installInstructions": "1. Create an Atlassian API token at https://id.atlassian.com/manage-profile/security/api-tokens\n2. Set `BITBUCKET_USERNAME` and `BITBUCKET_API_TOKEN`\n3. `npx -y @atlassian/mcp-bitbucket`\n\n**Cloud only:** This server targets Bitbucket Cloud. Bitbucket Server / Data Center needs a different setup.",
+  "logoUrl": "/logos/bitbucket.svg",
+  "trust": {
+    "securityScore": 90,
+    "qualityScore": 92,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.93,
+    "avgLatencyMs": 195,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "bitbucket",
+    "git",
+    "pull-requests",
+    "pipelines",
+    "atlassian"
+  ],
+  "useCases": [
+    "code-review",
+    "ci-debugging",
+    "branch-management",
+    "code-search"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "free",
+  "pricingDetails": "Free. The MCP server is open source. Bitbucket Cloud is free for small teams.",
+  "seo": {
+    "metaTitle": "Bitbucket MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Bitbucket MCP server. Manage pull requests, pipelines, and branches from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

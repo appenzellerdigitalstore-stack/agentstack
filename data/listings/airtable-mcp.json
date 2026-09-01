@@ -1,0 +1,55 @@
+{
+  "slug": "airtable-mcp",
+  "name": "Airtable MCP",
+  "tagline": "Read, write, and automate Airtable bases from chat.",
+  "shortDescription": "The Airtable MCP server. List bases and tables, query records, create and update rows, manage views, and run automations. Spreadsheets that an agent can actually touch.",
+  "longDescription": "## What it is\n\nA community-built MCP server for Airtable. Exposes the Airtable API as MCP tools: list bases/tables, query records, create/update/delete rows, manage views, and trigger automations.\n\n## Why we recommend it\n\nIf your team uses Airtable as a CRM, content calendar, or tracker, this is the cleanest way to let an agent help. The agent can query a table, update records, and even create new linked records.\n\n## When to use it\n\n- CRM: agent finds contacts, updates their stage, logs activities\n- Content calendar: agent drafts social posts and schedules them\n- Bulk operations: agent finds records matching a filter and updates them all\n- Reporting: agent pulls aggregate stats and reports back",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "productivity",
+  "publisher": "airtable",
+  "externalUrl": "https://airtable.com",
+  "repoUrl": "https://github.com/airtable/mcp",
+  "installCommand": "npx -y @airtable/mcp",
+  "installInstructions": "1. Create a personal access token at https://airtable.com/create/tokens\n2. Grant it `data.records:read`, `data.records:write`, and access to the bases you need\n3. Set `AIRTABLE_TOKEN=...`\n4. `npx -y @airtable/mcp`",
+  "logoUrl": "/logos/airtable.svg",
+  "trust": {
+    "securityScore": 91,
+    "qualityScore": 93,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.97,
+    "avgLatencyMs": 180,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "airtable",
+    "spreadsheet",
+    "crm",
+    "no-code"
+  ],
+  "useCases": [
+    "crm",
+    "content-calendar",
+    "bulk-operations",
+    "reporting"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Airtable free tier: 1,200 records per base. Team: $20/seat/month.",
+  "seo": {
+    "metaTitle": "Airtable MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the Airtable MCP server. Read and write bases from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}

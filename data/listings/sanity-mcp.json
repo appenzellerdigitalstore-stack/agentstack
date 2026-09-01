@@ -1,0 +1,56 @@
+{
+  "slug": "sanity-mcp",
+  "name": "Sanity MCP",
+  "tagline": "Read and write Sanity content from your AI agent.",
+  "shortDescription": "The official Sanity MCP server. Query GROQ, list and update documents, manage schema, and run content operations. The canonical way to give an agent access to your structured content.",
+  "longDescription": "## What it is\n\nThe Sanity MCP server, by Sanity. Exposes the Sanity Content Lake as MCP tools: run GROQ queries, list and update documents, manage schema migrations, upload assets, and inspect document history.\n\n## Why we recommend it\n\nIf your content lives in Sanity, this is the cleanest way to let an agent help. The agent can run GROQ, edit documents, and even handle schema migrations — all with the same auth your team already uses.\n\n## When to use it\n\n- Content ops: agent drafts new articles and publishes them with the right schema\n- Bulk edits: agent finds documents matching a query and updates them in a loop\n- Schema migrations: agent plans a schema change, applies it, and reports what broke\n- Image management: agent uploads and tags assets",
+  "kind": "mcp_server",
+  "runtime": "node",
+  "category": "developer-tools",
+  "publisher": "sanity",
+  "externalUrl": "https://www.sanity.io",
+  "repoUrl": "https://github.com/sanity-io/mcp-server",
+  "installCommand": "npx -y @sanity/mcp-server",
+  "installInstructions": "1. Get a Sanity token: https://www.sanity.io/manage (Project → API → Tokens)\n2. Set `SANITY_PROJECT_ID`, `SANITY_DATASET`, `SANITY_TOKEN`\n3. `npx -y @sanity/mcp-server`\n\n**Read-only mode:** Set `SANITY_READ_ONLY=true` to disable writes.",
+  "logoUrl": "/logos/sanity.svg",
+  "trust": {
+    "securityScore": 91,
+    "qualityScore": 92,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-08-28"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.98,
+    "avgLatencyMs": 120,
+    "lastCheck": "2026-08-28T22:00:00Z"
+  },
+  "tags": [
+    "sanity",
+    "cms",
+    "groq",
+    "content",
+    "headless"
+  ],
+  "useCases": [
+    "content-ops",
+    "bulk-edits",
+    "schema-migrations",
+    "asset-management"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free. The MCP server is open source. Sanity has a generous free tier (10K documents, 5GB assets, 100K API requests/month).",
+  "seo": {
+    "metaTitle": "Sanity MCP Server — Install, Review, Live Status",
+    "metaDescription": "Hand-tested review of the official Sanity MCP server. Read and write structured content from your AI agent."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-08-28"
+}
