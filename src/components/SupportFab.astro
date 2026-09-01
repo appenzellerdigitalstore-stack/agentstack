@@ -1,0 +1,32 @@
+---
+/**
+ * Floating "Support us" button (PayPal donate).
+ * Idempotent mount (replaces itself if it already exists).
+ */
+---
+
+<div id="support-fab" class="fixed bottom-6 right-6 z-40 group">
+  <a
+    href="https://paypal.me/edyappenzeller"
+    target="_blank"
+    rel="noopener"
+    class="inline-flex items-center gap-2 rounded-full bg-[#0070ba] hover:bg-[#005ea6] text-white px-4 py-3 text-sm font-semibold shadow-lg shadow-black/30 ring-1 ring-black/10 transition-all hover:-translate-y-0.5"
+    aria-label="Support this project via PayPal"
+  >
+    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-7.42c-.115-.742-.527-1.357-1.148-1.737-.604-.37-1.395-.555-2.348-.555h-3.846c-.467 0-.866.317-.943.77l-.668 4.232-.467 2.96-.283 1.79a.642.642 0 0 0 .633.74h2.34c.43 0 .797-.31.857-.733l.017-.092.687-4.353.045-.246c.077-.42.43-.733.857-.733h.539c3.51 0 6.262-1.43 7.067-5.557.4-2.04.193-3.74-1.013-4.96z"/>
+    </svg>
+    <span>Support us</span>
+  </a>
+</div>
+
+<script>
+  // No mount logic needed — Astro renders the static HTML directly.
+  // This script just makes sure duplicate Fabs (from re-renders) are removed.
+  document.addEventListener('DOMContentLoaded', () => {
+    const all = document.querySelectorAll('#support-fab');
+    if (all.length > 1) {
+      for (let i = 1; i < all.length; i++) all[i].remove();
+    }
+  });
+</script>
