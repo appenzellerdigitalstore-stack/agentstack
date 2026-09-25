@@ -67,6 +67,12 @@ export interface Publisher {
   isVerified: boolean;
 }
 
+export interface CategoryIntro {
+  slug: string;
+  intro: string;
+  selectionNotes: string;
+}
+
 // Load all listings at build time. Vite resolves the glob.
 const listingModules = import.meta.glob<{ default: Listing }>('../../data/listings/*.json', { eager: true });
 
@@ -74,9 +80,14 @@ const allListings: Listing[] = Object.values(listingModules)
   .map((m) => m.default)
   .sort((a, b) => b.dateAdded.localeCompare(a.dateAdded));
 
-// Categories and publishers are small, single files.
+// Categories, publishers, and category intros are small, single files.
 import categoriesData from '../../data/categories.json' with { type: 'json' };
 import publishersData from '../../data/publishers.json' with { type: 'json' };
+import categoryIntrosData from '../../data/category_intros.json' with { type: 'json' };
+
+export function getCategoryIntro(slug: string): CategoryIntro | undefined {
+  return (categoryIntrosData as CategoryIntro[]).find((c) => c.slug === slug);
+}
 
 export function getAllListings(): Listing[] {
   return allListings;

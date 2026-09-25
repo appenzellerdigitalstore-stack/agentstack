@@ -1,0 +1,166 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="How We Score and Select Tools — AgentStack Methodology"
+  description="The detailed methodology behind AgentStack listings: how we pick MCP servers and AI agent tools, how we score security and quality, and how the editorial process works."
+>
+  <div class="container-page max-w-3xl py-16 prose-mdx">
+    <nav class="text-xs text-ink-500 mb-6 font-mono not-prose">
+      <a href="/" class="hover:text-ink-300">Home</a>
+      <span class="mx-2">/</span>
+      <a href="/about" class="hover:text-ink-300">About</a>
+      <span class="mx-2">/</span>
+      <span class="text-ink-300">Methodology</span>
+    </nav>
+
+    <h1>How we score and select tools</h1>
+    <p class="text-lg text-ink-300 leading-relaxed">
+      AgentStack is editorial — meaning every MCP server, skill, and Claude Code plugin listed here is installed and tested by a human editor before it ships. This page explains exactly what that means: how we discover tools, what we test, how the security and quality scores are calculated, and how we handle removals and disputes.
+    </p>
+
+    <h2>1. How a tool gets listed</h2>
+    <p>
+      Tools enter our consideration through four channels: our team finding them in release notes, GitHub trending, Hacker News, or maintainer newsletters; community submissions via our contact form; maintainer outreach (a tool owner emails us saying "please consider us"); and word-of-mouth from other editors.
+    </p>
+    <p>
+      Every candidate goes through the same four-step process:
+    </p>
+    <ol>
+      <li>
+        <strong>Discovered.</strong> We log the tool in our internal tracker with the source (where we found it), the maintainer's GitHub, the license, and the tool's stated maturity.
+      </li>
+      <li>
+        <strong>Installed.</strong> We run the install command in a clean environment with the recommended setup. If the install doesn't work in 30 minutes following the official docs, the tool doesn't ship. This single test eliminates about 40% of candidates — many MCP servers have broken or outdated install instructions, hardcoded credentials in their README examples, or dependencies that no longer exist on PyPI/npm.
+      </li>
+      <li>
+        <strong>Tested.</strong> We exercise the core tools the server exposes. For a database MCP, we connect to a Postgres instance and run real queries. For a Slack MCP, we send a real message. For a payments MCP, we list test subscriptions with the restricted test key. We test the failure modes — what happens if the agent makes a malformed request, what happens if the network drops mid-call, what happens at 10x expected request volume.
+      </li>
+      <li>
+        <strong>Reviewed.</strong> We write a hand-typed description of what it does, what it's good for, and where it falls down. The Security and Quality scores are set by the reviewer at this stage, not auto-generated.
+      </li>
+    </ol>
+
+    <h2>2. Security Score (0–100)</h2>
+    <p>
+      The Security Score answers one question: <em>is this safe to give credentialed access to?</em> For MCP servers specifically, this is the most important question — the whole point of an MCP server is that your agent can call it. A score-inflating, scope-snooping MCP server can do real damage. The Security Score is informed by:
+    </p>
+    <ul>
+      <li><strong>Auth model maturity.</strong> Does the tool support scoped OAuth, fine-grained personal access tokens, or GitHub-style App installations? Or does it just need a single API key with full account access?</li>
+      <li><strong>Default permission scope.</strong> Does the tool default to read-only? Or does it start with write access to all resources, and the user has to manually opt out? The former is preferable for agent use.</li>
+      <li><strong>CVE / vulnerability history.</strong> How many known vulnerabilities has the project had, how quickly were they patched, and how many are currently unpatched. We check CVE databases and the project's security advisory feed.</li>
+      <li><strong>Credential handling.</strong> Does the README hardcode example credentials? Does the tool log tokens to stdout? Does it require an env var for the API key or accept it via argv?</li>
+      <li><strong>Network exposure.</strong> Does the tool bind to 0.0.0.0 by default or only 127.0.0.1? Does it require explicit opt-in for remote access?</li>
+      <li><strong>Dependency hygiene.</strong> How many transitive dependencies does the project have? Are they pinned? Are there known vulnerabilities in the dependency tree?</li>
+    </ul>
+    <p>
+      A score of <strong>90+</strong> means we'd run this with real credentials in production. A score of <strong>75-89</strong> means it's fine for non-sensitive workloads. A score of <strong>below 75</strong> means "use with caution, sandbox it" — we still list it because options matter, but we make the risk clear.
+    </p>
+
+    <h2>3. Quality Score (0–100)</h2>
+    <p>
+      The Quality Score answers a different question: <em>is this actually good to use?</em> It's about the day-to-day experience of working with the tool, informed by:
+    </p>
+    <ul>
+      <li><strong>Documentation completeness.</strong> Are there getting-started guides, tool catalogs, troubleshooting pages, deployment guides? Are they up to date or three years stale?</li>
+      <li><strong>Tool design.</strong> Are the MCP tools sensibly scoped (one tool per logical action), or do they bundle 10 different capabilities into a single mega-call that returns a 50KB blob?</li>
+      <li><strong>Error messages.</strong> When something goes wrong, do you get a clear error message with a documented fix, or a cryptic "tool call failed" with no context?</li>
+      <li><strong>Performance.</strong> We measure response time at the MCP layer (not just the underlying API) — agents have tight latency budgets, and a slow MCP call cascades into a slow agent turn.</li>
+      <li><strong>Maintainer activity.</strong> Are pull requests being reviewed? Are issues being triaged? Is there a public roadmap? A project with 50+ open issues and no maintainer response in 6 months gets a low Quality Score even if the code is technically clean.</li>
+      <li><strong>Upgrade experience.</strong> How painful is upgrading from v0.1 to v0.2? Are there migration guides? Does the project respect semver?</li>
+    </ul>
+    <p>
+      A score of <strong>95+</strong> is something you'd happily use for years without cursing it. A score of <strong>85-94</strong> works well but has rough edges. A score of <strong>below 85</strong> means you'll find yourself debugging around it weekly.
+    </p>
+
+    <h2>4. Status and uptime</h2>
+    <p>
+      For MCP servers that hit a remote API, we run a daily uptime check from three geographic regions and report the 30-day average. The "Last checked" timestamp is when our most recent probe ran. If the upstream API goes down or starts returning errors, the listing updates within an hour and the score is recalculated.
+    </p>
+    <p>
+      For MCP servers that run on your own infrastructure (most filesystem, database, etc. servers), the Status column reflects the project's own activity — recent commits, recent releases, and the maintainer's response rate to GitHub issues. We don't host these servers, so we can't directly measure their uptime — we measure whether the maintainer is still actively involved.
+    </p>
+
+    <h2>5. Comparison pages</h2>
+    <p>
+      Every comparison page (URLs like <code>/vs/github-mcp-vs-gitlab-mcp/</code>) is auto-generated from the underlying listings. Each one has:
+    </p>
+    <ul>
+      <li>An "Editor's take" intro paragraph (auto-written from the two listings' descriptions)</li>
+      <li>Side-by-side cards with security and quality scores</li>
+      <li>A "When to pick which" section with full-sentence reasoning about the use cases each tool is best for</li>
+      <li>A score breakdown table comparing the metrics</li>
+      <li>3 related tools in the same category</li>
+    </ul>
+    <p>
+      Every comparison pair gets both orderings (github-mcp-vs-gitlab-mcp AND gitlab-mcp-vs-github-mcp) so users searching in either direction find the page.
+    </p>
+
+    <h2>6. What gets a tool removed</h2>
+    <p>
+      A listing is removed if any of these is true:
+    </p>
+    <ul>
+      <li>The project becomes unmaintained (no commits, no releases, no maintainer response to issues for 12+ months)</li>
+      <li>The project relicenses to a non-open-source license (MIT to source-available with restrictions, AGPL to proprietary, etc.)</li>
+      <li>The project pivots away from its original scope in a way that no longer fits the category</li>
+      <li>We discover fraud — fake commits, fabricated security claims, fake reviews</li>
+      <li>The project is replaced by an official successor (we replace the listing rather than maintaining both)</li>
+    </ul>
+    <p>
+      Removal is rare. We're slower to remove than to add, because a project in transition (e.g., one maintainer stepping back, looking for a new one) often recovers. We err on the side of keeping listings with a clear "limited maintenance" warning rather than removing them.
+    </p>
+
+    <h2>7. Featured listings</h2>
+    <p>
+      We mark a listing as Featured when an editor has used it in their own AI agent setup for at least 30 days and found it stable enough to recommend. Featured status is:
+    </p>
+    <ul>
+      <li><strong>Editor-decided</strong> — not paid placement, not auto-computed from scores</li>
+      <li><strong>Has a clear badge</strong> on the listing card</li>
+      <li><strong>Visible at the top</strong> of the category and on the homepage's Featured section</li>
+    </ul>
+    <p>
+      Featured status does <strong>not</strong> affect:
+    </p>
+    <ul>
+      <li>The Security or Quality score (those are reviewer-set)</li>
+      <li>Whether a listing gets removed (if it becomes unmaintained, Featured or not, it goes)</li>
+      <li>Comparison page outcomes (we'd show an inferior Featured tool over a better non-Featured one, and we have)</li>
+    </ul>
+
+    <h2>8. What we don't do</h2>
+    <p>
+      To keep trust high, we explicitly avoid:
+    </p>
+    <ul>
+      <li><strong>Affiliate links.</strong> If you click through to a tool and they pay us, we'll never know. We don't have affiliate relationships.</li>
+      <li><strong>Auto-approval.</strong> Every tool is reviewed by a human before it ships. We don't accept bulk submissions or "list everything on the MCP registry with 5+ stars."</li>
+      <li><strong>Pay-to-feature.</strong> Featured placement is editor-decided. The highest Quality Score in a category is always near the top regardless of any sponsorship.</li>
+      <li><strong>User accounts / comments / reviews.</strong> We deliberately don't have a logged-in experience. The directory is editorial, not crowd-sourced. User reviews are too easily gamed.</li>
+      <li><strong>Tracking.</strong> We use Cloudflare Web Analytics (no cookies, no personal data). No Google Analytics, no Facebook Pixel, no third-party trackers of any kind.</li>
+    </ul>
+
+    <h2>9. Disputes and corrections</h2>
+    <p>
+      If you're a tool maintainer and disagree with our score or description, email us. We take corrections seriously:
+    </p>
+    <ul>
+      <li>Factual errors get fixed within 48 hours</li>
+      <li>Score disputes require evidence (a CVE you think we missed, a perf test that contradicts ours)</li>
+      <li>If we got something materially wrong, we publish a correction note on the listing</li>
+    </ul>
+
+    <h2>10. Why this matters</h2>
+    <p>
+      The point of the methodology page is transparency. You should be able to read this and know exactly how the directory works, what its incentives are, and where its blind spots might be. The MCP ecosystem is moving fast, and the only defense against noise is a clear editorial standard that's visible to readers.
+    </p>
+    <p>
+      If something here is unclear, or if you have a methodology question we haven't answered, email us — we'll add it.
+    </p>
+    <p class="text-sm text-ink-500">
+      Last updated: September 24, 2026. Maintained by the AgentStack editorial team.
+    </p>
+  </div>
+</Layout>

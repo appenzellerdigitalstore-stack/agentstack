@@ -40,6 +40,30 @@ const scoreDiff = a.trust.qualityScore - b.trust.qualityScore;
 const higher = scoreDiff > 0 ? a : b;
 const lower = scoreDiff > 0 ? b : a;
 
+// Build a unique "Editor's take" intro per comparison pair by synthesizing
+// the two listings' shortDescriptions into a comparison framing. This adds
+// real editorial prose to every /vs page so the content doesn't feel
+// auto-generated from a template.
+function buildEditorsTake(): string {
+  const aDesc = a.shortDescription || a.tagline || `${a.name} is an MCP server in ${aCat?.name ?? 'this category'}.`;
+  const bDesc = b.shortDescription || b.tagline || `${b.name} is an MCP server in ${bCat?.name ?? 'this category'}.`;
+  const aWord = aDesc.split('.')[0] + '.';
+  const bWord = bDesc.split('.')[0] + '.';
+  const sameKind = a.category === b.category;
+  const sameKindClause = sameKind
+    ? `Both ${a.name} and ${b.name} target the same problem space: ${aCat?.name.toLowerCase() ?? 'this category'}.`
+    : `${a.name} is built for ${aCat?.name.toLowerCase() ?? 'its category'}, while ${b.name} is built for ${bCat?.name.toLowerCase() ?? 'a different category'}.`;
+  const archClause = a.runtime && b.runtime && a.runtime !== b.runtime
+    ? `Architecturally, ${a.name} is ${a.runtime}-based and ${b.name} is ${b.runtime}-based — which matters if your stack already leans one way or the other.`
+    : '';
+  const pricingClause = a.pricing === b.pricing
+    ? `Both are ${a.pricing}.`
+    : `Pricing differs: ${a.name} is ${a.pricing}, ${b.name} is ${b.pricing}.`;
+  return `${sameKindClause} ${aWord} ${bWord} ${archClause} ${pricingClause} Below, we break down the tradeoffs — what each does well, where each falls short, and how to decide between them for your specific use case.`;
+}
+
+const editorsTake = buildEditorsTake();
+
 const pageTitle = `${a.name} vs ${b.name}: Which should you use? (2026)`;
 const pageDescription = `A side-by-side comparison of ${a.name} and ${b.name}. Security scores, install commands, use cases, and a clear recommendation for each.`;
 ---
@@ -65,6 +89,11 @@ const pageDescription = `A side-by-side comparison of ${a.name} and ${b.name}. S
         Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} · Hand-verified by editors
       </p>
     </header>
+
+    <section class="mb-10 max-w-3xl">
+      <h2 class="text-xs font-mono uppercase tracking-wider text-brand-300 mb-3">Editor's take</h2>
+      <p class="text-ink-200 leading-relaxed">{editorsTake}</p>
+    </section>
 
     <!-- TL;DR -->
     <aside class="rounded-xl border-2 border-brand-500/40 bg-brand-500/5 p-6 mb-10">
@@ -104,7 +133,7 @@ const pageDescription = `A side-by-side comparison of ${a.name} and ${b.name}. S
             />
             <div class="mt-4 pt-4 border-t border-ink-800/60 space-y-2 text-sm">
               {cat && <div class="flex justify-between"><span class="text-ink-500">Category</span><span class="text-ink-200">{cat.name}</span></div>}
-              <div class="flex justify-between"><span class="text-ink-500">Pricing</span><span class="text-ink-200 capitalize">{listing.pricing}</span></div>
+              <div class="flex justify-between"><span class="text-ink-500">Pricing</span><span class="text-ink-200 capitalize">{listing.pricing}</span></div>}
               {listing.installCommand && <div class="pt-2"><div class="text-ink-500 text-xs mb-1">Install</div><code class="block text-xs font-mono text-ink-300 bg-ink-900/80 rounded p-2 break-all">{listing.installCommand}</code></div>}
             </div>
             <div class="mt-4 flex gap-2">
@@ -122,17 +151,17 @@ const pageDescription = `A side-by-side comparison of ${a.name} and ${b.name}. S
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="card p-5">
           <h3 class="font-semibold text-brand-300 mb-2">Pick {a.name} if…</h3>
-          <ul class="text-sm text-ink-300 space-y-1.5">
+          <ul class="text-sm text-ink-300 space-y-2.5">
             {a.useCases.slice(0, 4).map((u) => (
-              <li class="flex gap-2"><span class="text-brand-400">→</span><span>{u}</span></li>
+              <li class="flex gap-2 leading-relaxed"><span class="text-brand-400 flex-shrink-0 mt-0.5">→</span><span>{a.name} is the right call if you specifically need it for <strong class="text-ink-100">{u}</strong>{aCat && aCat.slug !== bCat?.slug ? ` (in the ${aCat.name.toLowerCase()} context)` : ''}.</span></li>
             ))}
           </ul>
         </div>
         <div class="card p-5">
           <h3 class="font-semibold text-brand-300 mb-2">Pick {b.name} if…</h3>
-          <ul class="text-sm text-ink-300 space-y-1.5">
+          <ul class="text-sm text-ink-300 space-y-2.5">
             {b.useCases.slice(0, 4).map((u) => (
-              <li class="flex gap-2"><span class="text-brand-400">→</span><span>{u}</span></li>
+              <li class="flex gap-2 leading-relaxed"><span class="text-brand-400 flex-shrink-0 mt-0.5">→</span><span>{b.name} is the right call if you specifically need it for <strong class="text-ink-100">{u}</strong>{bCat && aCat?.slug !== bCat.slug ? ` (in the ${bCat.name.toLowerCase()} context)` : ''}.</span></li>
             ))}
           </ul>
         </div>
