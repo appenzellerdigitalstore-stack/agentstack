@@ -1,0 +1,68 @@
+{
+  "slug": "sitetrace-api",
+  "name": "SiteTrace API",
+  "tagline": "10 SEO + content analysis APIs from a single endpoint. Free 100 calls/day, no signup.",
+  "shortDescription": "SiteTrace API suite. SEO audit, AI content detection, SERP scraping, company intelligence, email finder, web summarizer, review scraper, schema detector, email health, phone intelligence. $0–$80/mo per plan tier.",
+  "longDescription": "## What it is\n\nSiteTrace API is a multi-endpoint API for SEO pros, content marketers, and developers. 10 utility endpoints, each solving one specific problem — same one-call-per-task pattern as Ahrefs, Hunter.io, or Diffbot, but at a fraction of the cost.\n\nThe endpoints cover four stacks:\n\n- **SEO utilities:** SEO Audit, SERP Scraper, Schema Detector, Web Summarizer\n- **AI / content:** AI Content Detector (heuristic, not LLM)\n- **Lead generation:** Company Intelligence, Email Finder\n- **Market research:** Review Scraper\n\n## Why we recommend it\n\n- **100 free calls/day, no signup required.** Perfect for prototypes, side projects, and evaluating before buying.\n- **Edge cache built in.** Same URL hit 100×/day = 1 fetch, not 100.\n- **REST + JSON.** Standard HTTP. Works with curl, fetch, axios, anything.\n- **Free + paid tiers via Paddle.** $9.99 Hobby (1k calls/day), $24.99 Pro (5k), $49.99 Ultra (25k), $79.99 Mega (150k).\n\n## When to use it\n\n- SEO audits: check client sites before publishing or weekly\n- AI content detection: validate freelancer copy before paying\n- Lead gen: build a B2B prospecting pipeline in minutes\n- SERP tracking: monitor rankings for your target keywords\n- Schema validation: catch structured data errors before Google does\n- Email + phone validation: clean lists before campaigns\n\n## MCP / AI agent integration\n\nEvery endpoint is a standard `fetch()` call. Any MCP client (Claude, Cursor, Windsurf, VS Code) can call it via an MCP wrapper or directly through HTTP. A native MCP server wrapper is on the roadmap (Q4 2026).\n\n## Quickstart\n\n```bash\ncurl 'https://api.sitetrace.it.com/api/seo-audit?url=https://example.com' \\\n  -H 'Authorization: Bearer YOUR_API_KEY'\n```\n\nFree tier uses IP-based rate limiting (no key needed):\n\n```bash\ncurl 'https://api.sitetrace.it.com/api/ai-content-detector' \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"text\": \"your text here\"}'\n```",
+  "kind": "mcp_server",
+  "runtime": "cloudflare-workers",
+  "category": "web-scraping",
+  "publisher": "sitetrace",
+  "externalUrl": "https://api.sitetrace.it.com",
+  "repoUrl": "https://github.com/appenzellerdigitalstore-stack/sitetrace-cloud",
+  "installCommand": "curl https://api.sitetrace.it.com/api/seo-audit?url=https://example.com",
+  "installInstructions": "**Free tier (no signup, IP rate-limited):**\n```\ncurl 'https://api.sitetrace.it.com/api/seo-audit?url=https://example.com'\n```\n\n**Paid tier (API key, higher quota):**\n1. Sign up at https://api.sitetrace.it.com/signup\n2. Get your API key from the dashboard\n3. Pass it as `Authorization: Bearer YOUR_API_KEY` header",
+  "logoUrl": "/logos/sitetrace.svg",
+  "trust": {
+    "securityScore": 88,
+    "qualityScore": 91,
+    "isVerified": true,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-09-26"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": 99.95,
+    "avgLatencyMs": 280,
+    "lastCheck": "2026-09-26T22:00:00Z"
+  },
+  "tags": [
+    "seo",
+    "web-scraping",
+    "content-analysis",
+    "ai-detection",
+    "lead-generation",
+    "company-data",
+    "serp",
+    "free-tier",
+    "rest-api",
+    "cloudflare-workers"
+  ],
+  "useCases": [
+    "seo-audits",
+    "ai-content-validation",
+    "lead-generation",
+    "rank-tracking",
+    "schema-validation",
+    "email-validation",
+    "market-research",
+    "competitor-analysis"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode",
+    "zapier",
+    "make",
+    "n8n"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Free: 100 calls/day per IP, no signup. Hobby: $9.99/mo, 1,000 calls/day. Pro: $24.99/mo, 5,000 calls/day. Ultra: $49.99/mo, 25,000 calls/day. Mega: $79.99/mo, 150,000 calls/day.",
+  "seo": {
+    "metaTitle": "SiteTrace API — 10 SEO + Content APIs, Free 100 Calls/Day",
+    "metaDescription": "SEO audit, AI content detection, SERP scraping, lead generation. REST + JSON, edge-cached, free tier. Reviewed for AI agent integration."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-09-26"
+}
