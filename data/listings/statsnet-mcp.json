@@ -1,0 +1,55 @@
+{
+  "slug": "statsnet-mcp",
+  "name": "Statsnet MCP",
+  "tagline": "World company background checks over MCP.",
+  "shortDescription": "Background check any company in the world: registration, executives, courts and finances.",
+  "longDescription": "## What it is\n\nStatsnet remote MCP for worldwide company background checks: registration details, executives, government contracts, courts, and finances.\n\n## Why we recommend it\n\nFree public remote endpoint with Official Registry id `io.github.usenetstate/statsnet`. Useful for due diligence, sales research, and OSINT workflows in any MCP client.\n\n## When to use it\n\n- Company registration and officer lookup\n- Court and financial signals\n- Worldwide (not country-limited) background checks",
+  "kind": "mcp_server",
+  "runtime": "remote",
+  "category": "data",
+  "publisher": "usenetstate",
+  "externalUrl": "https://statsnet.co",
+  "repoUrl": "https://github.com/usenetstate/statsnet-mcp",
+  "installCommand": "Connect MCP client to https://statsnet.co/mcp",
+  "installInstructions": "1. Open your MCP client settings\n2. Add remote server URL: https://statsnet.co/mcp\n3. Optional registry id: io.github.usenetstate/statsnet\n\nNo API key required for public MCP initialize.",
+  "logoUrl": "",
+  "trust": {
+    "securityScore": 70,
+    "qualityScore": 75,
+    "isVerified": false,
+    "isOfficial": true,
+    "lastVerifiedAt": "2026-09-24"
+  },
+  "status": {
+    "up": true,
+    "uptimePct30d": null,
+    "avgLatencyMs": null,
+    "lastCheck": "2026-09-24T17:00:00Z"
+  },
+  "tags": [
+    "company-data",
+    "background-check",
+    "osint",
+    "due-diligence",
+    "remote-mcp"
+  ],
+  "useCases": [
+    "due-diligence",
+    "sales-research",
+    "company-lookup"
+  ],
+  "integrations": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "vscode"
+  ],
+  "pricing": "freemium",
+  "pricingDetails": "Public remote MCP endpoint; product features may have free and paid tiers on statsnet.co.",
+  "seo": {
+    "metaTitle": "Statsnet MCP \u2014 World Company Background Checks",
+    "metaDescription": "Remote MCP for worldwide company background checks: registration, executives, courts, finances."
+  },
+  "sponsorTier": "none",
+  "dateAdded": "2026-09-24"
+}
