@@ -10,16 +10,21 @@ import { getListingBySlug, getAllListings, getCategoryBySlug, getPublisherBySlug
 
 export async function getStaticPaths() {
   const listings = getAllListings();
-  const slugs = listings.map((l) => l.slug);
-  const paths = [];
-  for (let i = 0; i < slugs.length; i++) {
-    for (let j = i + 1; j < slugs.length; j++) {
-      // Both orderings — /vs/a-vs-b and /vs/b-vs-a both work
-      paths.push({ params: { slug1: slugs[i], slug2: slugs[j] } });
-      paths.push({ params: { slug1: slugs[j], slug2: slugs[i] } });
-    }
-  }
-  return paths;
+  // Comparisons are intentionally curated rather than generated for every possible pair.
+  const curatedPairs = [
+    ['github-mcp', 'gitlab-mcp'], ['firecrawl-mcp', 'browserless-mcp'],
+    ['brave-search-mcp', 'exa-mcp'], ['notion-mcp', 'obsidian-mcp'],
+    ['postgres-mcp', 'mongodb-mcp'], ['supabase-mcp', 'neon-mcp'],
+    ['linear-mcp', 'jira-mcp'], ['slack-mcp', 'discord-mcp'],
+    ['cloudflare-mcp', 'digitalocean-mcp'], ['aws-mcp', 'gcp-mcp'],
+    ['openai-mcp', 'anthropic-mcp'], ['ollama-mcp', 'gemini-mcp'],
+    ['playwright-mcp', 'puppeteer-mcp'], ['filesystem-mcp', 'everything-mcp'],
+    ['datadog-mcp', 'grafana-mcp'],
+  ];
+  const available = new Set(listings.map((l) => l.slug));
+  return curatedPairs
+    .filter(([slug1, slug2]) => available.has(slug1) && available.has(slug2))
+    .map(([slug1, slug2]) => ({ params: { slug1, slug2 } }));
 }
 
 const { slug1, slug2 } = Astro.params;
