@@ -17,7 +17,7 @@ import Layout from '../layouts/Layout.astro';
 
     <h1>How we score and select tools</h1>
     <p class="text-lg text-ink-300 leading-relaxed">
-      AgentStack is editorial — meaning every MCP server, skill, and Claude Code plugin listed here is installed and tested by a human editor before it ships. This page explains exactly what that means: how we discover tools, what we test, how the security and quality scores are calculated, and how we handle removals and disputes.
+      AgentStack is editorial. Every candidate is reviewed before publication using its documentation, repository activity, release history, security signals, maintenance history, and stated capabilities. Direct installation/testing is only claimed for listings where that work has actually been performed and recorded. This page explains exactly what that means: how we discover tools, what we test, how the security and quality scores are calculated, and how we handle removals and disputes.
     </p>
 
     <h2>1. How a tool gets listed</h2>
@@ -84,18 +84,14 @@ import Layout from '../layouts/Layout.astro';
 
     <h2>5. Comparison pages</h2>
     <p>
-      Every comparison page (URLs like <code>/vs/github-mcp-vs-gitlab-mcp/</code>) is auto-generated from the underlying listings. Each one has:
+      Comparison pages are a curated editorial set. We do not generate a page for every possible pair of tools, and we do not publish both directions of the same comparison. A pair is selected when the tools solve a genuinely overlapping problem and the comparison can add useful decision-making context.
     </p>
     <ul>
-      <li>An "Editor's take" intro paragraph (auto-written from the two listings' descriptions)</li>
-      <li>Side-by-side cards with security and quality scores</li>
-      <li>A "When to pick which" section with full-sentence reasoning about the use cases each tool is best for</li>
-      <li>A score breakdown table comparing the metrics</li>
-      <li>3 related tools in the same category</li>
+      <li>Each comparison has one canonical URL.</li>
+      <li>Factual metrics come from the underlying listings.</li>
+      <li>The editorial purpose is to explain meaningful tradeoffs, limitations, security considerations, and suitable use cases.</li>
+      <li>Pairs without enough useful context are not published.</li>
     </ul>
-    <p>
-      Every comparison pair gets both orderings (github-mcp-vs-gitlab-mcp AND gitlab-mcp-vs-github-mcp) so users searching in either direction find the page.
-    </p>
 
     <h2>6. What gets a tool removed</h2>
     <p>
@@ -160,7 +156,7 @@ import Layout from '../layouts/Layout.astro';
       If something here is unclear, or if you have a methodology question we haven't answered, email us — we'll add it.
     </p>
     <p class="text-sm text-ink-500">
-      Last updated: September 24, 2026. Maintained by the AgentStack editorial team.
+      Last updated: October 6, 2026. Maintained by the AgentStack editorial team.
     </p>
   </div>
 </Layout>
