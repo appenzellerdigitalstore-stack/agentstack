@@ -18,7 +18,7 @@ export async function getStaticPaths() {
     ['linear-mcp', 'jira-mcp'], ['slack-mcp', 'discord-mcp'],
     ['cloudflare-mcp', 'digitalocean-mcp'], ['aws-mcp', 'gcp-mcp'],
     ['openai-mcp', 'anthropic-mcp'], ['ollama-mcp', 'gemini-mcp'],
-    ['playwright-mcp', 'puppeteer-mcp'], ['filesystem-mcp', 'everything-mcp'],
+    ['jina-mcp', 'fetch-mcp'], ['filesystem-mcp', 'everything-mcp'],
     ['datadog-mcp', 'grafana-mcp'],
   ];
   const available = new Set(listings.map((l) => l.slug));
