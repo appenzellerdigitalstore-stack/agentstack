@@ -23,6 +23,7 @@ export async function getStaticPaths() {
 }
 
 const { slug1, slug2 } = Astro.params;
+const canonicalPath = '/vs/' + slug1 + '-vs-' + slug2;
 const a = getListingBySlug(slug1!);
 const b = getListingBySlug(slug2!);
 
@@ -68,7 +69,7 @@ const pageTitle = `${a.name} vs ${b.name}: Which should you use? (2026)`;
 const pageDescription = `A side-by-side comparison of ${a.name} and ${b.name}. Security scores, install commands, use cases, and a clear recommendation for each.`;
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout title={pageTitle} description={pageDescription} canonical={new URL(canonicalPath, 'https://agentstack.ink').toString()}>
   <article class="container-page max-w-4xl py-12">
     <nav class="text-xs text-ink-500 mb-6 font-mono">
       <a href="/" class="hover:text-ink-300">Home</a>
@@ -86,7 +87,7 @@ const pageDescription = `A side-by-side comparison of ${a.name} and ${b.name}. S
         A side-by-side comparison of {a.name} and {b.name} for {aCat?.name.toLowerCase() ?? 'this category'}. Both are legitimate options — here's how to pick the right one for you.
       </p>
       <p class="mt-3 text-xs text-ink-500 font-mono">
-        Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} · Hand-verified by editors
+        Comparison last reviewed from the two underlying listings · Editorial comparison
       </p>
     </header>
 
