@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowRight, ArrowUpRight, BookOpen, Box, Braces, Check, ChevronDown, ChevronRight, Code2, Copy, Database, ExternalLink, Flame, Globe, GraduationCap, Grid2X2, Layers, List, MessageSquare, Monitor, Plus, Search, ShieldCheck, SlidersHorizontal, Sparkles, Terminal, Wallet, Workflow, X } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, BookOpen, Box, Braces, Check, ChevronDown, Code2, Copy, Database, ExternalLink, Flame, Globe, GraduationCap, Grid2X2, Layers, List, MessageSquare, Monitor, Search, ShieldCheck, SlidersHorizontal, Sparkles, Terminal, Wallet, Workflow, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import { DirectoryShell } from '@/components/directory-shell';
@@ -21,7 +21,7 @@ function ResourceLogo({ resource }: { resource: Resource }) {
   return <span className={`resource-logo resource-${resource.id}`} aria-hidden="true">{resource.id === 'firecrawl-mcp' ? <Flame /> : resource.id === 'github-mcp' ? <Code2 /> : resource.id === 'postgresql-mcp' ? <Database /> : resource.id === 'anki-mcp' ? <span>A<span className="logo-star">✦</span></span> : resource.id === 'anthropic-mcp' ? <Sparkles /> : resource.id === 'airtable-mcp' ? <Layers /> : resource.id === 'algolia-mcp' ? <Search /> : resource.id === 'adyen-mcp' ? <span>ad</span> : <Box />}</span>;
 }
 function DirectoryPage() {
-  const [resources, setResources] = useState(initialResources);
+  const [resources] = useState(initialResources);
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('All components');
   const [kind, setKind] = useState('All components');
@@ -30,8 +30,6 @@ function DirectoryPage() {
   const [beginner, setBeginner] = useState(false);
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [selected, setSelected] = useState<Resource | null>(null);
-  const [submitOpen, setSubmitOpen] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
   const searchInput = useRef<HTMLInputElement>(null);
   const directory = useRef<HTMLElement>(null);
@@ -49,7 +47,7 @@ function DirectoryPage() {
   const clear = () => { setQuery(''); setCategory('All components'); setKind('All components'); setPricing('All pricing'); setBeginner(false); };
   const explore = () => directory.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   async function copyInstall() { if (!selected?.install) return; try { await navigator.clipboard.writeText(selected.install); setCopied(true); } catch { setCopied(false); } }
-  return <DirectoryShell onSubmit={() => { setSubmitted(false); setSubmitOpen(true); }}>
+  return <DirectoryShell>
     <section className="stack-hero">
       <img src={stackImage} className="stack-hero-image" alt="An interconnected stack of electric-blue computing modules" width={1920} height={1024} fetchPriority="high" />
       <div className="page-container stack-hero-content">
@@ -84,12 +82,11 @@ function DirectoryPage() {
             </article>)}
             {filtered.length === 0 && <div className="directory-empty"><Search size={30} /><h3>{kind === 'Skill' || kind === 'Plugin' ? 'More building blocks to explore.' : 'No components match just yet.'}</h3><p>{kind === 'Skill' || kind === 'Plugin' ? 'This selection contains MCP listings. Visit the original directory for more skills and plugins.' : 'Try a different category or clear your filters.'}</p><Button variant="outline" onClick={clear}>Reset filters<X /></Button>{(kind === 'Skill' || kind === 'Plugin') && <Button asChild variant="link"><a href="https://agentstack.ink" target="_blank" rel="noreferrer">Browse original directory<ArrowUpRight /></a></Button>}</div>}
           </div>
-          <div className="directory-bottom"><span>Content adapted from <a href="https://agentstack.ink" target="_blank" rel="noreferrer">agentstack.ink<ArrowUpRight size={11} /></a></span><span>No sponsored rankings.</span></div>
+          <div className="directory-bottom"><span>Independently curated. No sponsored rankings.</span></div>
         </section>
       </div>
     </main>
     <section className="editorial-band"><div className="page-container editorial-inner"><div><span className="eyebrow text-primary">LESS NOISE. MORE SIGNAL.</span><h2>Good tools deserve<br />a closer look.</h2><Link to="/methodology">Inside the editorial process<ArrowRight size={15} /></Link></div><div className="editorial-principles"><div><ShieldCheck /><h3>Evidence, not hype</h3><p>Documentation, maintenance, and security signals—not just star counts.</p></div><div><Code2 /><h3>Know what you install</h3><p>Understand permissions, dependencies, and the tool’s intended capabilities.</p></div><div><BookOpen /><h3>A clear way in</h3><p>Real context for experienced builders and people taking their first step.</p></div></div></div></section>
     <Dialog open={selected !== null} onOpenChange={open => { if (!open) setSelected(null); }}><DialogContent className="detail-modal">{selected && <><div className="detail-top"><ResourceLogo resource={selected} /><div><span className="eyebrow text-primary">{selected.kind}</span><DialogTitle>{selected.name}</DialogTitle><p className="resource-author">by {selected.author}</p></div></div><DialogDescription className="detail-description">{selected.description}</DialogDescription><div className="detail-facts"><span>Category<strong>{selected.category}</strong></span><span>Pricing model<strong>{selected.pricing}</strong></span></div><div className="resource-tags">{selected.tags.map(tag => <span key={tag}>{tag}</span>)}</div><div className="detail-install"><h3><Terminal size={16} />Connect to your stack</h3>{selected.install ? <><div className="code-toolbar"><span>Installation command</span><Button variant="ghost" size="sm" onClick={copyInstall}>{copied ? <Check /> : <Copy />}{copied ? 'Copied' : 'Copy'}</Button></div><pre className="code-preview"><code>{selected.install}</code></pre><p>Review the command and required permissions before running it.</p></> : <p>Use the original listing for setup instructions, supported clients, and any credentials or permissions required.</p>}</div><div className="detail-actions"><Button asChild><a href={selected.source} target="_blank" rel="noreferrer">Read original listing<ExternalLink /></a></Button>{selected.url && <Button asChild variant="outline"><a href={selected.url} target="_blank" rel="noreferrer">Project website<ArrowUpRight /></a></Button>}</div><p className="detail-source">Source: AgentStack. Direct installation and security testing are not claimed by this redesign.</p></>}</DialogContent></Dialog>
-    <Dialog open={submitOpen} onOpenChange={setSubmitOpen}><DialogContent className="detail-modal"><DialogTitle>{submitted ? 'Added to this session' : 'Share a building block.'}</DialogTitle><DialogDescription>{submitted ? 'Your component is visible for this session only. It has not been published or permanently saved.' : 'Add a component to this session. Submissions are not permanently saved or editorially reviewed.'}</DialogDescription>{submitted ? <div className="submission-success"><Check size={36} /><Button onClick={() => { setSubmitOpen(false); clear(); explore(); }}>Back to the directory<ArrowRight /></Button></div> : <form className="submission-form" onSubmit={event => { event.preventDefault(); const form = new FormData(event.currentTarget); const name = String(form.get('name')).trim(); const description = String(form.get('description')).trim(); if (!name || !description) return; const url = String(form.get('url')); setResources(current => [...current, { id: `session-${Date.now()}`, name, description, url, source: url, author: 'Community submission', pricing: String(form.get('pricing')) as Resource['pricing'], category: String(form.get('category')), kind: String(form.get('kind')) as Resource['kind'], tags: ['Session only'] }]); setSubmitted(true); }}><label>Component name<input name="name" className="form-input" required maxLength={60} placeholder="A tool worth sharing" /></label><label>Project URL<input name="url" className="form-input" type="url" pattern="https?://.*" required placeholder="https://" /></label><label>Description<textarea name="description" className="form-input" required maxLength={240} rows={3} placeholder="What can it help an agent do?" /></label><div className="form-columns"><label>Type<select name="kind" className="form-input">{['MCP server', 'Skill', 'Plugin'].map(item => <option key={item}>{item}</option>)}</select></label><label>Pricing<select name="pricing" className="form-input"><option>Free</option><option>Freemium</option></select></label></div><label>Category<select name="category" className="form-input">{categories.slice(1).map(item => <option key={item.slug}>{item.name}</option>)}</select></label><Button type="submit"><Plus />Add to this session</Button></form>}</DialogContent></Dialog>
   </DirectoryShell>;
 }
