@@ -1,0 +1,36 @@
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { useState } from 'react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Box, Check, ShieldCheck, Sparkles, Terminal } from 'lucide-react';
+import { DirectoryShell } from '@/components/directory-shell';
+import { Button } from '@/components/ui/button';
+
+export const Route = createFileRoute('/learn')({
+  head: () => ({ meta: [
+    { title: 'Learn MCP, Skills & Plugins — AgentStack' },
+    { name: 'description', content: 'Understand AI agent components, connect your first MCP server, and learn the essential permission and safety checks.' },
+    { property: 'og:title', content: 'Your first agent stack — AgentStack' },
+    { property: 'og:description', content: 'A practical starting point for learning MCP servers, skills, and plugins.' },
+    { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' },
+  ] }), component: LearnPage,
+});
+const lessons = ['Understand the building blocks', 'Connect your first tool', 'Build with confidence'];
+const safetyChecks = ['Read the project’s documentation and maintenance history.', 'Review which files, accounts, and services the tool can access.', 'Use limited permissions and a test workspace first.', 'Keep API keys private and out of shared configuration.', 'Review proposed actions before making changes to production.'];
+function LearnPage() {
+  const [lesson, setLesson] = useState(0);
+  const [checks, setChecks] = useState<string[]>([]);
+  return <DirectoryShell><main className="page-container content-page">
+    <div className="content-intro"><span className="eyebrow text-primary"><BookOpen size={14} />THE BUILDER’S STARTING POINT</span><h1>Your first agent stack.<br /><span className="text-primary">One building block at a time.</span></h1><p>You don’t need to know every framework to get started. Understand the pieces, pick one useful tool, and give your agent a new capability.</p><Link to="/">Back to the directory<ArrowUpRight size={14} /></Link></div>
+    <div className="learning-layout"><nav className="lesson-nav" aria-label="Learning chapters">{lessons.map((title, index) => <Button variant="ghost" key={title} data-active={lesson === index} aria-current={lesson === index ? 'step' : undefined} onClick={() => setLesson(index)}><span className="lesson-number">0{index + 1}</span>{title}</Button>)}</nav><section className="lesson-body" aria-live="polite">
+      {lesson === 0 && <><h2>Meet the building blocks.</h2><p>An AI agent uses a model to reason about a task, then uses tools to take action. These components add connections, reusable instructions, or packaged capabilities.</p><div className="concept-grid"><div className="concept-item"><Terminal /><h3>MCP servers</h3><p>Model Context Protocol is a shared way for an AI application to connect to external tools and data. A server can expose capabilities like searching a website or reading a database.</p><span>THE CONNECTION LAYER</span></div><div className="concept-item"><Sparkles /><h3>Skills</h3><p>Reusable instructions for a particular task or workflow. A SKILL.md file describes what a skill does and how an agent should use it, sometimes alongside scripts or reference material.</p><span>THE KNOW-HOW LAYER</span></div><div className="concept-item"><Box /><h3>Plugins</h3><p>A package that adds capabilities to a supported agent application. Depending on the platform, it can bundle skills, commands, hooks, and MCP connections.</p><span>THE PACKAGING LAYER</span></div></div><div className="lesson-callout">Think of your agent as a workspace: MCP connects the equipment, skills provide the playbooks, and plugins package useful additions.</div></>}
+      {lesson === 1 && <><h2>Start small. Make one connection.</h2><p>Choose one task you already understand. Reading a public web page or working with a test dataset is a better first step than giving an agent control of your entire production stack.</p><div className="step-list">{[
+        ['Choose your client', 'Use an application that supports MCP, such as Claude Desktop or Cursor. Check its current documentation for the supported connection types.'],
+        ['Pick a useful server', 'Browse the directory and read the original listing. Confirm the project’s current setup instructions, supported clients, and required account.'],
+        ['Review and connect', 'Follow the official configuration instructions. Store credentials securely, use minimal permissions, and restart or reconnect the client if required.'],
+        ['Try a small task', 'Ask for one specific action, such as fetching a public page. Inspect the result and any requested permissions before expanding the workflow.'],
+      ].map(([title, text], index) => <div key={title}><span className="lesson-number">0{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></div>)}</div><Button asChild><Link to="/">Find your first component<ArrowRight /></Link></Button><div className="lesson-callout">An install command is not the same as a complete setup. Some tools require an API key, an account, or client-specific configuration.</div></>}
+      {lesson === 2 && <><h2>Capabilities come with permissions.</h2><p>A tool that can read a database, send a message, or deploy code needs real access. Before connecting a new component, make sure that access matches what you actually want the agent to do.</p><div className="checklist">{safetyChecks.map(text => <label key={text}><input type="checkbox" checked={checks.includes(text)} onChange={e => setChecks(current => e.target.checked ? [...current, text] : current.filter(item => item !== text))} /><span>{text}</span></label>)}</div><div className="lesson-callout"><ShieldCheck className="inline mr-2" size={17} />{checks.length === safetyChecks.length ? 'Your review checklist is complete. Keep these checks part of every new connection.' : `${checks.length} of ${safetyChecks.length} review checks complete. A checklist supports your judgment; it does not certify a tool as safe.`}</div><Button asChild variant="outline"><Link to="/methodology">How tools are evaluated<ArrowRight /></Link></Button></>}
+      <div className="lesson-pagination"><Button variant="ghost" disabled={lesson === 0} onClick={() => setLesson(current => Math.max(0, current - 1))}><ArrowLeft />Previous</Button>{lesson < 2 ? <Button onClick={() => setLesson(current => Math.min(2, current + 1))}>Next chapter<ArrowRight /></Button> : <Button asChild><Link to="/">Explore the directory<Check /></Link></Button>}</div>
+    </section></div>
+    <section className="reading-list"><h2>Go straight to the source.</h2><div><Button asChild variant="outline"><a href="https://modelcontextprotocol.io/docs/getting-started/intro" target="_blank" rel="noreferrer">MCP documentation<ArrowUpRight /></a></Button><Button asChild variant="outline"><a href="https://code.claude.com/docs/en/skills" target="_blank" rel="noreferrer">Claude Code skills<ArrowUpRight /></a></Button><Button asChild variant="outline"><a href="https://code.claude.com/docs/en/plugins" target="_blank" rel="noreferrer">Claude Code plugins<ArrowUpRight /></a></Button></div></section>
+  </main></DirectoryShell>;
+}

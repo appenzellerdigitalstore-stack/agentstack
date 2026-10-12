@@ -1,0 +1,22 @@
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { ArrowRight, ArrowUpRight, BookOpen, ShieldCheck } from 'lucide-react';
+import { DirectoryShell } from '@/components/directory-shell';
+import { Button } from '@/components/ui/button';
+
+export const Route = createFileRoute('/methodology')({
+  head: () => ({ meta: [
+    { title: 'Editorial Approach & Source Transparency — AgentStack' },
+    { name: 'description', content: 'Learn how AgentStack approaches editorial curation, security evidence, featured tools, and transparent source attribution.' },
+    { property: 'og:title', content: 'Evidence, not hype — AgentStack' },
+    { property: 'og:description', content: 'Understand the original directory’s editorial principles and the scope of this redesigned selection.' },
+    { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' },
+  ] }), component: MethodologyPage,
+});
+function MethodologyPage() {
+  return <DirectoryShell><main className="page-container content-page"><div className="content-intro"><span className="eyebrow text-primary"><ShieldCheck size={14} />EDITORIAL / INDEPENDENT / TRANSPARENT</span><h1>Evidence, not hype.<br /><span className="text-primary">Context before confidence.</span></h1><p>A useful directory tells you more than what exists. It helps you understand what a component does, how it’s maintained, and what to look at before connecting it.</p></div><div className="methodology-layout"><div>
+    <section className="methodology-section"><h2>What the original directory reviews</h2><p>AgentStack.ink describes a human editorial process based on project documentation, repository activity, release history, maintenance, security signals, and stated capabilities.</p><p>Popularity is not a substitute for that review. Documentation and maintenance help establish context; they do not prove that every tool will work for every use case.</p></section>
+    <section className="methodology-section"><h2>Review is not the same as testing</h2><p>The original directory distinguishes editorial review from direct installation or hands-on testing. An installation or testing claim should only be made when it has been recorded.</p><p>This redesign does not claim to have installed, tested, or security-scanned these components. It presents an attributed selection of the original directory’s information, with links back to the source.</p></section>
+    <section className="methodology-section"><h2>Featured means an editorial recommendation</h2><p>On AgentStack.ink, featured placement is decided by editors, not paid placement. The Firecrawl editor-pick label in this selection reflects its featured placement on the source home page at the time of review.</p><p>The source states that it does not use affiliate links or sponsored placement to determine editorial outcomes.</p></section>
+    <section className="methodology-section"><h2>Know the limits of a snapshot</h2><p>This is a selected directory, not a live mirror of all 101 tools reported by the source home page. Counts here refer only to the components currently included in this interface.</p><p>Pricing labels are source-reported models, not a quote or guarantee. Commands, credentials, permissions, availability, and supported clients can change. Always check the current official documentation before installing.</p><Button asChild variant="outline"><a href="https://agentstack.ink/methodology" target="_blank" rel="noreferrer">Read the original methodology<ArrowUpRight /></a></Button></section>
+  </div><aside className="methodology-side"><ShieldCheck size={27} /><h3>Your own review still matters.</h3><p>Start with least-privilege access. Inspect dependencies and configuration. Test in a safe workspace before authorizing production actions.</p><h3>Sources</h3><p>Directory content and editorial principles are adapted from AgentStack.ink. Learning explanations are introductory guidance, with links to official documentation.</p><Button asChild variant="link" className="px-0 mt-3"><a href="https://agentstack.ink/about" target="_blank" rel="noreferrer">About the original directory<ArrowUpRight /></a></Button><h3><BookOpen size={17} className="inline mr-2" />New to the ecosystem?</h3><p>Learn the difference between connections, instructions, and packaged extensions.</p><Button asChild variant="link" className="px-0 mt-3"><Link to="/learn">Start learning<ArrowRight /></Link></Button></aside></div></main></DirectoryShell>;
+}
