@@ -1,10 +1,1 @@
-# ads.txt for agentstack.ink
-#
-# Google AdSense publisher entry. Format:
-#   google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
-#
-# Once AdSense is approved, replace the placeholder pub- ID below with the
-# real one Google issues for this property. Until then, the file is present
-# so crawlers and demand partners can resolve /ads.txt.
-
-google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+google.com, pub-8749554989768993, DIRECT, f08c47fec0942fa0
