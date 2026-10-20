@@ -22,12 +22,106 @@ export const Route = createFileRoute("/mcp/$slug")({
   component: McpPage,
 });
 
+type Block =
+  | { kind: "h2"; text: string }
+  | { kind: "h3"; text: string }
+  | { kind: "p"; text: string }
+  | { kind: "ul"; items: string[] }
+  | { kind: "ol"; items: string[] }
+  | { kind: "quote"; text: string };
+
+/**
+ * Minimal markdown-block parser for the editorial long-form entries.
+ *
+ * Supports: ## / ### headings, - and * bullets, 1. numbered lists,
+ * > blockquotes, fenced code, and paragraphs. Blocks are separated by
+ * blank lines; a run of consecutive list lines is grouped into one
+ * <ul> / <ol> rather than being flattened into a single paragraph.
+ */
+function parseBlocks(md: string): Block[] {
+  const out: Block[] = [];
+  const blocks = md.split(/\n{2,}/);
+
+  for (const raw of blocks) {
+    const block = raw.trim();
+    if (!block) continue;
+
+    // Fenced code
+    if (block.startsWith("```")) {
+      out.push({ kind: "quote", text: block.replace(/^```\w*\n?/, "").replace(/```$/, "").trim() });
+      continue;
+    }
+
+    // Heading
+    if (block.startsWith("### ")) {
+      out.push({ kind: "h3", text: block.slice(4).trim() });
+      continue;
+    }
+    if (block.startsWith("## ")) {
+      out.push({ kind: "h2", text: block.slice(3).trim() });
+      continue;
+    }
+    if (block.startsWith("# ")) {
+      out.push({ kind: "h2", text: block.slice(2).trim() });
+      continue;
+    }
+
+    // Blockquote
+    if (block.startsWith("> ")) {
+      out.push({
+        kind: "quote",
+        text: block.split("\n").map(l => l.replace(/^>\s?/, "").trim()).join(" "),
+      });
+      continue;
+    }
+
+    const lines = block.split("\n").map(l => l.trim()).filter(Boolean);
+
+    // Unordered list - every line is a bullet
+    if (lines.length > 0 && lines.every(l => /^[-*]\s+/.test(l))) {
+      out.push({
+        kind: "ul",
+        items: lines.map(l => l.replace(/^[-*]\s+/, "").trim()),
+      });
+      continue;
+    }
+
+    // Ordered list
+    if (lines.length > 0 && lines.every(l => /^\d+[.)]\s+/.test(l))) {
+      out.push({
+        kind: "ol",
+        items: lines.map(l => l.replace(/^\d+[.)]\s+/, "").trim()),
+      });
+      continue;
+    }
+
+    // Mixed paragraph - join with spaces so no raw newlines survive
+    out.push({ kind: "p", text: lines.join(" ") });
+  }
+
+  return out;
+}
+
+/** Render **bold** and *italic* inline without a markdown dependency. */
+function Inline({ text }: { text: string }) {
+  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g).filter(Boolean);
+  return <>{parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**") && part.length > 4) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    if (part.startsWith("*") && part.endsWith("*") && part.length > 2) {
+      return <em key={i}>{part.slice(1, -1)}</em>;
+    }
+    return <span key={i}>{part}</span>;
+  })}</>;
+}
+
 function McpPage() {
   const { resource } = Route.useLoaderData();
   const related = resources
     .filter(r => r.category === resource.category && r.id !== resource.id)
     .slice(0, 3);
-  const sections = parseLongDescription(resource.longDescription);
+  const blocks = parseBlocks(resource.longDescription);
 
   return <DirectoryShell><main className="page-container content-page">
     <div className="content-intro">
@@ -49,34 +143,49 @@ function McpPage() {
         <Link to="/methodology" className="inline-flex items-center justify-center rounded-md text-sm font-medium border border-input bg-background shadow-sm hover:bg-accent h-10 px-5">Editorial approach<ArrowUpRight size={12} style={{ display: "inline", marginLeft: 6 }} /></Link>
       </div>
     </div>
+
     <div className="methodology-layout"><div>
-      <article className="prose-page" style={{ maxWidth: 760, margin: "0 auto" }}>
-        {sections.map((s, i) => {
-          if (s.kind === "h2") return <h2 key={i}>{s.text}</h2>;
-          return <p key={i}>{s.text}</p>;
+      <article className="prose">
+        {blocks.map((b, i) => {
+          if (b.kind === "h2") return <h2 key={i} className="prose-h2"><span className="prose-h2-rule" />{b.text}</h2>;
+          if (b.kind === "h3") return <h3 key={i} className="prose-h3">{b.text}</h3>;
+          if (b.kind === "ul") return <ul key={i} className="prose-list">{b.items.map((it, j) => <li key={j}><Inline text={it} /></li>)}</ul>;
+          if (b.kind === "ol") return <ol key={i} className="prose-list prose-list-ordered">{b.items.map((it, j) => <li key={j}><Inline text={it} /></li>)}</ol>;
+          if (b.kind === "quote") return <blockquote key={i} className="prose-quote">{b.text}</blockquote>;
+          return <p key={i} className="prose-p"><Inline text={b.text} /></p>;
         })}
-        <div style={{ background: "var(--muted)", padding: 18, borderRadius: 10, marginTop: 32, display: "flex", gap: 14, borderLeft: "3px solid var(--primary)" }}>
-          <ShieldCheck size={22} style={{ flexShrink: 0, marginTop: 2, color: "var(--primary)" }} />
+
+        <div className="prose-callout">
+          <ShieldCheck size={20} className="prose-callout-icon" />
           <div>
-            <h3 style={{ margin: 0, fontSize: 15 }}>Permissions and security</h3>
-            <p style={{ margin: "6px 0 0 0", fontSize: 14, color: "var(--muted-foreground)" }}>{resource.permissions}</p>
+            <h3>Permissions and security</h3>
+            <p>{resource.permissions}</p>
           </div>
         </div>
-        <div style={{ background: "var(--muted)", padding: 18, borderRadius: 10, marginTop: 12, display: "flex", gap: 14, borderLeft: "3px solid #f59e0b" }}>
-          <AlertTriangle size={22} style={{ flexShrink: 0, marginTop: 2, color: "#f59e0b" }} />
+
+        <div className="prose-callout is-warning">
+          <AlertTriangle size={20} className="prose-callout-icon" />
           <div>
-            <h3 style={{ margin: 0, fontSize: 15 }}>Read before you install</h3>
-            <p style={{ margin: "6px 0 0 0", fontSize: 14, color: "var(--muted-foreground)" }}>This entry was last reviewed on {resource.lastReviewedAt} by {resource.reviewer}. Commands, credentials, supported clients, and pricing can change. Always read the current official documentation before installing.</p>
+            <h3>Read before you install</h3>
+            <p>This entry was last reviewed on {resource.lastReviewedAt} by {resource.reviewer}. Commands, credentials, supported clients, and pricing can change. Always read the current official documentation before installing.</p>
           </div>
         </div>
       </article>
-      {related.length > 0 && <div style={{ marginTop: 48 }}>
+
+      {related.length > 0 && <section className="related-block">
         <h2>More in {resource.category}</h2>
         <ul>
-          {related.map(r => <li key={r.id}><Link to="/mcp/$slug" params={{ slug: r.id }}>{r.name}</Link> - {r.description.split('.')[0]}.</li>)}
+          {related.map(r => <li key={r.id}>
+            <Link to="/mcp/$slug" params={{ slug: r.id }} className="related-link">
+              <span className="related-name">{r.name}</span>
+              <ArrowUpRight size={13} />
+            </Link>
+            <span className="related-desc">{r.description}</span>
+          </li>)}
         </ul>
-      </div>}
+      </section>}
     </div>
+
     <aside className="methodology-side">
       <h3>Maintainer</h3>
       <p>{resource.maintainer.org}</p>
@@ -99,17 +208,4 @@ function McpPage() {
       <a href={resource.source} target="_blank" rel="noreferrer" className="text-primary inline-flex items-center gap-1 underline-offset-4 hover:underline">Original listing<ArrowUpRight size={12} /></a>
     </aside></div>
   </main></DirectoryShell>;
-}
-
-function parseLongDescription(md: string) {
-  const out: { kind: "h2" | "p"; text: string }[] = [];
-  const blocks = md.split(/\n{2,}/);
-  for (const block of blocks) {
-    const trimmed = block.trim();
-    if (!trimmed) continue;
-    if (trimmed.startsWith("## ")) out.push({ kind: "h2", text: trimmed.slice(3).trim() });
-    else if (trimmed.startsWith("# ")) out.push({ kind: "h2", text: trimmed.slice(2).trim() });
-    else out.push({ kind: "p", text: trimmed });
-  }
-  return out;
 }
