@@ -47,7 +47,7 @@ export const categories = [
   { name: 'Payments & Billing', slug: 'payments', description: 'Payments, transactions, and subscriptions.' },
 ];
 
-const source = (id: string) => `https://agentstack.ink/listings/${id}`;
+const source = (id: string) => `https://agentstack.ink/mcp/${id}`;
 
 const today = '2026-10-17';
 const reviewer = 'Edy Appenzeller';
