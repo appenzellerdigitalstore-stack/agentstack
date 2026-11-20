@@ -166,8 +166,14 @@ function McpPage() {
         <div className="prose-callout is-warning">
           <AlertTriangle size={20} className="prose-callout-icon" />
           <div>
-            <h3>Read before you install</h3>
-            <p>This entry was last reviewed on {resource.lastReviewedAt} by {resource.reviewer}. Commands, credentials, supported clients, and pricing can change. Always read the current official documentation before installing.</p>
+            <h3>Read before you install {resource.name}</h3>
+            <p>
+              We last reviewed {resource.name} on {resource.lastReviewedAt}, when {resource.reviewer} checked its setup
+              against the project&rsquo;s own documentation. {resource.name} is maintained by {resource.maintainer.org},
+              so its commands, credentials, supported clients, and pricing can change without notice. Re-read the current
+              {resource.name} instructions before you install it &mdash; especially the client configuration, the credential
+              scopes, and the plan limits that apply to your account.
+            </p>
           </div>
         </div>
       </article>
@@ -203,9 +209,13 @@ function McpPage() {
         <div className="tag-cloud">{resource.tags.map(t => <span key={t} className="small-tag">{t}</span>)}</div>
       </>}
 
-      <h3 style={{ marginTop: 24 }}>Source listing</h3>
-      <p>Curated from the AgentStack source directory. The original listing is canonical for technical facts (versions, dependencies, current maintainer).</p>
-      <a href={resource.source} target="_blank" rel="noreferrer" className="text-primary inline-flex items-center gap-1 underline-offset-4 hover:underline">Original listing<ArrowUpRight size={12} /></a>
+      <h3 style={{ marginTop: 24 }}>Where to verify {resource.name}</h3>
+      <p>{resource.name} is maintained by {resource.maintainer.org}. Their own repository and documentation are the
+        canonical source for {resource.name} versions, dependencies, and current maintainer details &mdash; this page is
+        our editorial reading of it, not a substitute.</p>
+      {resource.maintainer.repoUrl
+        ? <a href={resource.maintainer.repoUrl} target="_blank" rel="noreferrer" className="text-primary inline-flex items-center gap-1 underline-offset-4 hover:underline">{resource.maintainer.org} repository<ArrowUpRight size={12} /></a>
+        : resource.maintainer.homepage && <a href={resource.maintainer.homepage} target="_blank" rel="noreferrer" className="text-primary inline-flex items-center gap-1 underline-offset-4 hover:underline">{resource.name} homepage<ArrowUpRight size={12} /></a>}
     </aside></div>
   </main></DirectoryShell>;
 }

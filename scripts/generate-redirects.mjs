@@ -52,6 +52,29 @@ const retiredPages = [
   ["/rss.xml", "/sitemap.xml"],
 ];
 
+// Categories that have at least one published listing get their own page.
+// Mirrors the logic in scripts/generate-sitemap.mjs so the sitemap and the
+// redirect map can never disagree about which category pages exist.
+function computeLiveCategorySlugs() {
+  const resources = readFileSync(resolve(ROOT, "src", "data", "resources.ts"), "utf8");
+
+  const listedNames = new Set();
+  const categoryRegex = /category:\s*['"]([^'"]+)['"]/g;
+  let match;
+  while ((match = categoryRegex.exec(resources)) !== null) listedNames.add(match[1]);
+
+  const slugByName = new Map();
+  const nameSlugRegex = /name:\s*['"]([^'"]+)['"]\s*,\s*slug:\s*['"]([^'"]+)['"]/g;
+  while ((match = nameSlugRegex.exec(resources)) !== null) slugByName.set(match[1], match[2]);
+
+  const meta = JSON.parse(readFileSync(resolve(ROOT, "data", "categories.json"), "utf8"));
+  return new Set(
+    meta
+      .filter(c => listedNames.has(c.name) && slugByName.get(c.name) === c.slug)
+      .map(c => c.slug),
+  );
+}
+
 // --- Output -----------------------------------------------------------------
 
 const lines = [
@@ -92,9 +115,15 @@ for (const slug of archivedSlugs.filter((s) => !liveSlugs.has(s)).sort()) {
   push(`/listings/${slug}`, "/");
 }
 
-// 3. Categories were filter states on the old homepage, never standalone pages.
-lines.push("", "# --- Archived categories (filters now live on the homepage) ---");
+// 3. Categories used to be filter states on the old homepage, never standalone
+//    pages. The categories that actually have published listings are now real
+//    editorial pages at /category/<slug>, so they must NOT be redirected - a
+//    301 here would send every category guide back to the homepage and drop it
+//    out of the index. Only the empty categories keep their redirect.
+lines.push("", "# --- Archived categories: live ones are pages, empty ones redirect ---");
+const liveCategorySlugs = computeLiveCategorySlugs();
 for (const slug of archivedCategories.sort()) {
+  if (liveCategorySlugs.has(slug)) continue;
   push(`/category/${slug}`, "/");
 }
 
@@ -115,6 +144,7 @@ for (const page of livePages) {
   push(`${page}/`, page);
 }
 for (const slug of liveSlugs) push(`/mcp/${slug}/`, `/mcp/${slug}`);
+for (const slug of [...liveCategorySlugs].sort()) push(`/category/${slug}/`, `/category/${slug}`);
 
 lines.push("", "");
 
@@ -155,5 +185,6 @@ console.log(
   `    and ${exact.size} exact + ${wildcards.length} wildcard rules to ${tsOut}\n` +
   `    ${liveSlugs.size} surviving slugs, ` +
   `${archivedSlugs.length - liveSlugs.size} retired entries, ` +
-  `${archivedCategories.length} categories, ${livePages.length - 1} trailing-slash fixes`,
+  `${archivedCategories.length - liveCategorySlugs.size} empty categories redirected, ` +
+  `${liveCategorySlugs.size} category pages kept, ${livePages.length - 1} trailing-slash fixes`,
 );

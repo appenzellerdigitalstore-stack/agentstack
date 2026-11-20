@@ -1,10 +1,12 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowRight, ArrowUpRight, BookOpen, Box, Braces, Check, ChevronDown, Code2, Copy, Database, ExternalLink, Flame, Globe, GraduationCap, Grid2X2, Layers, List, MessageSquare, Monitor, Search, ShieldCheck, SlidersHorizontal, Sparkles, Terminal, Wallet, Workflow, X } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, BookOpen, Box, Braces, Check, ChevronDown, Code2, Copy, Database, ExternalLink, Globe, GraduationCap, Grid2X2, Layers, List, MessageSquare, Monitor, Search, ShieldCheck, SlidersHorizontal, Sparkles, Terminal, Wallet, Workflow, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import { DirectoryShell } from '@/components/directory-shell';
+import { ResourceLogo } from '@/components/resource-logo';
 import { categories, resources as initialResources, type Resource } from '@/data/resources';
+import { categoryIcon, listCategoryPages } from '@/lib/category-pages';
 import stackImage from '@/assets/blue-agent-stack.jpg';
 
 export const Route = createFileRoute('/')({
@@ -17,9 +19,7 @@ export const Route = createFileRoute('/')({
   ] }), component: DirectoryPage,
 });
 const categoryIcons = [Layers, Code2, Database, Globe, Workflow, Sparkles, Box, Monitor, Wallet];
-function ResourceLogo({ resource }: { resource: Resource }) {
-  return <span className={`resource-logo resource-${resource.id}`} aria-hidden="true">{resource.id === 'firecrawl-mcp' ? <Flame /> : resource.id === 'github-mcp' ? <Code2 /> : resource.id === 'postgresql-mcp' ? <Database /> : resource.id === 'anki-mcp' ? <span>A<span className="logo-star">✦</span></span> : resource.id === 'anthropic-mcp' ? <Sparkles /> : resource.id === 'airtable-mcp' ? <Layers /> : resource.id === 'algolia-mcp' ? <Search /> : resource.id === 'adyen-mcp' ? <span>ad</span> : <Box />}</span>;
-}
+const categoryPages = listCategoryPages();
 function DirectoryPage() {
   const [resources] = useState(initialResources);
   const [query, setQuery] = useState('');
@@ -91,7 +91,20 @@ function DirectoryPage() {
         </section>
       </div>
     </main>
+    <section className="page-container" id="categories" style={{ paddingBlock: '58px 34px' }}>
+      <div className="discovery-heading">
+        <div>
+          <div className="eyebrow text-primary">BROWSE BY CATEGORY</div>
+          <h2>Start with the category, not the tool.</h2>
+          <p>Every category page explains what belongs in it, how the tools are scored, and why each listing made the list.</p>
+        </div>
+        <span className="source-note"><span className="signal-dot" /> Editorially curated</span>
+      </div>
+      <div className="concept-grid">
+        {categoryPages.map(page => { const Icon = categoryIcon(page.icon); return <Link key={page.slug} to="/category/$slug" params={{ slug: page.slug }} className="concept-item block transition-colors hover:text-primary"><Icon /><h3>{page.name}</h3><p>{page.description}</p><span>{page.resources.length} listing{page.resources.length === 1 ? '' : 's'}</span></Link>; })}
+      </div>
+    </section>
     <section className="editorial-band"><div className="page-container editorial-inner"><div><span className="eyebrow text-primary">LESS NOISE. MORE SIGNAL.</span><h2>Good tools deserve<br /> a closer look.</h2><Link to="/methodology">Inside the editorial process<ArrowRight size={15} /></Link></div><div className="editorial-principles"><div><ShieldCheck /><h3>Evidence, not hype</h3><p>Documentation, maintenance, and security signals - not just star counts.</p></div><div><Code2 /><h3>Know what you install</h3><p>Understand permissions, dependencies, and the tool's intended capabilities.</p></div><div><BookOpen /><h3>A clear way in</h3><p>Real context for experienced builders and people taking their first step.</p></div></div></div></section>
-    <Dialog open={selected !== null} onOpenChange={open => { if (!open) setSelected(null); }}><DialogContent className="detail-modal">{selected && <><div className="detail-top"><ResourceLogo resource={selected} /><div><span className="eyebrow text-primary">{selected.kind}</span><DialogTitle>{selected.name}</DialogTitle><p className="resource-author">by {selected.author}</p></div></div><DialogDescription className="detail-description">{selected.description}</DialogDescription><div className="detail-facts"><span>Category<strong>{selected.category}</strong></span><span>Pricing model<strong>{selected.pricing}</strong></span></div><div className="resource-tags">{selected.tags.map(tag => <span key={tag}>{tag}</span>)}</div><div className="detail-install"><h3><Terminal size={16} />Connect to your stack</h3>{selected.install ? <><div className="code-toolbar"><span>Installation command</span><Button variant="ghost" size="sm" onClick={copyInstall}>{copied ? <Check /> : <Copy />}{copied ? 'Copied' : 'Copy'}</Button></div><pre className="code-preview"><code>{selected.install}</code></pre><p>Review the command and required permissions before running it.</p></> : <p>Use the original listing for setup instructions, supported clients, and any credentials or permissions required.</p>}</div><div className="detail-actions"><Button asChild><Link to="/mcp/$slug" params={{ slug: selected.id }}>Read full review<ArrowUpRight /></Link></Button><Button asChild variant="outline"><a href={selected.source} target="_blank" rel="noreferrer">Original listing<ExternalLink /></a></Button>{selected.url && <Button asChild variant="outline"><a href={selected.url} target="_blank" rel="noreferrer">Project website<ArrowUpRight /></a></Button>}</div><p className="detail-source">Reviewed {selected.lastReviewedAt} by {selected.reviewer}. Editorial review; not a claim of direct testing.</p></>}</DialogContent></Dialog>
+    <Dialog open={selected !== null} onOpenChange={open => { if (!open) setSelected(null); }}><DialogContent className="detail-modal">{selected && <><div className="detail-top"><ResourceLogo resource={selected} /><div><span className="eyebrow text-primary">{selected.kind}</span><DialogTitle>{selected.name}</DialogTitle><p className="resource-author">by {selected.author}</p></div></div><DialogDescription className="detail-description">{selected.description}</DialogDescription><div className="detail-facts"><span>Category<strong>{selected.category}</strong></span><span>Pricing model<strong>{selected.pricing}</strong></span></div><div className="resource-tags">{selected.tags.map(tag => <span key={tag}>{tag}</span>)}</div><div className="detail-install"><h3><Terminal size={16} />Connect to your stack</h3>{selected.install ? <><div className="code-toolbar"><span>Installation command</span><Button variant="ghost" size="sm" onClick={copyInstall}>{copied ? <Check /> : <Copy />}{copied ? 'Copied' : 'Copy'}</Button></div><pre className="code-preview"><code>{selected.install}</code></pre><p>Review the command and required permissions before running it.</p></> : <p>Check the project&#39;s own documentation for setup instructions, supported clients, and any credentials or permissions required.</p>}</div><div className="detail-actions"><Button asChild><Link to="/mcp/$slug" params={{ slug: selected.id }}>Read full review<ArrowUpRight /></Link></Button><Button asChild variant="outline"><a href={selected.maintainer.repoUrl ?? selected.url} target="_blank" rel="noreferrer">Source repository<ExternalLink /></a></Button>{selected.url && <Button asChild variant="outline"><a href={selected.url} target="_blank" rel="noreferrer">Project website<ArrowUpRight /></a></Button>}</div><p className="detail-source">Reviewed {selected.lastReviewedAt} by {selected.reviewer}. Editorial review; not a claim of direct testing.</p></>}</DialogContent></Dialog>
   </DirectoryShell>;
 }

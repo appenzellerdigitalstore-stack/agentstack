@@ -3,8 +3,9 @@
 // Reads resources.ts (12 MCP servers) and writes public/sitemap.xml.
 //
 // Note: agentstack uses modal-based detail pages, NOT /listings/$slug routes,
-// so the only URLs to include are the static routes: /, /learn, /methodology,
-// /about, /contact, /privacy, /terms.
+// so the URLs to include are the static routes (/, /learn, /methodology, /about,
+// /contact, /privacy, /terms, ...), the per-component pages (/mcp/$slug) and the
+// category pages (/category/$slug).
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
@@ -15,8 +16,8 @@ const ROOT = resolve(__dirname, "..");
 
 const SITE_CONFIG = {
   base: "https://agentstack.ink",
-  changefreq: { home: "weekly", weekly: "weekly", monthly: "monthly", static: "monthly" },
-  priority: { home: "1.0", static: "0.5" },
+  changefreq: { home: "weekly", weekly: "weekly", monthly: "monthly", static: "monthly", category: "weekly" },
+  priority: { home: "1.0", category: "0.8", static: "0.5" },
 };
 
 // Read resources.ts and extract slugs
@@ -57,6 +58,31 @@ const componentUrls = Array.from(slugs).map(slug => ({
 }));
 urls.push(...componentUrls);
 
+// Category pages. Only categories that actually have listings get a page:
+// an empty category page is thin content, which is what the directory was
+// rejected for. The category names and slugs come from data/categories.json,
+// the listings from src/data/resources.ts.
+const categoryMeta = JSON.parse(readFileSync(resolve(ROOT, "data", "categories.json"), "utf8"));
+
+const listedNames = new Set();
+const categoryRegex = /category:\s*['"]([^'"]+)['"]/g;
+while ((m = categoryRegex.exec(resources)) !== null) listedNames.add(m[1]);
+
+const slugByName = new Map();
+const nameSlugRegex = /name:\s*['"]([^'"]+)['"]\s*,\s*slug:\s*['"]([^'"]+)['"]/g;
+while ((m = nameSlugRegex.exec(resources)) !== null) slugByName.set(m[1], m[2]);
+
+const categoryUrls = categoryMeta
+  .filter(category => listedNames.has(category.name) && slugByName.get(category.name) === category.slug)
+  .sort((a, b) => a.displayOrder - b.displayOrder)
+  .map(category => ({
+    loc: `${SITE_CONFIG.base}/category/${category.slug}`,
+    changefreq: SITE_CONFIG.changefreq.category,
+    priority: SITE_CONFIG.priority.category,
+    lastmod: today,
+  }));
+urls.push(...categoryUrls);
+
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map(u => `  <url>
@@ -69,4 +95,4 @@ ${urls.map(u => `  <url>
 
 const out = resolve(ROOT, "public", "sitemap.xml");
 writeFileSync(out, xml, "utf8");
-console.log(`OK: wrote ${urls.length} URLs to ${out} (resources: ${slugs.size})`);
+console.log(`OK: wrote ${urls.length} URLs to ${out} (resources: ${slugs.size}, categories: ${categoryUrls.length})`);

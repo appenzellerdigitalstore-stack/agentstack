@@ -18,6 +18,7 @@ import { Route as LearnRouteImport } from './routes/learn'
 import { Route as MethodologyRouteImport } from './routes/methodology'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as CategorySlugRouteImport } from './routes/category.$slug'
 import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
 import { Route as McpSlugRouteImport } from './routes/mcp.$slug'
 
@@ -66,6 +67,11 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CategorySlugRoute = CategorySlugRouteImport.update({
+  id: '/category/$slug',
+  path: '/category/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InsightsSlugRoute = InsightsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -87,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/methodology': typeof MethodologyRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/category/$slug': typeof CategorySlugRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/mcp/$slug': typeof McpSlugRoute
 }
@@ -100,6 +107,7 @@ export interface FileRoutesByTo {
   '/methodology': typeof MethodologyRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/category/$slug': typeof CategorySlugRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/mcp/$slug': typeof McpSlugRoute
 }
@@ -114,6 +122,7 @@ export interface FileRoutesById {
   '/methodology': typeof MethodologyRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/category/$slug': typeof CategorySlugRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/mcp/$slug': typeof McpSlugRoute
 }
@@ -129,6 +138,7 @@ export interface FileRouteTypes {
     | '/methodology'
     | '/privacy'
     | '/terms'
+    | '/category/$slug'
     | '/insights/$slug'
     | '/mcp/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -142,6 +152,7 @@ export interface FileRouteTypes {
     | '/methodology'
     | '/privacy'
     | '/terms'
+    | '/category/$slug'
     | '/insights/$slug'
     | '/mcp/$slug'
   id:
@@ -155,6 +166,7 @@ export interface FileRouteTypes {
     | '/methodology'
     | '/privacy'
     | '/terms'
+    | '/category/$slug'
     | '/insights/$slug'
     | '/mcp/$slug'
   fileRoutesById: FileRoutesById
@@ -169,6 +181,7 @@ export interface RootRouteChildren {
   MethodologyRoute: typeof MethodologyRoute
   PrivacyRoute: typeof PrivacyRoute
   TermsRoute: typeof TermsRoute
+  CategorySlugRoute: typeof CategorySlugRoute
   McpSlugRoute: typeof McpSlugRoute
 }
 
@@ -237,6 +250,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/category/$slug': {
+      id: '/category/$slug'
+      path: '/category/$slug'
+      fullPath: '/category/$slug'
+      preLoaderRoute: typeof CategorySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/insights/$slug': {
       id: '/insights/$slug'
       path: '/$slug'
@@ -276,6 +296,7 @@ const rootRouteChildren: RootRouteChildren = {
   MethodologyRoute: MethodologyRoute,
   PrivacyRoute: PrivacyRoute,
   TermsRoute: TermsRoute,
+  CategorySlugRoute: CategorySlugRoute,
   McpSlugRoute: McpSlugRoute,
 }
 export const routeTree = rootRouteImport

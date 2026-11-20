@@ -212,16 +212,9 @@
 /go/zoom-mcp                     /                    301
 /listings/zoom-mcp               /                    301
 
-# --- Archived categories (filters now live on the homepage) ---
-/category/ai-reasoning           /                    301
-/category/cloud-infra            /                    301
+# --- Archived categories: live ones are pages, empty ones redirect ---
 /category/communication          /                    301
-/category/databases              /                    301
-/category/developer-tools        /                    301
 /category/monitoring             /                    301
-/category/payments               /                    301
-/category/productivity           /                    301
-/category/web-scraping           /                    301
 
 # --- Archived comparison pages ---
 /vs/*                            /learn               301
@@ -254,4 +247,11 @@
 /mcp/algolia-mcp/                /mcp/algolia-mcp     301
 /mcp/anki-mcp/                   /mcp/anki-mcp        301
 /mcp/anthropic-mcp/              /mcp/anthropic-mcp   301
+/category/ai-reasoning/          /category/ai-reasoning 301
+/category/cloud-infra/           /category/cloud-infra 301
+/category/databases/             /category/databases  301
+/category/developer-tools/       /category/developer-tools 301
+/category/payments/              /category/payments   301
+/category/productivity/          /category/productivity 301
+/category/web-scraping/          /category/web-scraping 301
 

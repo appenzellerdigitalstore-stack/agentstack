@@ -1,7 +1,10 @@
 import { Link } from '@tanstack/react-router';
-import { ArrowUpRight, Box, Github } from 'lucide-react';
+import { ArrowUpRight, Box, ChevronDown, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { listCategoryPages } from '@/lib/category-pages';
 import type { ReactNode } from 'react';
+
+const categoryPages = listCategoryPages();
 
 export function DirectoryShell({ children }: { children: ReactNode }) {
   return <div className="app-shell">
@@ -9,6 +12,12 @@ export function DirectoryShell({ children }: { children: ReactNode }) {
       <Link to="/" className="stack-brand"><span className="brand-mark"><Box size={22} /></span><span>agentstack<span className="text-primary">.ink</span></span></Link>
       <nav aria-label="Main navigation" className="stack-nav">
         <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: 'is-active' }}>Directory</Link>
+        <div className="relative group">
+          <button type="button" aria-haspopup="true" className="flex items-center gap-1 h-full hover:text-foreground">Categories<ChevronDown size={12} /></button>
+          <div className="absolute right-0 top-full z-50 mt-1 w-56 rounded-md border border-border bg-popover p-1 shadow-lg opacity-0 pointer-events-none transition-opacity group-hover:opacity-100 group-hover:pointer-events-auto focus-within:opacity-100 focus-within:pointer-events-auto">
+            {categoryPages.map(page => <Link key={page.slug} to="/category/$slug" params={{ slug: page.slug }} className="flex items-center justify-between gap-3 rounded px-3 py-2 hover:bg-accent hover:text-foreground">{page.name}<ArrowUpRight size={11} /></Link>)}
+          </div>
+        </div>
         <Link to="/learn" activeProps={{ className: 'is-active' }}>Start learning</Link>
         <Link to="/methodology" activeProps={{ className: 'is-active' }}>Our approach</Link>
         <Link to="/about" activeProps={{ className: 'is-active' }}>About</Link>
