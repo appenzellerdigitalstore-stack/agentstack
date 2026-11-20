@@ -13,6 +13,13 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
+// Google AdSense. The publisher id matches the one declared in /ads.txt.
+// The loader has to be on the site for the AdSense site review to verify ad
+// placement - without it the review panel only shows a generic "your site
+// isn't ready to show ads" message with no named reason. It renders nothing
+// until the account is approved.
+const ADSENSE_CLIENT = "ca-pub-8749554989768993";
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -98,6 +105,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "manifest", href: "/manifest.webmanifest" },
       { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },,
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Geist:wght@400;450;500;550;600;650;700;750;800&family=JetBrains+Mono:wght@400;500&display=swap" },
+    ],
+    scripts: [
+      {
+        src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`,
+        async: true,
+        crossOrigin: "anonymous",
+      },
     ],
   }),
   shellComponent: RootShell,
